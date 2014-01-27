@@ -14,14 +14,23 @@
 		D9A971661896DE5F002471D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A971651896DE5F002471D0 /* main.m */; };
 		D9A9716A1896DE5F002471D0 /* HAPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A971691896DE5F002471D0 /* HAPAppDelegate.m */; };
 		D9A9716D1896DE5F002471D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A9716B1896DE5F002471D0 /* Main.storyboard */; };
-		D9A971701896DE5F002471D0 /* HAPFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A9716F1896DE5F002471D0 /* HAPFirstViewController.m */; };
-		D9A971731896DE5F002471D0 /* HAPSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A971721896DE5F002471D0 /* HAPSecondViewController.m */; };
 		D9A971751896DE5F002471D0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9A971741896DE5F002471D0 /* Images.xcassets */; };
 		D9A9717C1896DE5F002471D0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9717B1896DE5F002471D0 /* XCTest.framework */; };
 		D9A9717D1896DE5F002471D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A971591896DE5F002471D0 /* Foundation.framework */; };
 		D9A9717E1896DE5F002471D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9715D1896DE5F002471D0 /* UIKit.framework */; };
 		D9A971861896DE5F002471D0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9A971841896DE5F002471D0 /* InfoPlist.strings */; };
 		D9A971881896DE5F002471D0 /* happen_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A971871896DE5F002471D0 /* happen_appTests.m */; };
+		D9A971921896E336002471D0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A971911896E336002471D0 /* Parse.framework */; };
+		D9A9719C1896E39F002471D0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A971931896E39F002471D0 /* AudioToolbox.framework */; };
+		D9A9719D1896E39F002471D0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A971941896E39F002471D0 /* CFNetwork.framework */; };
+		D9A9719E1896E39F002471D0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A971951896E39F002471D0 /* CoreLocation.framework */; };
+		D9A9719F1896E39F002471D0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A971961896E39F002471D0 /* libz.dylib */; };
+		D9A971A01896E39F002471D0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A971971896E39F002471D0 /* MobileCoreServices.framework */; };
+		D9A971A11896E39F002471D0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A971981896E39F002471D0 /* QuartzCore.framework */; };
+		D9A971A21896E39F002471D0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A971991896E39F002471D0 /* Security.framework */; };
+		D9A971A31896E39F002471D0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9719A1896E39F002471D0 /* StoreKit.framework */; };
+		D9A971A41896E39F002471D0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9719B1896E39F002471D0 /* SystemConfiguration.framework */; };
+		D9A971A71896E54D002471D0 /* HAPMyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A971A61896E54D002471D0 /* HAPMyListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,16 +55,24 @@
 		D9A971681896DE5F002471D0 /* HAPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAPAppDelegate.h; sourceTree = "<group>"; };
 		D9A971691896DE5F002471D0 /* HAPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAPAppDelegate.m; sourceTree = "<group>"; };
 		D9A9716C1896DE5F002471D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D9A9716E1896DE5F002471D0 /* HAPFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAPFirstViewController.h; sourceTree = "<group>"; };
-		D9A9716F1896DE5F002471D0 /* HAPFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAPFirstViewController.m; sourceTree = "<group>"; };
-		D9A971711896DE5F002471D0 /* HAPSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAPSecondViewController.h; sourceTree = "<group>"; };
-		D9A971721896DE5F002471D0 /* HAPSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAPSecondViewController.m; sourceTree = "<group>"; };
 		D9A971741896DE5F002471D0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D9A9717A1896DE5F002471D0 /* happen-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "happen-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9A9717B1896DE5F002471D0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D9A971831896DE5F002471D0 /* happen-appTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "happen-appTests-Info.plist"; sourceTree = "<group>"; };
 		D9A971851896DE5F002471D0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D9A971871896DE5F002471D0 /* happen_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = happen_appTests.m; sourceTree = "<group>"; };
+		D9A971911896E336002471D0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		D9A971931896E39F002471D0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D9A971941896E39F002471D0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D9A971951896E39F002471D0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D9A971961896E39F002471D0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D9A971971896E39F002471D0 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D9A971981896E39F002471D0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D9A971991896E39F002471D0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D9A9719A1896E39F002471D0 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D9A9719B1896E39F002471D0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D9A971A51896E54D002471D0 /* HAPMyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPMyListViewController.h; sourceTree = "<group>"; };
+		D9A971A61896E54D002471D0 /* HAPMyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPMyListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +80,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9A9719C1896E39F002471D0 /* AudioToolbox.framework in Frameworks */,
+				D9A9719D1896E39F002471D0 /* CFNetwork.framework in Frameworks */,
+				D9A9719E1896E39F002471D0 /* CoreLocation.framework in Frameworks */,
+				D9A9719F1896E39F002471D0 /* libz.dylib in Frameworks */,
+				D9A971A01896E39F002471D0 /* MobileCoreServices.framework in Frameworks */,
+				D9A971A11896E39F002471D0 /* QuartzCore.framework in Frameworks */,
+				D9A971A21896E39F002471D0 /* Security.framework in Frameworks */,
+				D9A971A31896E39F002471D0 /* StoreKit.framework in Frameworks */,
+				D9A971A41896E39F002471D0 /* SystemConfiguration.framework in Frameworks */,
 				D9A9715C1896DE5F002471D0 /* CoreGraphics.framework in Frameworks */,
 				D9A9715E1896DE5F002471D0 /* UIKit.framework in Frameworks */,
+				D9A971921896E336002471D0 /* Parse.framework in Frameworks */,
 				D9A9715A1896DE5F002471D0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +131,16 @@
 		D9A971581896DE5F002471D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9A971931896E39F002471D0 /* AudioToolbox.framework */,
+				D9A971941896E39F002471D0 /* CFNetwork.framework */,
+				D9A971951896E39F002471D0 /* CoreLocation.framework */,
+				D9A971961896E39F002471D0 /* libz.dylib */,
+				D9A971971896E39F002471D0 /* MobileCoreServices.framework */,
+				D9A971981896E39F002471D0 /* QuartzCore.framework */,
+				D9A971991896E39F002471D0 /* Security.framework */,
+				D9A9719A1896E39F002471D0 /* StoreKit.framework */,
+				D9A9719B1896E39F002471D0 /* SystemConfiguration.framework */,
+				D9A971911896E336002471D0 /* Parse.framework */,
 				D9A971591896DE5F002471D0 /* Foundation.framework */,
 				D9A9715B1896DE5F002471D0 /* CoreGraphics.framework */,
 				D9A9715D1896DE5F002471D0 /* UIKit.framework */,
@@ -118,12 +155,10 @@
 				D9A971681896DE5F002471D0 /* HAPAppDelegate.h */,
 				D9A971691896DE5F002471D0 /* HAPAppDelegate.m */,
 				D9A9716B1896DE5F002471D0 /* Main.storyboard */,
-				D9A9716E1896DE5F002471D0 /* HAPFirstViewController.h */,
-				D9A9716F1896DE5F002471D0 /* HAPFirstViewController.m */,
-				D9A971711896DE5F002471D0 /* HAPSecondViewController.h */,
-				D9A971721896DE5F002471D0 /* HAPSecondViewController.m */,
 				D9A971741896DE5F002471D0 /* Images.xcassets */,
 				D9A971601896DE5F002471D0 /* Supporting Files */,
+				D9A971A51896E54D002471D0 /* HAPMyListViewController.h */,
+				D9A971A61896E54D002471D0 /* HAPMyListViewController.m */,
 			);
 			path = "happen-app";
 			sourceTree = "<group>";
@@ -255,10 +290,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9A971731896DE5F002471D0 /* HAPSecondViewController.m in Sources */,
+				D9A971A71896E54D002471D0 /* HAPMyListViewController.m in Sources */,
 				D9A9716A1896DE5F002471D0 /* HAPAppDelegate.m in Sources */,
 				D9A971661896DE5F002471D0 /* main.m in Sources */,
-				D9A971701896DE5F002471D0 /* HAPFirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +419,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/sccouch/Documents/School/Academic\\ 2013-2014/Spring\\ 2014/happen-app",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "happen-app/happen-app-Prefix.pch";
 				INFOPLIST_FILE = "happen-app/happen-app-Info.plist";
@@ -398,6 +436,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/sccouch/Documents/School/Academic\\ 2013-2014/Spring\\ 2014/happen-app",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "happen-app/happen-app-Prefix.pch";
 				INFOPLIST_FILE = "happen-app/happen-app-Info.plist";
