@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D9A9715A1896DE5F002471D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A971591896DE5F002471D0 /* Foundation.framework */; };
+		D9A9715C1896DE5F002471D0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9715B1896DE5F002471D0 /* CoreGraphics.framework */; };
+		D9A9715E1896DE5F002471D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9715D1896DE5F002471D0 /* UIKit.framework */; };
+		D9A971641896DE5F002471D0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9A971621896DE5F002471D0 /* InfoPlist.strings */; };
+		D9A971661896DE5F002471D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A971651896DE5F002471D0 /* main.m */; };
+		D9A9716A1896DE5F002471D0 /* HAPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A971691896DE5F002471D0 /* HAPAppDelegate.m */; };
+		D9A9716D1896DE5F002471D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A9716B1896DE5F002471D0 /* Main.storyboard */; };
+		D9A971701896DE5F002471D0 /* HAPFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A9716F1896DE5F002471D0 /* HAPFirstViewController.m */; };
+		D9A971731896DE5F002471D0 /* HAPSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A971721896DE5F002471D0 /* HAPSecondViewController.m */; };
+		D9A971751896DE5F002471D0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9A971741896DE5F002471D0 /* Images.xcassets */; };
+		D9A9717C1896DE5F002471D0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9717B1896DE5F002471D0 /* XCTest.framework */; };
+		D9A9717D1896DE5F002471D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A971591896DE5F002471D0 /* Foundation.framework */; };
+		D9A9717E1896DE5F002471D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9715D1896DE5F002471D0 /* UIKit.framework */; };
+		D9A971861896DE5F002471D0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9A971841896DE5F002471D0 /* InfoPlist.strings */; };
+		D9A971881896DE5F002471D0 /* happen_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A971871896DE5F002471D0 /* happen_appTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D9A9717F1896DE5F002471D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9A9714E1896DE5F002471D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9A971551896DE5F002471D0;
+			remoteInfo = "happen-app";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D9A971561896DE5F002471D0 /* happen-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "happen-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9A971591896DE5F002471D0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D9A9715B1896DE5F002471D0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D9A9715D1896DE5F002471D0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D9A971611896DE5F002471D0 /* happen-app-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "happen-app-Info.plist"; sourceTree = "<group>"; };
+		D9A971631896DE5F002471D0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D9A971651896DE5F002471D0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D9A971671896DE5F002471D0 /* happen-app-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "happen-app-Prefix.pch"; sourceTree = "<group>"; };
+		D9A971681896DE5F002471D0 /* HAPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAPAppDelegate.h; sourceTree = "<group>"; };
+		D9A971691896DE5F002471D0 /* HAPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAPAppDelegate.m; sourceTree = "<group>"; };
+		D9A9716C1896DE5F002471D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D9A9716E1896DE5F002471D0 /* HAPFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAPFirstViewController.h; sourceTree = "<group>"; };
+		D9A9716F1896DE5F002471D0 /* HAPFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAPFirstViewController.m; sourceTree = "<group>"; };
+		D9A971711896DE5F002471D0 /* HAPSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAPSecondViewController.h; sourceTree = "<group>"; };
+		D9A971721896DE5F002471D0 /* HAPSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAPSecondViewController.m; sourceTree = "<group>"; };
+		D9A971741896DE5F002471D0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D9A9717A1896DE5F002471D0 /* happen-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "happen-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9A9717B1896DE5F002471D0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D9A971831896DE5F002471D0 /* happen-appTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "happen-appTests-Info.plist"; sourceTree = "<group>"; };
+		D9A971851896DE5F002471D0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D9A971871896DE5F002471D0 /* happen_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = happen_appTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9A971531896DE5F002471D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9A9715C1896DE5F002471D0 /* CoreGraphics.framework in Frameworks */,
+				D9A9715E1896DE5F002471D0 /* UIKit.framework in Frameworks */,
+				D9A9715A1896DE5F002471D0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9A971771896DE5F002471D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9A9717C1896DE5F002471D0 /* XCTest.framework in Frameworks */,
+				D9A9717E1896DE5F002471D0 /* UIKit.framework in Frameworks */,
+				D9A9717D1896DE5F002471D0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D9A9714D1896DE5F002471D0 = {
+			isa = PBXGroup;
+			children = (
+				D9A9715F1896DE5F002471D0 /* happen-app */,
+				D9A971811896DE5F002471D0 /* happen-appTests */,
+				D9A971581896DE5F002471D0 /* Frameworks */,
+				D9A971571896DE5F002471D0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D9A971571896DE5F002471D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9A971561896DE5F002471D0 /* happen-app.app */,
+				D9A9717A1896DE5F002471D0 /* happen-appTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9A971581896DE5F002471D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9A971591896DE5F002471D0 /* Foundation.framework */,
+				D9A9715B1896DE5F002471D0 /* CoreGraphics.framework */,
+				D9A9715D1896DE5F002471D0 /* UIKit.framework */,
+				D9A9717B1896DE5F002471D0 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D9A9715F1896DE5F002471D0 /* happen-app */ = {
+			isa = PBXGroup;
+			children = (
+				D9A971681896DE5F002471D0 /* HAPAppDelegate.h */,
+				D9A971691896DE5F002471D0 /* HAPAppDelegate.m */,
+				D9A9716B1896DE5F002471D0 /* Main.storyboard */,
+				D9A9716E1896DE5F002471D0 /* HAPFirstViewController.h */,
+				D9A9716F1896DE5F002471D0 /* HAPFirstViewController.m */,
+				D9A971711896DE5F002471D0 /* HAPSecondViewController.h */,
+				D9A971721896DE5F002471D0 /* HAPSecondViewController.m */,
+				D9A971741896DE5F002471D0 /* Images.xcassets */,
+				D9A971601896DE5F002471D0 /* Supporting Files */,
+			);
+			path = "happen-app";
+			sourceTree = "<group>";
+		};
+		D9A971601896DE5F002471D0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9A971611896DE5F002471D0 /* happen-app-Info.plist */,
+				D9A971621896DE5F002471D0 /* InfoPlist.strings */,
+				D9A971651896DE5F002471D0 /* main.m */,
+				D9A971671896DE5F002471D0 /* happen-app-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9A971811896DE5F002471D0 /* happen-appTests */ = {
+			isa = PBXGroup;
+			children = (
+				D9A971871896DE5F002471D0 /* happen_appTests.m */,
+				D9A971821896DE5F002471D0 /* Supporting Files */,
+			);
+			path = "happen-appTests";
+			sourceTree = "<group>";
+		};
+		D9A971821896DE5F002471D0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9A971831896DE5F002471D0 /* happen-appTests-Info.plist */,
+				D9A971841896DE5F002471D0 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D9A971551896DE5F002471D0 /* happen-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9A9718B1896DE5F002471D0 /* Build configuration list for PBXNativeTarget "happen-app" */;
+			buildPhases = (
+				D9A971521896DE5F002471D0 /* Sources */,
+				D9A971531896DE5F002471D0 /* Frameworks */,
+				D9A971541896DE5F002471D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "happen-app";
+			productName = "happen-app";
+			productReference = D9A971561896DE5F002471D0 /* happen-app.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D9A971791896DE5F002471D0 /* happen-appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9A9718E1896DE5F002471D0 /* Build configuration list for PBXNativeTarget "happen-appTests" */;
+			buildPhases = (
+				D9A971761896DE5F002471D0 /* Sources */,
+				D9A971771896DE5F002471D0 /* Frameworks */,
+				D9A971781896DE5F002471D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9A971801896DE5F002471D0 /* PBXTargetDependency */,
+			);
+			name = "happen-appTests";
+			productName = "happen-appTests";
+			productReference = D9A9717A1896DE5F002471D0 /* happen-appTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9A9714E1896DE5F002471D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = HAP;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Happen;
+				TargetAttributes = {
+					D9A971791896DE5F002471D0 = {
+						TestTargetID = D9A971551896DE5F002471D0;
+					};
+				};
+			};
+			buildConfigurationList = D9A971511896DE5F002471D0 /* Build configuration list for PBXProject "happen-app" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D9A9714D1896DE5F002471D0;
+			productRefGroup = D9A971571896DE5F002471D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9A971551896DE5F002471D0 /* happen-app */,
+				D9A971791896DE5F002471D0 /* happen-appTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D9A971541896DE5F002471D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9A971751896DE5F002471D0 /* Images.xcassets in Resources */,
+				D9A971641896DE5F002471D0 /* InfoPlist.strings in Resources */,
+				D9A9716D1896DE5F002471D0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9A971781896DE5F002471D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9A971861896DE5F002471D0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9A971521896DE5F002471D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9A971731896DE5F002471D0 /* HAPSecondViewController.m in Sources */,
+				D9A9716A1896DE5F002471D0 /* HAPAppDelegate.m in Sources */,
+				D9A971661896DE5F002471D0 /* main.m in Sources */,
+				D9A971701896DE5F002471D0 /* HAPFirstViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9A971761896DE5F002471D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9A971881896DE5F002471D0 /* happen_appTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D9A971801896DE5F002471D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9A971551896DE5F002471D0 /* happen-app */;
+			targetProxy = D9A9717F1896DE5F002471D0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D9A971621896DE5F002471D0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9A971631896DE5F002471D0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D9A9716B1896DE5F002471D0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9A9716C1896DE5F002471D0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D9A971841896DE5F002471D0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9A971851896DE5F002471D0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D9A971891896DE5F002471D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D9A9718A1896DE5F002471D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D9A9718C1896DE5F002471D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "happen-app/happen-app-Prefix.pch";
+				INFOPLIST_FILE = "happen-app/happen-app-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D9A9718D1896DE5F002471D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "happen-app/happen-app-Prefix.pch";
+				INFOPLIST_FILE = "happen-app/happen-app-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D9A9718F1896DE5F002471D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/happen-app.app/happen-app";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "happen-app/happen-app-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "happen-appTests/happen-appTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D9A971901896DE5F002471D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/happen-app.app/happen-app";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "happen-app/happen-app-Prefix.pch";
+				INFOPLIST_FILE = "happen-appTests/happen-appTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9A971511896DE5F002471D0 /* Build configuration list for PBXProject "happen-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9A971891896DE5F002471D0 /* Debug */,
+				D9A9718A1896DE5F002471D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9A9718B1896DE5F002471D0 /* Build configuration list for PBXNativeTarget "happen-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9A9718C1896DE5F002471D0 /* Debug */,
+				D9A9718D1896DE5F002471D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D9A9718E1896DE5F002471D0 /* Build configuration list for PBXNativeTarget "happen-appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9A9718F1896DE5F002471D0 /* Debug */,
+				D9A971901896DE5F002471D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D9A9714E1896DE5F002471D0 /* Project object */;
+}
