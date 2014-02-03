@@ -9,6 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "Parse/Parse.h"
 
+@class HAPSignUpViewController;
+
+@protocol SignUpViewContollerDelegate <NSObject>
+
+//- (void)signUpViewControllerDidCancel:(HAPSignUpViewController *)controller;
+- (void)signUpViewControllerDidSignUp:(HAPSignUpViewController *)controller;
+
+@end
+
 @interface HAPSignUpViewController : UITableViewController
+
+@property (weak, nonatomic) id <SignUpViewContollerDelegate> delegate;
 
 @end

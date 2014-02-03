@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		042B30FE189A15BE00BBCC2F /* HAPFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B30FD189A15BE00BBCC2F /* HAPFeedViewController.m */; };
 		042B3101189B2BC800BBCC2F /* HAPSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B3100189B2BC800BBCC2F /* HAPSignUpViewController.m */; };
+		042B310D18A0287200BBCC2F /* HAPLoginSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B310C18A0287200BBCC2F /* HAPLoginSignUpViewController.m */; };
+		042B311018A038F000BBCC2F /* HAPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B310F18A038F000BBCC2F /* HAPLoginViewController.m */; };
 		D9A9715A1896DE5F002471D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A971591896DE5F002471D0 /* Foundation.framework */; };
 		D9A9715C1896DE5F002471D0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9715B1896DE5F002471D0 /* CoreGraphics.framework */; };
 		D9A9715E1896DE5F002471D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9715D1896DE5F002471D0 /* UIKit.framework */; };
@@ -49,6 +51,10 @@
 		042B30FD189A15BE00BBCC2F /* HAPFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPFeedViewController.m; sourceTree = "<group>"; };
 		042B30FF189B2BC800BBCC2F /* HAPSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPSignUpViewController.h; sourceTree = "<group>"; };
 		042B3100189B2BC800BBCC2F /* HAPSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPSignUpViewController.m; sourceTree = "<group>"; };
+		042B310B18A0287200BBCC2F /* HAPLoginSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPLoginSignUpViewController.h; sourceTree = "<group>"; };
+		042B310C18A0287200BBCC2F /* HAPLoginSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPLoginSignUpViewController.m; sourceTree = "<group>"; };
+		042B310E18A038F000BBCC2F /* HAPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPLoginViewController.h; sourceTree = "<group>"; };
+		042B310F18A038F000BBCC2F /* HAPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPLoginViewController.m; sourceTree = "<group>"; };
 		D9A971561896DE5F002471D0 /* happen-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "happen-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9A971591896DE5F002471D0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D9A9715B1896DE5F002471D0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +125,10 @@
 				042B3100189B2BC800BBCC2F /* HAPSignUpViewController.m */,
 				042B30FC189A15BE00BBCC2F /* HAPFeedViewController.h */,
 				042B30FD189A15BE00BBCC2F /* HAPFeedViewController.m */,
+				042B310B18A0287200BBCC2F /* HAPLoginSignUpViewController.h */,
+				042B310C18A0287200BBCC2F /* HAPLoginSignUpViewController.m */,
+				042B310E18A038F000BBCC2F /* HAPLoginViewController.h */,
+				042B310F18A038F000BBCC2F /* HAPLoginViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -305,7 +315,9 @@
 			files = (
 				D9A9716A1896DE5F002471D0 /* HAPAppDelegate.m in Sources */,
 				042B30FE189A15BE00BBCC2F /* HAPFeedViewController.m in Sources */,
+				042B311018A038F000BBCC2F /* HAPLoginViewController.m in Sources */,
 				042B3101189B2BC800BBCC2F /* HAPSignUpViewController.m in Sources */,
+				042B310D18A0287200BBCC2F /* HAPLoginSignUpViewController.m in Sources */,
 				D9A971661896DE5F002471D0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
