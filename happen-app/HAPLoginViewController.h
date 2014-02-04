@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Parse/Parse.h"
 
-@interface HAPLoginViewController : UITableViewController
+#define TAG_BLANK 1
+#define TAG_ERROR 2
+
+@interface HAPLoginViewController : UITableViewController <UIAlertViewDelegate>
 
 @end

@@ -29,13 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.usernameField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,35 +41,61 @@
 }
 
 - (IBAction)loginButtonPressed:(id)sender {
-    
-    if ([self.usernameField.text isEqualToString:@""]
-        || [self.passwordField.text isEqualToString:@""]) {
-        NSLog(@"%@", @"Username and password must not be left blank");
+    if ([self requiredFieldsBlank]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Required fields must not be left blank." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        alert.tag = TAG_BLANK;
+        [alert show];
     }
     else {
-        NSMutableDictionary *loginInfo = [[NSMutableDictionary alloc] init];
-        [loginInfo setObject:self.usernameField.text forKey:@"username"];
-        [loginInfo setObject:self.passwordField.text forKey:@"password"];
-        
+        [self loginUser:[self getLoginInfo]];
     }
-    
+}
+
+- (BOOL)requiredFieldsBlank {
+    return ([self.usernameField.text isEqualToString:@""]
+            || [self.passwordField.text isEqualToString:@""]);
+}
+
+- (NSMutableDictionary *)getLoginInfo {
+    NSMutableDictionary *loginInfo = [[NSMutableDictionary alloc] init];
+    [loginInfo setObject:self.usernameField.text forKey:@"username"];
+    [loginInfo setObject:self.passwordField.text forKey:@"password"];
+    return loginInfo;
 }
 
 - (void)loginUser:(NSMutableDictionary *)loginInfo {
     [PFUser logInWithUsernameInBackground:[loginInfo objectForKey:@"username"] password:[loginInfo objectForKey:@"password"] block:^(PFUser *user, NSError *error) {
         if (user) {
-            
+            [self performSegueWithIdentifier: @"OpenFeedView" sender: self];
         }
         else {
-            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Invalid login information." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            alert.tag = TAG_ERROR;
+            [alert show];
         }
     }];
 }
 
+- (void)clearLoginInfo {
+    self.usernameField.text = @"";
+    self.passwordField.text = @"";
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == TAG_BLANK) {
+        [self.usernameField becomeFirstResponder];
+    }
+    else if (alertView.tag == TAG_ERROR) {
+        [self clearLoginInfo];
+        [self.usernameField becomeFirstResponder];
+    }
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"OpenFeedView"]) {
+        
+    }
 }
 
 @end

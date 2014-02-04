@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Parse/Parse.h"
 
+#define TAG_BLANK 1
+#define TAG_PASSWORDS 2
+#define TAG_ERROR 3
+#define TAG_SUCCESS 4
+
 @class HAPSignUpViewController;
 
 @protocol SignUpViewContollerDelegate <NSObject>
@@ -18,7 +23,7 @@
 
 @end
 
-@interface HAPSignUpViewController : UITableViewController
+@interface HAPSignUpViewController : UITableViewController <UIAlertViewDelegate>
 
 @property (weak, nonatomic) id <SignUpViewContollerDelegate> delegate;
 

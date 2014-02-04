@@ -32,14 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.firstNameField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,36 +44,41 @@
 }
 
 - (IBAction)joinButtonPressed:(id)sender {
-    
+    if ([self requiredFieldsBlank]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Required fields must not be left blank." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        alert.tag = TAG_BLANK;
+        [alert show];
+    }
+    else if (![self passwordsMatch]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"The passwords you entered do not match." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        alert.tag = TAG_PASSWORDS;
+        [alert show];
+    }
+    else {
+        [self signUpUser:[self getUserInfo]];
+    }
+}
+
+- (BOOL)requiredFieldsBlank {
+    return ([self.firstNameField.text isEqualToString:@""]
+            || [self.lastNameField.text isEqualToString:@""]
+            || [self.usernameField.text isEqualToString:@""]
+            || [self.passwordField.text isEqualToString:@""]
+            || [self.confirmPasswordField.text isEqualToString:@""]);
+}
+
+- (BOOL)passwordsMatch {
+    return ([self.passwordField.text isEqualToString:self.confirmPasswordField.text]);
+}
+
+- (NSMutableDictionary *)getUserInfo {
     NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
     [userInfo setObject:self.firstNameField.text forKey:@"firstName"];
     [userInfo setObject:self.lastNameField.text forKey:@"lastName"];
     [userInfo setObject:self.usernameField.text forKey:@"username"];
     [userInfo setObject:self.passwordField.text forKey:@"password"];
     [userInfo setObject:self.confirmPasswordField.text forKey:@"confirmPassword"];
-    
-    if ([self userInfoisValid:userInfo]) {
-        NSLog(@"%@", @"User info is valid");
-        [self signUpUser: userInfo];
-    }
-    else
-        NSLog(@"%@", @"User info is invald.");
-}
-
-- (BOOL)userInfoisValid:(NSMutableDictionary*)userInfo {
-    if ([[userInfo objectForKey:@"firstName"] isEqualToString:@""]
-        || [[userInfo objectForKey:@"lastName"] isEqualToString:@""]
-        || [[userInfo objectForKey:@"username"] isEqualToString:@""]
-        || [[userInfo objectForKey:@"password"] isEqualToString:@""]
-        || [[userInfo objectForKey:@"confirmPassword"] isEqualToString:@""]) {
-            return NO;
-        }
-    
-    if (![[userInfo objectForKey:@"password"] isEqualToString: [userInfo objectForKey:@"confirmPassword"]]) {
-        return NO;
-    }
-    
-    return YES;
+    return userInfo;
 }
 
 - (void)signUpUser:(NSMutableDictionary*)userInfo {
@@ -91,28 +91,44 @@
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            NSLog(@"%@", @"User created successfully");
-            [self userDidSignUp];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Your user account was created successfully." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            alert.tag = TAG_SUCCESS;
+            [alert show];
         } else {
-            NSString *errorString = [error userInfo][@"error"];
-            NSLog(@"%@", errorString);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error creating you user account" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            alert.tag = TAG_ERROR;
+            [alert show];
         }
     }];
+}
+
+- (void)clearUserInfo {
+    self.firstNameField.text = @"";
+    self.lastNameField.text = @"";
+    self.usernameField.text = @"";
+    self.passwordField.text = @"";
+    self.confirmPasswordField.text = @"";
+}
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == TAG_BLANK) {}
+    else if (alertView.tag == TAG_PASSWORDS) {
+        self.passwordField.text = @"";
+        self.confirmPasswordField.text = @"";
+        [self.passwordField becomeFirstResponder];
+        
+    }
+    else if (alertView.tag == TAG_SUCCESS) {
+        [self userDidSignUp];
+    }
+    else if (alertView.tag == TAG_ERROR) {
+        [self clearUserInfo];
+        [self.firstNameField becomeFirstResponder];
+    }
 }
 
 - (void)userDidSignUp {
     [self.delegate signUpViewControllerDidSignUp:self];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
