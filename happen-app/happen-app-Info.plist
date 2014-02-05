@@ -30,6 +30,13 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Mark Simonson - Proxima Nova ScOsf Light.otf</string>
+		<string>Mark Simonson - Proxima Nova ScOsf Regular.otf</string>
+		<string>Mark Simonson - Proxima Nova Semibold.otf</string>
+		<string>Mark Simonson - Proxima Nova Thin.otf</string>
+	</array>
 	<key>UIStatusBarTintParameters</key>
 	<dict>
 		<key>UINavigationBar</key>

@@ -9,6 +9,9 @@
 #import "HAPLoginSignUpViewController.h"
 
 @interface HAPLoginSignUpViewController ()
+@property (strong, nonatomic) IBOutlet UILabel *appName;
+@property (strong, nonatomic) IBOutlet UIButton *signupButton;
+@property (strong, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -28,6 +31,52 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIFont *semibold = [UIFont fontWithName:@"ProximaNova-Semibold" size:25];
+    UIFont *regular = [UIFont fontWithName:@"ProximaNovaS-Regular" size:15];
+    NSString *appNameString = @"HAPPEN";
+    NSString *loginButtonString = @"LOG IN";
+    NSString *signupButtonString = @"SIGN UP";
+    
+    NSAttributedString *attributedString =
+    [[NSAttributedString alloc]
+     initWithString:appNameString
+     attributes:
+     @{
+       NSFontAttributeName : semibold,
+       NSKernAttributeName : @(+8.0f)
+       }];
+    
+    self.appName.attributedText = attributedString;
+    
+    NSAttributedString *attributedLogInString =
+    [[NSAttributedString alloc]
+     initWithString:loginButtonString
+     attributes:
+     @{
+       NSFontAttributeName : regular,
+       NSKernAttributeName : @(+4.0f)
+       }];
+    
+    [self.loginButton setAttributedTitle:attributedLogInString forState:UIControlStateNormal];
+    
+    NSAttributedString *attributedSignUpString =
+    [[NSAttributedString alloc]
+     initWithString:signupButtonString
+     attributes:
+     @{
+       NSFontAttributeName : regular,
+       NSKernAttributeName : @(+4.0f)
+       }];
+    
+    [self.signupButton setAttributedTitle:attributedSignUpString forState:UIControlStateNormal];
+    
+//    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+
+    
+    
+    
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -47,6 +96,18 @@
 
 - (void)signUpViewControllerDidSignUp:(HAPSignUpViewController *)controller {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
 }
 
 @end

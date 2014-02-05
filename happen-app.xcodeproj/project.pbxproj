@@ -11,6 +11,22 @@
 		042B3101189B2BC800BBCC2F /* HAPSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B3100189B2BC800BBCC2F /* HAPSignUpViewController.m */; };
 		042B310D18A0287200BBCC2F /* HAPLoginSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B310C18A0287200BBCC2F /* HAPLoginSignUpViewController.m */; };
 		042B311018A038F000BBCC2F /* HAPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B310F18A038F000BBCC2F /* HAPLoginViewController.m */; };
+		29266DE718A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 29266DE318A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Light.otf */; };
+		29266DE818A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 29266DE418A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Regular.otf */; };
+		29266DE918A19C84004F5916 /* Mark Simonson - Proxima Nova Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 29266DE518A19C84004F5916 /* Mark Simonson - Proxima Nova Semibold.otf */; };
+		29266DEA18A19C84004F5916 /* Mark Simonson - Proxima Nova Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 29266DE618A19C84004F5916 /* Mark Simonson - Proxima Nova Thin.otf */; };
+		29266DEE18A1C068004F5916 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 29266DEC18A1C068004F5916 /* logo.png */; };
+		29266DEF18A1C068004F5916 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29266DED18A1C068004F5916 /* logo@2x.png */; };
+		293F2ED418A22F0700DDB17A /* tab-icons-feed.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2ED218A22F0700DDB17A /* tab-icons-feed.png */; };
+		293F2ED518A22F0700DDB17A /* tab-icons-feed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2ED318A22F0700DDB17A /* tab-icons-feed@2x.png */; };
+		293F2EDE18A22FA400DDB17A /* tab-icons-feed.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2ED618A22FA400DDB17A /* tab-icons-feed.png */; };
+		293F2EDF18A22FA400DDB17A /* tab-icons-feed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2ED718A22FA400DDB17A /* tab-icons-feed@2x.png */; };
+		293F2EE018A22FA400DDB17A /* tab-icons-friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2ED818A22FA400DDB17A /* tab-icons-friends.png */; };
+		293F2EE118A22FA400DDB17A /* tab-icons-friends@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2ED918A22FA400DDB17A /* tab-icons-friends@2x.png */; };
+		293F2EE218A22FA400DDB17A /* tab-icons-mylist.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDA18A22FA400DDB17A /* tab-icons-mylist.png */; };
+		293F2EE318A22FA400DDB17A /* tab-icons-mylist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDB18A22FA400DDB17A /* tab-icons-mylist@2x.png */; };
+		293F2EE418A22FA400DDB17A /* tab-icons-news@.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDC18A22FA400DDB17A /* tab-icons-news@.png */; };
+		293F2EE518A22FA400DDB17A /* tab-icons-news@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDD18A22FA400DDB17A /* tab-icons-news@2x.png */; };
 		D9A9715A1896DE5F002471D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A971591896DE5F002471D0 /* Foundation.framework */; };
 		D9A9715C1896DE5F002471D0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9715B1896DE5F002471D0 /* CoreGraphics.framework */; };
 		D9A9715E1896DE5F002471D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9715D1896DE5F002471D0 /* UIKit.framework */; };
@@ -55,6 +71,22 @@
 		042B310C18A0287200BBCC2F /* HAPLoginSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPLoginSignUpViewController.m; sourceTree = "<group>"; };
 		042B310E18A038F000BBCC2F /* HAPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPLoginViewController.h; sourceTree = "<group>"; };
 		042B310F18A038F000BBCC2F /* HAPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPLoginViewController.m; sourceTree = "<group>"; };
+		29266DE318A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova ScOsf Light.otf"; sourceTree = "<group>"; };
+		29266DE418A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova ScOsf Regular.otf"; sourceTree = "<group>"; };
+		29266DE518A19C84004F5916 /* Mark Simonson - Proxima Nova Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova Semibold.otf"; sourceTree = "<group>"; };
+		29266DE618A19C84004F5916 /* Mark Simonson - Proxima Nova Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova Thin.otf"; sourceTree = "<group>"; };
+		29266DEC18A1C068004F5916 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		29266DED18A1C068004F5916 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		293F2ED218A22F0700DDB17A /* tab-icons-feed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-feed.png"; sourceTree = "<group>"; };
+		293F2ED318A22F0700DDB17A /* tab-icons-feed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-feed@2x.png"; sourceTree = "<group>"; };
+		293F2ED618A22FA400DDB17A /* tab-icons-feed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-feed.png"; sourceTree = "<group>"; };
+		293F2ED718A22FA400DDB17A /* tab-icons-feed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-feed@2x.png"; sourceTree = "<group>"; };
+		293F2ED818A22FA400DDB17A /* tab-icons-friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-friends.png"; sourceTree = "<group>"; };
+		293F2ED918A22FA400DDB17A /* tab-icons-friends@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-friends@2x.png"; sourceTree = "<group>"; };
+		293F2EDA18A22FA400DDB17A /* tab-icons-mylist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-mylist.png"; sourceTree = "<group>"; };
+		293F2EDB18A22FA400DDB17A /* tab-icons-mylist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-mylist@2x.png"; sourceTree = "<group>"; };
+		293F2EDC18A22FA400DDB17A /* tab-icons-news@.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-news@.png"; sourceTree = "<group>"; };
+		293F2EDD18A22FA400DDB17A /* tab-icons-news@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-news@2x.png"; sourceTree = "<group>"; };
 		D9A971561896DE5F002471D0 /* happen-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "happen-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9A971591896DE5F002471D0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D9A9715B1896DE5F002471D0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,6 +165,45 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		29266DE118A19C0A004F5916 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				29266DEB18A1C054004F5916 /* Images */,
+				29266DE218A19C12004F5916 /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29266DE218A19C12004F5916 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				29266DE318A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Light.otf */,
+				29266DE418A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Regular.otf */,
+				29266DE518A19C84004F5916 /* Mark Simonson - Proxima Nova Semibold.otf */,
+				29266DE618A19C84004F5916 /* Mark Simonson - Proxima Nova Thin.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		29266DEB18A1C054004F5916 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				293F2ED618A22FA400DDB17A /* tab-icons-feed.png */,
+				293F2ED718A22FA400DDB17A /* tab-icons-feed@2x.png */,
+				293F2ED818A22FA400DDB17A /* tab-icons-friends.png */,
+				293F2ED918A22FA400DDB17A /* tab-icons-friends@2x.png */,
+				293F2EDA18A22FA400DDB17A /* tab-icons-mylist.png */,
+				293F2EDB18A22FA400DDB17A /* tab-icons-mylist@2x.png */,
+				293F2EDC18A22FA400DDB17A /* tab-icons-news@.png */,
+				293F2EDD18A22FA400DDB17A /* tab-icons-news@2x.png */,
+				293F2ED218A22F0700DDB17A /* tab-icons-feed.png */,
+				293F2ED318A22F0700DDB17A /* tab-icons-feed@2x.png */,
+				29266DEC18A1C068004F5916 /* logo.png */,
+				29266DED18A1C068004F5916 /* logo@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		D9A9714D1896DE5F002471D0 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +247,7 @@
 		D9A9715F1896DE5F002471D0 /* happen-app */ = {
 			isa = PBXGroup;
 			children = (
+				29266DE118A19C0A004F5916 /* Resources */,
 				042B30FB189A131400BBCC2F /* Controllers */,
 				D9A971681896DE5F002471D0 /* HAPAppDelegate.h */,
 				D9A971691896DE5F002471D0 /* HAPAppDelegate.m */,
@@ -292,9 +364,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				293F2EE418A22FA400DDB17A /* tab-icons-news@.png in Resources */,
 				D9A971751896DE5F002471D0 /* Images.xcassets in Resources */,
+				293F2EE318A22FA400DDB17A /* tab-icons-mylist@2x.png in Resources */,
+				29266DEA18A19C84004F5916 /* Mark Simonson - Proxima Nova Thin.otf in Resources */,
+				293F2ED518A22F0700DDB17A /* tab-icons-feed@2x.png in Resources */,
+				29266DE918A19C84004F5916 /* Mark Simonson - Proxima Nova Semibold.otf in Resources */,
+				293F2EE118A22FA400DDB17A /* tab-icons-friends@2x.png in Resources */,
 				D9A971641896DE5F002471D0 /* InfoPlist.strings in Resources */,
+				293F2EE218A22FA400DDB17A /* tab-icons-mylist.png in Resources */,
+				29266DEE18A1C068004F5916 /* logo.png in Resources */,
+				293F2EDE18A22FA400DDB17A /* tab-icons-feed.png in Resources */,
 				D9A9716D1896DE5F002471D0 /* Main.storyboard in Resources */,
+				29266DE718A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Light.otf in Resources */,
+				293F2EE518A22FA400DDB17A /* tab-icons-news@2x.png in Resources */,
+				29266DEF18A1C068004F5916 /* logo@2x.png in Resources */,
+				293F2EE018A22FA400DDB17A /* tab-icons-friends.png in Resources */,
+				293F2EDF18A22FA400DDB17A /* tab-icons-feed@2x.png in Resources */,
+				293F2ED418A22F0700DDB17A /* tab-icons-feed.png in Resources */,
+				29266DE818A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +535,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/Jack/Workspace/happen-ios",
+					"/Users/kalynnakano/Sites/happen-ios",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "happen-app/happen-app-Prefix.pch";
@@ -464,7 +552,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/Jack/Workspace/happen-ios",
+					"/Users/kalynnakano/Sites/happen-ios",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "happen-app/happen-app-Prefix.pch";

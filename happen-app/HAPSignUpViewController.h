@@ -23,7 +23,8 @@
 
 @end
 
-@interface HAPSignUpViewController : UITableViewController <UIAlertViewDelegate>
+@interface HAPSignUpViewController : UITableViewController <UIAlertViewDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
+
 
 @property (weak, nonatomic) id <SignUpViewContollerDelegate> delegate;
 

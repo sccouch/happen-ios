@@ -72,7 +72,7 @@
         <scene sceneID="64S-86-wSk">
             <objects>
                 <navigationController definesPresentationContext="YES" id="vPb-6C-vtV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends" id="gWQ-qB-lEK"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="tab-icons-friends.png" id="gWQ-qB-lEK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1TG-wU-ZY8">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -113,7 +113,7 @@
         <scene sceneID="IiY-0r-J52">
             <objects>
                 <navigationController definesPresentationContext="YES" id="EXQ-7w-AQf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="News" id="Va8-MV-wGk"/>
+                    <tabBarItem key="tabBarItem" title="News" image="tab-icons-news.png" id="Va8-MV-wGk"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="amj-nE-bCJ">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -154,7 +154,7 @@
         <scene sceneID="ctT-ez-Dap">
             <objects>
                 <navigationController definesPresentationContext="YES" id="7d5-Mh-b0X" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My List" id="4Dm-Zp-Xpx"/>
+                    <tabBarItem key="tabBarItem" title="My List" image="tab-icons-mylist.png" id="4Dm-Zp-Xpx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jWi-DG-Qmd">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -179,9 +179,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGc-v4-uaF">
-                                <rect key="frame" x="138" y="288" width="43" height="30"/>
+                                <rect key="frame" x="20" y="508" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.24313725490196078" blue="0.29019607843137252" alpha="0.20999999999999999" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                                 <state key="normal" title="Log In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -189,19 +192,39 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdd-4K-W0C">
-                                <rect key="frame" x="133" y="250" width="55" height="30"/>
+                                <rect key="frame" x="20" y="455" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.18823529411764706" green="0.19607843137254902" blue="0.23529411764705882" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                                 <state key="normal" title="Sign Up">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="XIE-nP-KUH" kind="push" identifier="SignUp" id="8Je-cO-Tij"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HAPPEN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ee-Aj-bxn">
+                                <rect key="frame" x="0.0" y="214" width="320" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="xy5-ag-0id">
+                                <rect key="frame" x="40" y="101" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.10980392156862745" green="0.11764705882352941" blue="0.16078431372549018" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="x2t-cz-2YZ"/>
+                    <navigationItem key="navigationItem" id="2SG-hc-PPW"/>
+                    <connections>
+                        <outlet property="appName" destination="3ee-Aj-bxn" id="6RT-TR-Zf3"/>
+                        <outlet property="loginButton" destination="nGc-v4-uaF" id="w63-wK-8yq"/>
+                        <outlet property="signupButton" destination="fdd-4K-W0C" id="7vR-mP-94y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjN-Wq-oD3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -215,11 +238,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="DEN-Lw-eI4">
+                            <rect key="frame" x="0.0" y="64" width="320" height="170"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHL-KU-V4V">
+                                    <rect key="frame" x="123" y="120" width="74" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Add Photo">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="profilePicButtonClicked:" destination="XIE-nP-KUH" eventType="touchUpInside" id="OmS-0W-R1K"/>
+                                    </connections>
+                                </button>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uC1-LV-Nmg">
+                                    <rect key="frame" x="118" y="20" width="85" height="85"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.82690927933673475" green="0.82690927933673475" blue="0.82690927933673475" alpha="1" colorSpace="calibratedRGB"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.10980392160000001" green="0.1176470588" blue="0.16078431369999999" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <sections>
                             <tableViewSection headerTitle="User Info" id="6an-VV-cwY">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="oUN-OI-Mhq">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="256" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oUN-OI-Mhq" id="uc8-YC-IFb">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -235,7 +281,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="f2t-13-txJ">
-                                        <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="300" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f2t-13-txJ" id="U2U-rM-W5v">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -251,7 +297,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Mt8-Mp-KhB">
-                                        <rect key="frame" x="0.0" y="174" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="344" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mt8-Mp-KhB" id="GtN-o5-MMM">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -267,7 +313,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="g8z-De-Xr2">
-                                        <rect key="frame" x="0.0" y="218" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="388" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g8z-De-Xr2" id="fUs-kE-m9r">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -283,7 +329,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="UWB-bE-azm">
-                                        <rect key="frame" x="0.0" y="262" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="432" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UWB-bE-azm" id="gHy-T1-CKI">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -318,6 +364,8 @@
                         <outlet property="firstNameField" destination="Pe8-4a-vhm" id="k2D-sI-Cqw"/>
                         <outlet property="lastNameField" destination="WSK-hI-1WG" id="XAH-Qh-ZKO"/>
                         <outlet property="passwordField" destination="yWF-D6-OSF" id="LhF-F6-vOS"/>
+                        <outlet property="profilePic" destination="uC1-LV-Nmg" id="SAK-Dx-bMx"/>
+                        <outlet property="profilePicButton" destination="fHL-KU-V4V" id="XK7-AO-fsY"/>
                         <outlet property="usernameField" destination="YnM-t7-g40" id="lwC-jp-Rzh"/>
                     </connections>
                 </tableViewController>
@@ -437,7 +485,7 @@
         <scene sceneID="5YM-vj-AjN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rr7-jl-Pyp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" id="ipr-QN-S1D"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="tab-icons-feed.png" id="ipr-QN-S1D"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rs3-54-QXs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -453,6 +501,13 @@
             <point key="canvasLocation" x="760" y="-754"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo.png" width="134" height="80"/>
+        <image name="tab-icons-feed.png" width="26" height="27"/>
+        <image name="tab-icons-friends.png" width="25" height="25"/>
+        <image name="tab-icons-mylist.png" width="29" height="25"/>
+        <image name="tab-icons-news.png" width="27" height="26"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

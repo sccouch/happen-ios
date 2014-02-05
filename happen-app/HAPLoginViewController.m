@@ -32,7 +32,10 @@
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.usernameField becomeFirstResponder];
+    
+    
 }
+
 
 - (void)didReceiveMemoryWarning
 {
