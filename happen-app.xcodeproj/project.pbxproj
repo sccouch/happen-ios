@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		042B30FE189A15BE00BBCC2F /* HAPFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B30FD189A15BE00BBCC2F /* HAPFeedViewController.m */; };
+		042B30FE189A15BE00BBCC2F /* HAPFriendsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B30FD189A15BE00BBCC2F /* HAPFriendsFeedViewController.m */; };
 		042B3101189B2BC800BBCC2F /* HAPSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B3100189B2BC800BBCC2F /* HAPSignUpViewController.m */; };
 		042B310D18A0287200BBCC2F /* HAPLoginSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B310C18A0287200BBCC2F /* HAPLoginSignUpViewController.m */; };
 		042B311018A038F000BBCC2F /* HAPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B310F18A038F000BBCC2F /* HAPLoginViewController.m */; };
+		04DD319A18A490FC008BA5DF /* HAPFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD319918A490FC008BA5DF /* HAPFeedViewController.m */; };
+		04DD31A018A495E0008BA5DF /* RMMultipleViewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD319E18A495E0008BA5DF /* RMMultipleViewsController.m */; };
+		04DD31A118A495E0008BA5DF /* RMMultipleViewsController.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DD319F18A495E0008BA5DF /* RMMultipleViewsController.xcassets */; };
 		29266DE718A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 29266DE318A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Light.otf */; };
 		29266DE818A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 29266DE418A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Regular.otf */; };
 		29266DE918A19C84004F5916 /* Mark Simonson - Proxima Nova Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 29266DE518A19C84004F5916 /* Mark Simonson - Proxima Nova Semibold.otf */; };
@@ -63,14 +66,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		042B30FC189A15BE00BBCC2F /* HAPFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPFeedViewController.h; sourceTree = "<group>"; };
-		042B30FD189A15BE00BBCC2F /* HAPFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPFeedViewController.m; sourceTree = "<group>"; };
+		042B30FC189A15BE00BBCC2F /* HAPFriendsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPFriendsFeedViewController.h; sourceTree = "<group>"; };
+		042B30FD189A15BE00BBCC2F /* HAPFriendsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPFriendsFeedViewController.m; sourceTree = "<group>"; };
 		042B30FF189B2BC800BBCC2F /* HAPSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPSignUpViewController.h; sourceTree = "<group>"; };
 		042B3100189B2BC800BBCC2F /* HAPSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPSignUpViewController.m; sourceTree = "<group>"; };
 		042B310B18A0287200BBCC2F /* HAPLoginSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPLoginSignUpViewController.h; sourceTree = "<group>"; };
 		042B310C18A0287200BBCC2F /* HAPLoginSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPLoginSignUpViewController.m; sourceTree = "<group>"; };
 		042B310E18A038F000BBCC2F /* HAPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPLoginViewController.h; sourceTree = "<group>"; };
 		042B310F18A038F000BBCC2F /* HAPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPLoginViewController.m; sourceTree = "<group>"; };
+		04DD319818A490FC008BA5DF /* HAPFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPFeedViewController.h; sourceTree = "<group>"; };
+		04DD319918A490FC008BA5DF /* HAPFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPFeedViewController.m; sourceTree = "<group>"; };
+		04DD319D18A495E0008BA5DF /* RMMultipleViewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMultipleViewsController.h; sourceTree = "<group>"; };
+		04DD319E18A495E0008BA5DF /* RMMultipleViewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMultipleViewsController.m; sourceTree = "<group>"; };
+		04DD319F18A495E0008BA5DF /* RMMultipleViewsController.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = RMMultipleViewsController.xcassets; sourceTree = "<group>"; };
 		29266DE318A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova ScOsf Light.otf"; sourceTree = "<group>"; };
 		29266DE418A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova ScOsf Regular.otf"; sourceTree = "<group>"; };
 		29266DE518A19C84004F5916 /* Mark Simonson - Proxima Nova Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova Semibold.otf"; sourceTree = "<group>"; };
@@ -155,14 +163,27 @@
 			children = (
 				042B30FF189B2BC800BBCC2F /* HAPSignUpViewController.h */,
 				042B3100189B2BC800BBCC2F /* HAPSignUpViewController.m */,
-				042B30FC189A15BE00BBCC2F /* HAPFeedViewController.h */,
-				042B30FD189A15BE00BBCC2F /* HAPFeedViewController.m */,
+				042B30FC189A15BE00BBCC2F /* HAPFriendsFeedViewController.h */,
+				042B30FD189A15BE00BBCC2F /* HAPFriendsFeedViewController.m */,
 				042B310B18A0287200BBCC2F /* HAPLoginSignUpViewController.h */,
 				042B310C18A0287200BBCC2F /* HAPLoginSignUpViewController.m */,
 				042B310E18A038F000BBCC2F /* HAPLoginViewController.h */,
 				042B310F18A038F000BBCC2F /* HAPLoginViewController.m */,
+				04DD319818A490FC008BA5DF /* HAPFeedViewController.h */,
+				04DD319918A490FC008BA5DF /* HAPFeedViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		04DD319C18A495E0008BA5DF /* RMMultipleViewsController */ = {
+			isa = PBXGroup;
+			children = (
+				04DD319D18A495E0008BA5DF /* RMMultipleViewsController.h */,
+				04DD319E18A495E0008BA5DF /* RMMultipleViewsController.m */,
+				04DD319F18A495E0008BA5DF /* RMMultipleViewsController.xcassets */,
+			);
+			name = RMMultipleViewsController;
+			path = ../RMMultipleViewsController;
 			sourceTree = "<group>";
 		};
 		29266DE118A19C0A004F5916 /* Resources */ = {
@@ -247,6 +268,7 @@
 		D9A9715F1896DE5F002471D0 /* happen-app */ = {
 			isa = PBXGroup;
 			children = (
+				04DD319C18A495E0008BA5DF /* RMMultipleViewsController */,
 				29266DE118A19C0A004F5916 /* Resources */,
 				042B30FB189A131400BBCC2F /* Controllers */,
 				D9A971681896DE5F002471D0 /* HAPAppDelegate.h */,
@@ -383,6 +405,7 @@
 				293F2EDF18A22FA400DDB17A /* tab-icons-feed@2x.png in Resources */,
 				293F2ED418A22F0700DDB17A /* tab-icons-feed.png in Resources */,
 				29266DE818A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Regular.otf in Resources */,
+				04DD31A118A495E0008BA5DF /* RMMultipleViewsController.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,8 +425,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9A9716A1896DE5F002471D0 /* HAPAppDelegate.m in Sources */,
-				042B30FE189A15BE00BBCC2F /* HAPFeedViewController.m in Sources */,
+				042B30FE189A15BE00BBCC2F /* HAPFriendsFeedViewController.m in Sources */,
 				042B311018A038F000BBCC2F /* HAPLoginViewController.m in Sources */,
+				04DD31A018A495E0008BA5DF /* RMMultipleViewsController.m in Sources */,
+				04DD319A18A490FC008BA5DF /* HAPFeedViewController.m in Sources */,
 				042B3101189B2BC800BBCC2F /* HAPSignUpViewController.m in Sources */,
 				042B310D18A0287200BBCC2F /* HAPLoginSignUpViewController.m in Sources */,
 				D9A971661896DE5F002471D0 /* main.m in Sources */,
@@ -533,10 +558,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/kalynnakano/Sites/happen-ios",
-				);
+				FRAMEWORK_SEARCH_PATHS = "./**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "happen-app/happen-app-Prefix.pch";
 				INFOPLIST_FILE = "happen-app/happen-app-Info.plist";
@@ -550,10 +572,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/kalynnakano/Sites/happen-ios",
-				);
+				FRAMEWORK_SEARCH_PATHS = "./**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "happen-app/happen-app-Prefix.pch";
 				INFOPLIST_FILE = "happen-app/happen-app-Info.plist";
