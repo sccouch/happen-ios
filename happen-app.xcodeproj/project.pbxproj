@@ -11,6 +11,8 @@
 		042B3101189B2BC800BBCC2F /* HAPSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B3100189B2BC800BBCC2F /* HAPSignUpViewController.m */; };
 		042B310D18A0287200BBCC2F /* HAPLoginSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B310C18A0287200BBCC2F /* HAPLoginSignUpViewController.m */; };
 		042B311018A038F000BBCC2F /* HAPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B310F18A038F000BBCC2F /* HAPLoginViewController.m */; };
+		045E4EEF18ADB5C200A480DD /* HAPAddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E4EEE18ADB5C200A480DD /* HAPAddEventViewController.m */; };
+		045E4EF218ADC79900A480DD /* HAPMyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E4EF118ADC79900A480DD /* HAPMyListViewController.m */; };
 		04DD319A18A490FC008BA5DF /* HAPFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD319918A490FC008BA5DF /* HAPFeedViewController.m */; };
 		04DD31A018A495E0008BA5DF /* RMMultipleViewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD319E18A495E0008BA5DF /* RMMultipleViewsController.m */; };
 		04DD31A118A495E0008BA5DF /* RMMultipleViewsController.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DD319F18A495E0008BA5DF /* RMMultipleViewsController.xcassets */; };
@@ -74,6 +76,10 @@
 		042B310C18A0287200BBCC2F /* HAPLoginSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPLoginSignUpViewController.m; sourceTree = "<group>"; };
 		042B310E18A038F000BBCC2F /* HAPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPLoginViewController.h; sourceTree = "<group>"; };
 		042B310F18A038F000BBCC2F /* HAPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPLoginViewController.m; sourceTree = "<group>"; };
+		045E4EED18ADB5C200A480DD /* HAPAddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPAddEventViewController.h; sourceTree = "<group>"; };
+		045E4EEE18ADB5C200A480DD /* HAPAddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPAddEventViewController.m; sourceTree = "<group>"; };
+		045E4EF018ADC79900A480DD /* HAPMyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPMyListViewController.h; sourceTree = "<group>"; };
+		045E4EF118ADC79900A480DD /* HAPMyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPMyListViewController.m; sourceTree = "<group>"; };
 		04DD319818A490FC008BA5DF /* HAPFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPFeedViewController.h; sourceTree = "<group>"; };
 		04DD319918A490FC008BA5DF /* HAPFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPFeedViewController.m; sourceTree = "<group>"; };
 		04DD319D18A495E0008BA5DF /* RMMultipleViewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMultipleViewsController.h; sourceTree = "<group>"; };
@@ -161,18 +167,46 @@
 		042B30FB189A131400BBCC2F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				045E4EEC18ADB57E00A480DD /* MyList */,
+				045E4EE918ADB51700A480DD /* Login */,
+				045E4EEB18ADB53700A480DD /* Feed */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		045E4EE918ADB51700A480DD /* Login */ = {
+			isa = PBXGroup;
+			children = (
 				042B30FF189B2BC800BBCC2F /* HAPSignUpViewController.h */,
 				042B3100189B2BC800BBCC2F /* HAPSignUpViewController.m */,
-				042B30FC189A15BE00BBCC2F /* HAPFriendsFeedViewController.h */,
-				042B30FD189A15BE00BBCC2F /* HAPFriendsFeedViewController.m */,
 				042B310B18A0287200BBCC2F /* HAPLoginSignUpViewController.h */,
 				042B310C18A0287200BBCC2F /* HAPLoginSignUpViewController.m */,
 				042B310E18A038F000BBCC2F /* HAPLoginViewController.h */,
 				042B310F18A038F000BBCC2F /* HAPLoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		045E4EEB18ADB53700A480DD /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				042B30FC189A15BE00BBCC2F /* HAPFriendsFeedViewController.h */,
+				042B30FD189A15BE00BBCC2F /* HAPFriendsFeedViewController.m */,
 				04DD319818A490FC008BA5DF /* HAPFeedViewController.h */,
 				04DD319918A490FC008BA5DF /* HAPFeedViewController.m */,
 			);
-			name = Controllers;
+			name = Feed;
+			sourceTree = "<group>";
+		};
+		045E4EEC18ADB57E00A480DD /* MyList */ = {
+			isa = PBXGroup;
+			children = (
+				045E4EED18ADB5C200A480DD /* HAPAddEventViewController.h */,
+				045E4EEE18ADB5C200A480DD /* HAPAddEventViewController.m */,
+				045E4EF018ADC79900A480DD /* HAPMyListViewController.h */,
+				045E4EF118ADC79900A480DD /* HAPMyListViewController.m */,
+			);
+			name = MyList;
 			sourceTree = "<group>";
 		};
 		04DD319C18A495E0008BA5DF /* RMMultipleViewsController */ = {
@@ -268,11 +302,11 @@
 		D9A9715F1896DE5F002471D0 /* happen-app */ = {
 			isa = PBXGroup;
 			children = (
+				D9A971681896DE5F002471D0 /* HAPAppDelegate.h */,
+				D9A971691896DE5F002471D0 /* HAPAppDelegate.m */,
 				04DD319C18A495E0008BA5DF /* RMMultipleViewsController */,
 				29266DE118A19C0A004F5916 /* Resources */,
 				042B30FB189A131400BBCC2F /* Controllers */,
-				D9A971681896DE5F002471D0 /* HAPAppDelegate.h */,
-				D9A971691896DE5F002471D0 /* HAPAppDelegate.m */,
 				D9A971741896DE5F002471D0 /* Images.xcassets */,
 				D9A971601896DE5F002471D0 /* Supporting Files */,
 				D9A9716B1896DE5F002471D0 /* Main.storyboard */,
@@ -427,8 +461,10 @@
 				D9A9716A1896DE5F002471D0 /* HAPAppDelegate.m in Sources */,
 				042B30FE189A15BE00BBCC2F /* HAPFriendsFeedViewController.m in Sources */,
 				042B311018A038F000BBCC2F /* HAPLoginViewController.m in Sources */,
+				045E4EEF18ADB5C200A480DD /* HAPAddEventViewController.m in Sources */,
 				04DD31A018A495E0008BA5DF /* RMMultipleViewsController.m in Sources */,
 				04DD319A18A490FC008BA5DF /* HAPFeedViewController.m in Sources */,
+				045E4EF218ADC79900A480DD /* HAPMyListViewController.m in Sources */,
 				042B3101189B2BC800BBCC2F /* HAPSignUpViewController.m in Sources */,
 				042B310D18A0287200BBCC2F /* HAPLoginSignUpViewController.m in Sources */,
 				D9A971661896DE5F002471D0 /* main.m in Sources */,
