@@ -69,7 +69,7 @@
     self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width/2;
     self.profilePicture.layer.masksToBounds = YES;
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
-    self.usernameLabel.text = user[@"username"];
+    self.usernameLabel.text = [NSString stringWithFormat:@"@%@", user[@"username"]];
     
 }
 
@@ -161,7 +161,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"AddEvent"]) {
-        HAPAddEventViewController *addEventViewController = segue.destinationViewController;
+        UINavigationController *navigationController = segue.destinationViewController;
+        HAPAddEventViewController *addEventViewController = [navigationController viewControllers][0];
         addEventViewController.delegate = self;
     }
 }
@@ -171,6 +172,7 @@
 }
 
 - (void)addEventViewContollerDidAdd:(HAPAddEventViewController *)controller {
+    [self dismissViewControllerAnimated:YES completion:nil];
     [self loadObjects];
 }
 

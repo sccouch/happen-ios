@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Parse/Parse.h"
+#import "HAPSelectEventTimeViewController.h"
 
 @class HAPAddEventViewController;
 
@@ -18,7 +19,7 @@
 
 @end
 
-@interface HAPAddEventViewController : UITableViewController
+@interface HAPAddEventViewController : UITableViewController<SelectEventTimeViewContollerDelegate>
 
 @property (weak, nonatomic) id<AddEventViewContollerDelegate> delegate;
 
