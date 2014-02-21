@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *firstNameField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordField;
@@ -40,7 +41,7 @@ NSData *imageData;
     [super viewDidLoad];
     [self setProfilePicButton:nil];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    [self.firstNameField becomeFirstResponder];
+//    [self.firstNameField becomeFirstResponder];
     
     CALayer *imageLayer = _profilePic.layer;
     [imageLayer setCornerRadius:_profilePic.frame.size.width/2];
@@ -173,6 +174,7 @@ NSData *imageData;
 - (BOOL)requiredFieldsBlank {
     return ([self.firstNameField.text isEqualToString:@""]
             || [self.lastNameField.text isEqualToString:@""]
+            || [self.phoneNumberField.text isEqualToString:@""]
             || [self.usernameField.text isEqualToString:@""]
             || [self.passwordField.text isEqualToString:@""]
             || [self.confirmPasswordField.text isEqualToString:@""]);
@@ -190,6 +192,7 @@ NSData *imageData;
     NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
     [userInfo setObject:self.firstNameField.text forKey:@"firstName"];
     [userInfo setObject:self.lastNameField.text forKey:@"lastName"];
+    [userInfo setObject:self.phoneNumberField.text forKey:@"phoneNumber"];
     [userInfo setObject:self.usernameField.text forKey:@"username"];
     [userInfo setObject:self.passwordField.text forKey:@"password"];
     [userInfo setObject:self.confirmPasswordField.text forKey:@"confirmPassword"];
@@ -202,9 +205,9 @@ NSData *imageData;
     user.username = [userInfo objectForKey:@"username"];
     user.password = [userInfo objectForKey:@"password"];
     
-    
     user[@"firstName"] = [userInfo objectForKey:@"firstName"];
     user[@"lastName"] = [userInfo objectForKey:@"lastName"];
+    user[@"phone"] = [NSNumber numberWithInt:[[userInfo objectForKey:@"phoneNumber"] intValue]];
     user[@"profilePic"] = [userInfo objectForKey:@"profilePic"];
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -223,6 +226,7 @@ NSData *imageData;
 - (void)clearUserInfo {
     self.firstNameField.text = @"";
     self.lastNameField.text = @"";
+    self.phoneNumberField.text = @"";
     self.usernameField.text = @"";
     self.passwordField.text = @"";
     self.confirmPasswordField.text = @"";
