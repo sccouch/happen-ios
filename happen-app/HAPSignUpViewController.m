@@ -53,6 +53,7 @@ NSData *imageData;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)profilePicButtonClicked:(id)sender {
     //If the device has a camera, allow a choice via an action sheet
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {

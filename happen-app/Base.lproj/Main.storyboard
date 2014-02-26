@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller - Friends-->
+        <!--Friend List View Controller - Friends-->
         <scene sceneID="RdI-4f-PTF">
             <objects>
-                <tableViewController id="OUn-9U-tPA" sceneMemberID="viewController">
+                <tableViewController id="OUn-9U-tPA" customClass="HAPFriendListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="N70-2G-LBW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,13 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Friends" id="8d9-1u-lyz"/>
+                    <navigationItem key="navigationItem" title="Friends" id="8d9-1u-lyz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Yj-47-PKg">
+                            <connections>
+                                <segue destination="HxT-N4-8Ur" kind="modal" id="xsK-NU-PDj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYV-zk-2D0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -145,6 +151,119 @@
             </objects>
             <point key="canvasLocation" x="1317" y="704"/>
         </scene>
+        <!--Add Friend View Controller - Add Friends-->
+        <scene sceneID="hnB-Uu-EKs">
+            <objects>
+                <tableViewController id="aez-ZK-cq4" customClass="HAPAddFriendViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gc4-ly-vbL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="8rW-YE-Nhw">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8rW-YE-Nhw" id="HdM-7k-5m5">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Friends" id="fCw-TI-nDW">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="fxE-js-mcS"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="1BB-vk-e39">
+                            <connections>
+                                <action selector="backButtonPressed:" destination="aez-ZK-cq4" id="zXI-wE-fFK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="roJ-hc-m1O">
+                            <connections>
+                                <segue destination="rt7-UD-2hp" kind="push" id="hkA-Zp-FDN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ySi-9v-yTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2323" y="321"/>
+        </scene>
+        <!--Search Friend View Controller - Search Happen-->
+        <scene sceneID="BL0-RR-khG">
+            <objects>
+                <tableViewController id="rt7-UD-2hp" customClass="HAPSearchFriendViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="swh-cz-Xqs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="MTP-JN-zne">
+                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="rt7-UD-2hp" id="XHh-mF-d2q"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="SBv-SA-brp">
+                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SBv-SA-brp" id="hmH-9U-CSA">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rt7-UD-2hp" id="zgB-DJ-bbs"/>
+                            <outlet property="delegate" destination="rt7-UD-2hp" id="ho6-zz-ZVU"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Search Happen" id="dGh-Mc-BNQ">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="2Au-kT-dgD"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="uCR-2q-Jmc" id="Vww-gS-Bac"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9yS-dm-6kH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationBar contentMode="scaleToFill" id="A3d-au-Rl8">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <items>
+                        <navigationItem title="Title" id="VEN-op-LgS"/>
+                    </items>
+                </navigationBar>
+                <searchDisplayController id="uCR-2q-Jmc">
+                    <connections>
+                        <outlet property="delegate" destination="rt7-UD-2hp" id="4Bz-JR-9vt"/>
+                        <outlet property="searchBar" destination="MTP-JN-zne" id="aj5-jA-zR8"/>
+                        <outlet property="searchContentsController" destination="rt7-UD-2hp" id="bhh-Z9-Rvz"/>
+                        <outlet property="searchResultsDataSource" destination="rt7-UD-2hp" id="dDi-k2-WYH"/>
+                        <outlet property="searchResultsDelegate" destination="rt7-UD-2hp" id="R8E-nu-9et"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2785" y="337"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BwN-bW-wAf">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="HxT-N4-8Ur" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="LmB-5v-7W4">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="e1w-jY-9RA"/>
+                    </navigationItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vcq-zv-TH8">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="aez-ZK-cq4" kind="relationship" relationship="rootViewController" id="677-zn-Owb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yS8-EE-haS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1789" y="321"/>
+        </scene>
         <!--Navigation Controller - News-->
         <scene sceneID="IiY-0r-J52">
             <objects>
@@ -191,6 +310,16 @@
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xca-zL-Dg0">
+                                    <rect key="frame" x="213" y="25" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Edit">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="profilePicButtonClicked:" destination="g4e-j5-d22" eventType="touchUpInside" id="7cb-08-8He"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -214,6 +343,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="nameLabel" destination="jIy-J5-UqS" id="voA-Bq-ksl"/>
+                        <outlet property="profilePicButton" destination="xca-zL-Dg0" id="vwn-v4-KZV"/>
                         <outlet property="profilePicture" destination="epQ-w0-SeX" id="JIT-XR-Oc0"/>
                         <outlet property="usernameLabel" destination="aYE-i9-kLR" id="SYx-Mz-GZw"/>
                     </connections>
@@ -330,7 +460,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rEu-Ad-moa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2821" y="1487"/>
+            <point key="canvasLocation" x="2809" y="1339"/>
         </scene>
         <!--Add Event View Controller - New Event-->
         <scene sceneID="9cS-dU-oRs">

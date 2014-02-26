@@ -33,6 +33,11 @@
 		293F2EE318A22FA400DDB17A /* tab-icons-mylist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDB18A22FA400DDB17A /* tab-icons-mylist@2x.png */; };
 		293F2EE418A22FA400DDB17A /* tab-icons-news@.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDC18A22FA400DDB17A /* tab-icons-news@.png */; };
 		293F2EE518A22FA400DDB17A /* tab-icons-news@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDD18A22FA400DDB17A /* tab-icons-news@2x.png */; };
+		297409F518BC86B200FB59C7 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297409F418BC86B200FB59C7 /* AddressBook.framework */; };
+		297409F718BC86B900FB59C7 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297409F618BC86B900FB59C7 /* AddressBookUI.framework */; };
+		297409FB18BC8AF400FB59C7 /* HAPFriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 297409FA18BC8AF400FB59C7 /* HAPFriendListViewController.m */; };
+		297409FE18BD694A00FB59C7 /* HAPAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 297409FD18BD694A00FB59C7 /* HAPAddFriendViewController.m */; };
+		29740A0118BE883200FB59C7 /* HAPSearchFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29740A0018BE883200FB59C7 /* HAPSearchFriendViewController.m */; };
 		D9A9715A1896DE5F002471D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A971591896DE5F002471D0 /* Foundation.framework */; };
 		D9A9715C1896DE5F002471D0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9715B1896DE5F002471D0 /* CoreGraphics.framework */; };
 		D9A9715E1896DE5F002471D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9715D1896DE5F002471D0 /* UIKit.framework */; };
@@ -104,6 +109,14 @@
 		293F2EDB18A22FA400DDB17A /* tab-icons-mylist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-mylist@2x.png"; sourceTree = "<group>"; };
 		293F2EDC18A22FA400DDB17A /* tab-icons-news@.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-news@.png"; sourceTree = "<group>"; };
 		293F2EDD18A22FA400DDB17A /* tab-icons-news@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-news@2x.png"; sourceTree = "<group>"; };
+		297409F418BC86B200FB59C7 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		297409F618BC86B900FB59C7 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		297409F918BC8AF400FB59C7 /* HAPFriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPFriendListViewController.h; sourceTree = "<group>"; };
+		297409FA18BC8AF400FB59C7 /* HAPFriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPFriendListViewController.m; sourceTree = "<group>"; };
+		297409FC18BD694A00FB59C7 /* HAPAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPAddFriendViewController.h; sourceTree = "<group>"; };
+		297409FD18BD694A00FB59C7 /* HAPAddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPAddFriendViewController.m; sourceTree = "<group>"; };
+		297409FF18BE883200FB59C7 /* HAPSearchFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPSearchFriendViewController.h; sourceTree = "<group>"; };
+		29740A0018BE883200FB59C7 /* HAPSearchFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPSearchFriendViewController.m; sourceTree = "<group>"; };
 		D9A971561896DE5F002471D0 /* happen-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "happen-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9A971591896DE5F002471D0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D9A9715B1896DE5F002471D0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -138,6 +151,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				297409F718BC86B900FB59C7 /* AddressBookUI.framework in Frameworks */,
+				297409F518BC86B200FB59C7 /* AddressBook.framework in Frameworks */,
 				D9A9719C1896E39F002471D0 /* AudioToolbox.framework in Frameworks */,
 				D9A9719D1896E39F002471D0 /* CFNetwork.framework in Frameworks */,
 				D9A9719E1896E39F002471D0 /* CoreLocation.framework in Frameworks */,
@@ -170,6 +185,7 @@
 		042B30FB189A131400BBCC2F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				297409F818BC870100FB59C7 /* Friends */,
 				045E4EEC18ADB57E00A480DD /* MyList */,
 				045E4EE918ADB51700A480DD /* Login */,
 				045E4EEB18ADB53700A480DD /* Feed */,
@@ -265,6 +281,19 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		297409F818BC870100FB59C7 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				297409F918BC8AF400FB59C7 /* HAPFriendListViewController.h */,
+				297409FA18BC8AF400FB59C7 /* HAPFriendListViewController.m */,
+				297409FC18BD694A00FB59C7 /* HAPAddFriendViewController.h */,
+				297409FD18BD694A00FB59C7 /* HAPAddFriendViewController.m */,
+				297409FF18BE883200FB59C7 /* HAPSearchFriendViewController.h */,
+				29740A0018BE883200FB59C7 /* HAPSearchFriendViewController.m */,
+			);
+			name = Friends;
+			sourceTree = "<group>";
+		};
 		D9A9714D1896DE5F002471D0 = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +316,8 @@
 		D9A971581896DE5F002471D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				297409F618BC86B900FB59C7 /* AddressBookUI.framework */,
+				297409F418BC86B200FB59C7 /* AddressBook.framework */,
 				D9A971931896E39F002471D0 /* AudioToolbox.framework */,
 				D9A971941896E39F002471D0 /* CFNetwork.framework */,
 				D9A971951896E39F002471D0 /* CoreLocation.framework */,
@@ -467,13 +498,16 @@
 				042B30FE189A15BE00BBCC2F /* HAPFriendsFeedViewController.m in Sources */,
 				042B311018A038F000BBCC2F /* HAPLoginViewController.m in Sources */,
 				045E4EEF18ADB5C200A480DD /* HAPAddEventViewController.m in Sources */,
+				297409FB18BC8AF400FB59C7 /* HAPFriendListViewController.m in Sources */,
 				04DD31A018A495E0008BA5DF /* RMMultipleViewsController.m in Sources */,
+				29740A0118BE883200FB59C7 /* HAPSearchFriendViewController.m in Sources */,
 				04DD319A18A490FC008BA5DF /* HAPFeedViewController.m in Sources */,
 				0459278218B55B7D00B8A13D /* HAPSelectEventTimeViewController.m in Sources */,
 				045E4EF218ADC79900A480DD /* HAPMyListViewController.m in Sources */,
 				042B3101189B2BC800BBCC2F /* HAPSignUpViewController.m in Sources */,
 				042B310D18A0287200BBCC2F /* HAPLoginSignUpViewController.m in Sources */,
 				D9A971661896DE5F002471D0 /* main.m in Sources */,
+				297409FE18BD694A00FB59C7 /* HAPAddFriendViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

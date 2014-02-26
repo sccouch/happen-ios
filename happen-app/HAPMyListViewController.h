@@ -9,6 +9,6 @@
 #import <Parse/Parse.h>
 #import "HAPAddEventViewController.h"
 
-@interface HAPMyListViewController : PFQueryTableViewController<AddEventViewContollerDelegate>
+@interface HAPMyListViewController : PFQueryTableViewController<AddEventViewContollerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
 
 @end
