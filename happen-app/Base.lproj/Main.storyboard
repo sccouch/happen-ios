@@ -274,10 +274,10 @@
             </objects>
             <point key="canvasLocation" x="1251" y="336"/>
         </scene>
-        <!--Table View Controller - Friends-->
+        <!--Friend Request Table View Controller - Friends-->
         <scene sceneID="kC8-ue-uNp">
             <objects>
-                <tableViewController storyboardIdentifier="FriendRequestView" title="Friends" id="ug7-zN-L0V" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FriendRequestView" title="Friends" id="ug7-zN-L0V" customClass="HAPFriendRequestTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3Kc-lv-TOA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -302,10 +302,10 @@
             </objects>
             <point key="canvasLocation" x="1679" y="771"/>
         </scene>
-        <!--Table View Controller - News-->
+        <!--News Table View Controller - News-->
         <scene sceneID="36o-Ij-b7x">
             <objects>
-                <tableViewController storyboardIdentifier="NotificationsView" title="News" id="goL-Gu-CHA" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NewsView" title="News" id="goL-Gu-CHA" customClass="HAPNewsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="VRS-ab-rgw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -328,7 +328,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngU-aK-Kdc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1687" y="17"/>
+            <point key="canvasLocation" x="1679" y="17"/>
         </scene>
         <!--My List View Controller - My List-->
         <scene sceneID="FuJ-3u-nGQ">
@@ -510,7 +510,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rEu-Ad-moa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2809" y="1339"/>
+            <point key="canvasLocation" x="2839" y="1487"/>
         </scene>
         <!--Add Event View Controller - New Event-->
         <scene sceneID="9cS-dU-oRs">
