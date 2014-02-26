@@ -38,6 +38,7 @@
 		297409FB18BC8AF400FB59C7 /* HAPFriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 297409FA18BC8AF400FB59C7 /* HAPFriendListViewController.m */; };
 		297409FE18BD694A00FB59C7 /* HAPAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 297409FD18BD694A00FB59C7 /* HAPAddFriendViewController.m */; };
 		29740A0118BE883200FB59C7 /* HAPSearchFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29740A0018BE883200FB59C7 /* HAPSearchFriendViewController.m */; };
+		D999AD2A18BE8A2D00500FF4 /* HAPNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D999AD2918BE8A2D00500FF4 /* HAPNewsViewController.m */; };
 		D9A9715A1896DE5F002471D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A971591896DE5F002471D0 /* Foundation.framework */; };
 		D9A9715C1896DE5F002471D0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9715B1896DE5F002471D0 /* CoreGraphics.framework */; };
 		D9A9715E1896DE5F002471D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9715D1896DE5F002471D0 /* UIKit.framework */; };
@@ -117,6 +118,8 @@
 		297409FD18BD694A00FB59C7 /* HAPAddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPAddFriendViewController.m; sourceTree = "<group>"; };
 		297409FF18BE883200FB59C7 /* HAPSearchFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPSearchFriendViewController.h; sourceTree = "<group>"; };
 		29740A0018BE883200FB59C7 /* HAPSearchFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPSearchFriendViewController.m; sourceTree = "<group>"; };
+		D999AD2818BE8A2D00500FF4 /* HAPNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPNewsViewController.h; sourceTree = "<group>"; };
+		D999AD2918BE8A2D00500FF4 /* HAPNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPNewsViewController.m; sourceTree = "<group>"; };
 		D9A971561896DE5F002471D0 /* happen-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "happen-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9A971591896DE5F002471D0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D9A9715B1896DE5F002471D0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -185,6 +188,7 @@
 		042B30FB189A131400BBCC2F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D999AD2718BE89AA00500FF4 /* News */,
 				297409F818BC870100FB59C7 /* Friends */,
 				045E4EEC18ADB57E00A480DD /* MyList */,
 				045E4EE918ADB51700A480DD /* Login */,
@@ -292,6 +296,15 @@
 				29740A0018BE883200FB59C7 /* HAPSearchFriendViewController.m */,
 			);
 			name = Friends;
+			sourceTree = "<group>";
+		};
+		D999AD2718BE89AA00500FF4 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				D999AD2818BE8A2D00500FF4 /* HAPNewsViewController.h */,
+				D999AD2918BE8A2D00500FF4 /* HAPNewsViewController.m */,
+			);
+			name = News;
 			sourceTree = "<group>";
 		};
 		D9A9714D1896DE5F002471D0 = {
@@ -505,6 +518,7 @@
 				0459278218B55B7D00B8A13D /* HAPSelectEventTimeViewController.m in Sources */,
 				045E4EF218ADC79900A480DD /* HAPMyListViewController.m in Sources */,
 				042B3101189B2BC800BBCC2F /* HAPSignUpViewController.m in Sources */,
+				D999AD2A18BE8A2D00500FF4 /* HAPNewsViewController.m in Sources */,
 				042B310D18A0287200BBCC2F /* HAPLoginSignUpViewController.m in Sources */,
 				D9A971661896DE5F002471D0 /* main.m in Sources */,
 				297409FE18BD694A00FB59C7 /* HAPAddFriendViewController.m in Sources */,
