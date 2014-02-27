@@ -8,6 +8,6 @@
 
 #import <Parse/Parse.h>
 
-@interface HAPFriendRequestTableViewController : PFQueryTableViewController
+@interface HAPFriendRequestTableViewController : UITableViewController
 
 @end
