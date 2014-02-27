@@ -14,7 +14,7 @@
     [super awakeFromNib];
     
     NSMutableArray *initialViewController = [NSMutableArray array];
-    [initialViewController addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"NotificationsView"]];
+    [initialViewController addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"NewsView"]];
     [initialViewController addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"FriendRequestView"]];
     
     self.viewController = initialViewController;
