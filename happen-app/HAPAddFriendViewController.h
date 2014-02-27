@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 Happen. All rights reserved.
 //
 
+#import <Parse/Parse.h>
 #import <UIKit/UIKit.h>
 
-@interface HAPAddFriendViewController : UITableViewController
+@interface HAPAddFriendViewController : PFQueryTableViewController
 
 @end

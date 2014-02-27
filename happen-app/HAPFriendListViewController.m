@@ -136,9 +136,9 @@
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
     // And Profile picture
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    CALayer *imageLayer = cell.imageView.layer;
-    [imageLayer setCornerRadius:cell.imageView.frame.size.height/2];
-    [imageLayer setMasksToBounds:YES];
+//    CALayer *imageLayer = cell.imageView.layer;
+//    [imageLayer setCornerRadius:cell.imageView.frame.size.height/2];
+//    [imageLayer setMasksToBounds:YES];
     
     cell.imageView.file = [object objectForKey:self.imageKey];
     return cell;
