@@ -11,6 +11,7 @@
 		042B3101189B2BC800BBCC2F /* HAPSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B3100189B2BC800BBCC2F /* HAPSignUpViewController.m */; };
 		042B310D18A0287200BBCC2F /* HAPLoginSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B310C18A0287200BBCC2F /* HAPLoginSignUpViewController.m */; };
 		042B311018A038F000BBCC2F /* HAPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B310F18A038F000BBCC2F /* HAPLoginViewController.m */; };
+		04332E7118C4445F00488139 /* HAPAcceptFriendButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04332E7018C4445F00488139 /* HAPAcceptFriendButton.m */; };
 		0459278218B55B7D00B8A13D /* HAPSelectEventTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459278118B55B7D00B8A13D /* HAPSelectEventTimeViewController.m */; };
 		045E4EEF18ADB5C200A480DD /* HAPAddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E4EEE18ADB5C200A480DD /* HAPAddEventViewController.m */; };
 		045E4EF218ADC79900A480DD /* HAPMyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E4EF118ADC79900A480DD /* HAPMyListViewController.m */; };
@@ -85,6 +86,8 @@
 		042B310C18A0287200BBCC2F /* HAPLoginSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPLoginSignUpViewController.m; sourceTree = "<group>"; };
 		042B310E18A038F000BBCC2F /* HAPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPLoginViewController.h; sourceTree = "<group>"; };
 		042B310F18A038F000BBCC2F /* HAPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPLoginViewController.m; sourceTree = "<group>"; };
+		04332E6F18C4445F00488139 /* HAPAcceptFriendButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPAcceptFriendButton.h; sourceTree = "<group>"; };
+		04332E7018C4445F00488139 /* HAPAcceptFriendButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPAcceptFriendButton.m; sourceTree = "<group>"; };
 		0459278018B55B7D00B8A13D /* HAPSelectEventTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPSelectEventTimeViewController.h; sourceTree = "<group>"; };
 		0459278118B55B7D00B8A13D /* HAPSelectEventTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPSelectEventTimeViewController.m; sourceTree = "<group>"; };
 		045E4EED18ADB5C200A480DD /* HAPAddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPAddEventViewController.h; sourceTree = "<group>"; };
@@ -313,6 +316,8 @@
 				D999AD3218BE915400500FF4 /* HAPNewsTableViewController.m */,
 				D999AD3418BE916300500FF4 /* HAPFriendRequestTableViewController.h */,
 				D999AD3518BE916300500FF4 /* HAPFriendRequestTableViewController.m */,
+				04332E6F18C4445F00488139 /* HAPAcceptFriendButton.h */,
+				04332E7018C4445F00488139 /* HAPAcceptFriendButton.m */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				042B311018A038F000BBCC2F /* HAPLoginViewController.m in Sources */,
 				045E4EEF18ADB5C200A480DD /* HAPAddEventViewController.m in Sources */,
 				D999AD3318BE915400500FF4 /* HAPNewsTableViewController.m in Sources */,
+				04332E7118C4445F00488139 /* HAPAcceptFriendButton.m in Sources */,
 				297409FB18BC8AF400FB59C7 /* HAPFriendListViewController.m in Sources */,
 				04DD31A018A495E0008BA5DF /* RMMultipleViewsController.m in Sources */,
 				29740A0118BE883200FB59C7 /* HAPSearchFriendViewController.m in Sources */,

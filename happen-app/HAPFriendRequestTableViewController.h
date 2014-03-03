@@ -7,7 +7,10 @@
 //
 
 #import <Parse/Parse.h>
+#import "HAPAcceptFriendButton.h"
 
-@interface HAPFriendRequestTableViewController : UITableViewController
+@interface HAPFriendRequestTableViewController : PFQueryTableViewController
+
+
 
 @end
