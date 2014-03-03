@@ -8,6 +8,7 @@
 
 #import <Parse/Parse.h>
 #import <UIKit/UIKit.h>
+#import "HAPRequestFriendButton.h"
 
 @interface HAPAddFriendViewController : PFQueryTableViewController
 

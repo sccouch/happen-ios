@@ -187,13 +187,39 @@
 //    [imageLayer setMasksToBounds:YES];
     
     cell.imageView.file = [object objectForKey:self.imageKey];
+    
+//    HAPAcceptFriendButton *acceptFriendRequestButton = [[HAPAcceptFriendButton alloc] initWithFrame:CGRectMake(200.0f, 5.0f, 75.0f, 30.0f)];
+//    acceptFriendRequestButton.objectId = object.objectId;
+//    [acceptFriendRequestButton setTitle:@"Accept" forState:UIControlStateNormal];
+//    [acceptFriendRequestButton setBackgroundColor: [UIColor redColor]];
+//    [cell addSubview:acceptFriendRequestButton];
+//    [acceptFriendRequestButton addTarget:self
+//                                  action:@selector(acceptFriendRequest:)
+//                        forControlEvents:UIControlEventTouchUpInside];
+    
+    HAPRequestFriendButton *requestFriendButton = [[HAPRequestFriendButton alloc] initWithFrame:CGRectMake(200.0f, 5.0f, 75.0f, 30.0f)];
+    requestFriendButton.user = (PFUser *)object;
+    [requestFriendButton setTitle:@"Add" forState:UIControlStateNormal];
+    [requestFriendButton setBackgroundColor:[UIColor blueColor]];
+    [cell addSubview:requestFriendButton];
+    [requestFriendButton addTarget:self action:@selector(requestFriend:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
+}
+
+- (IBAction)requestFriend:(id)sender {
+    HAPRequestFriendButton *friendRequestButton = (HAPRequestFriendButton *)sender;
+    PFObject *request = [PFObject objectWithClassName:@"FriendRequest"];
+    [request setObject:[PFUser currentUser] forKey:@"source"];
+    [request setObject:friendRequestButton.user forKey:@"target"];
+    [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
-
 
 // Back button pressed
 - (IBAction)backButtonPressed:(id)sender {

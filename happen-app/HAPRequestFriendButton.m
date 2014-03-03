@@ -1,14 +1,14 @@
 //
-//  HAPAcceptFriendButton.m
+//  HAPRequestFriendButton.m
 //  happen-app
 //
-//  Created by Jack Okerman on 3/2/14.
+//  Created by Jack Okerman on 3/3/14.
 //  Copyright (c) 2014 Happen. All rights reserved.
 //
 
-#import "HAPAcceptFriendButton.h"
+#import "HAPRequestFriendButton.h"
 
-@implementation HAPAcceptFriendButton
+@implementation HAPRequestFriendButton
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
