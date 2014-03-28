@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "HAPRequestFriendButton.h"
 
-@interface HAPSearchFriendViewController : UITableViewController
+@interface HAPSearchFriendViewController : UITableViewController <UISearchBarDelegate>
 
 @end
