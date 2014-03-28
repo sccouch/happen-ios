@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Parse/Parse.h"
 
-@interface HAPFriendsFeedViewController : PFQueryTableViewController
+@interface HAPFriendsFeedViewController : PFQueryTableViewController <UIAlertViewDelegate>
+
+@property (weak, nonatomic) PFObject *selectedObject;
 
 @end

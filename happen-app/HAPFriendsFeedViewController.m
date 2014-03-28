@@ -204,8 +204,32 @@
 
 #pragma mark - UITableViewDelegate
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    
+    if([title isEqualToString:@"Me Too"])
+    {
+        NSLog([_selectedObject objectForKey:self.textKey]);
+    }
+    else if([title isEqualToString:@"Hide"])
+    {
+        NSLog(@"Hide");
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    _selectedObject = [self objectAtIndexPath:indexPath];
+    UIAlertView *messageAlert = [[UIAlertView alloc]
+                                 initWithTitle:@"Row Selected"
+                                 message:nil
+                                 delegate:self
+                                 cancelButtonTitle:@"Cancel"
+                                 otherButtonTitles:@"Me Too", @"Hide", nil];
+    
+    // Display Alert Message
+    [messageAlert show];
+    //[super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 @end
