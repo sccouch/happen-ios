@@ -208,7 +208,7 @@ NSData *imageData;
     
     user[@"firstName"] = [userInfo objectForKey:@"firstName"];
     user[@"lastName"] = [userInfo objectForKey:@"lastName"];
-    user[@"phone"] = [NSNumber numberWithInt:[[userInfo objectForKey:@"phoneNumber"] intValue]];
+    user[@"phoneNumber"] = [userInfo objectForKey:@"phoneNumber"];
     user[@"profilePic"] = [userInfo objectForKey:@"profilePic"];
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

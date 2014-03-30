@@ -103,22 +103,30 @@
  // Override to customize what kind of query to perform on the class. The default is to query for
  // all objects ordered by createdAt descending.
  - (PFQuery *)queryForTable {
-     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
      
+     // Query for friends
+     PFRelation *relation = [[PFUser currentUser] relationForKey:@"friends"];
+     PFQuery *friends = [relation query];
+     
+     // Query for events created by friends
+     PFQuery *friendsEventsQuery = [PFQuery queryWithClassName:self.parseClassName];
+     [friendsEventsQuery whereKey:@"creator" matchesQuery:friends];
+
      // If Pull To Refresh is enabled, query against the network by default.
      if (self.pullToRefreshEnabled) {
-     query.cachePolicy = kPFCachePolicyNetworkOnly;
+     friendsEventsQuery.cachePolicy = kPFCachePolicyNetworkOnly;
      }
      
      // If no objects are loaded in memory, we look to the cache first to fill the table
      // and then subsequently do a query against the network.
      if (self.objects.count == 0) {
-     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+     friendsEventsQuery.cachePolicy = kPFCachePolicyCacheThenNetwork;
      }
      
-     [query orderByDescending:@"createdAt"];
+     [friendsEventsQuery includeKey:@"creator"];
+     [friendsEventsQuery orderByDescending:@"createdAt"];
      
-     return query;
+     return friendsEventsQuery;
  }
 
 
@@ -131,13 +139,22 @@
      
      PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
      if (cell == nil) {
-     cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+     cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
      }
      
      // Configure the cell
      cell.textLabel.text = [object objectForKey:self.textKey];
-     cell.imageView.file = [object objectForKey:self.imageKey];
+     //cell.imageView.file = [object objectForKey:self.imageKey];
      
+     PFUser *friend = [object objectForKey:@"creator"];
+     
+     
+     NSString *firstName = [friend objectForKey:@"firstName"];
+     NSString *lastName = [friend objectForKey:@"lastName"];
+     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+     cell.imageView.file = [friend objectForKey:@"profilePic"];
+
      return cell;
  }
 
