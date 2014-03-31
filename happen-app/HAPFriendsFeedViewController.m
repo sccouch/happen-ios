@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Happen. All rights reserved.
 //
 
+#import "HAPFeedCell.h"
 #import "HAPFriendsFeedViewController.h"
 
 @implementation HAPFriendsFeedViewController
@@ -129,32 +130,48 @@
      return friendsEventsQuery;
  }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 70;
+}
+
 
 
  // Override to customize the look of a cell representing an object. The default is to display
  // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
  // and the imageView being the imageKey in the object.
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
-     static NSString *CellIdentifier = @"Cell";
-     
-     PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
+     static NSString *CellIdentifier = @"HAPFeedCell";
+     //PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+     HAPFeedCell *cell = (HAPFeedCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
      if (cell == nil) {
-     cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+     //cell = [[HAPFeedCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+     cell = [[HAPFeedCell alloc] init];
      }
      
      // Configure the cell
-     cell.textLabel.text = [object objectForKey:self.textKey];
-     //cell.imageView.file = [object objectForKey:self.imageKey];
-     
+
+     cell.eventLabel.text = [object objectForKey:self.textKey];
      PFUser *friend = [object objectForKey:@"creator"];
-     
-     
+
      NSString *firstName = [friend objectForKey:@"firstName"];
      NSString *lastName = [friend objectForKey:@"lastName"];
-     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
-     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-     cell.imageView.file = [friend objectForKey:@"profilePic"];
+     
+     cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+     cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;
 
+     cell.profilePicView.image = [UIImage imageNamed:@"placeholder.jpg"];
+     PFFile *imageFile = [friend objectForKey:@"profilePic"];
+     CALayer *imageLayer = cell.profilePicView.layer;
+     [imageLayer setCornerRadius:cell.profilePicView.frame.size.width/2];
+     [imageLayer setMasksToBounds:YES];
+     [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+         // Now that the data is fetched, update the cell's image property.
+         cell.profilePicView.image = [UIImage imageWithData:data];
+     }];
+     
+     
      return cell;
  }
 

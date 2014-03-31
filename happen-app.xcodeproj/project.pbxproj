@@ -35,6 +35,7 @@
 		293F2EE318A22FA400DDB17A /* tab-icons-mylist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDB18A22FA400DDB17A /* tab-icons-mylist@2x.png */; };
 		293F2EE418A22FA400DDB17A /* tab-icons-news@.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDC18A22FA400DDB17A /* tab-icons-news@.png */; };
 		293F2EE518A22FA400DDB17A /* tab-icons-news@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDD18A22FA400DDB17A /* tab-icons-news@2x.png */; };
+		2967D99418E8CC13009057D1 /* HAPFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2967D99318E8CC13009057D1 /* HAPFeedCell.m */; };
 		297409F518BC86B200FB59C7 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297409F418BC86B200FB59C7 /* AddressBook.framework */; };
 		297409F718BC86B900FB59C7 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297409F618BC86B900FB59C7 /* AddressBookUI.framework */; };
 		297409FB18BC8AF400FB59C7 /* HAPFriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 297409FA18BC8AF400FB59C7 /* HAPFriendListViewController.m */; };
@@ -118,6 +119,8 @@
 		293F2EDB18A22FA400DDB17A /* tab-icons-mylist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-mylist@2x.png"; sourceTree = "<group>"; };
 		293F2EDC18A22FA400DDB17A /* tab-icons-news@.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-news@.png"; sourceTree = "<group>"; };
 		293F2EDD18A22FA400DDB17A /* tab-icons-news@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-news@2x.png"; sourceTree = "<group>"; };
+		2967D99218E8CC13009057D1 /* HAPFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPFeedCell.h; sourceTree = "<group>"; };
+		2967D99318E8CC13009057D1 /* HAPFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPFeedCell.m; sourceTree = "<group>"; };
 		297409F418BC86B200FB59C7 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		297409F618BC86B900FB59C7 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		297409F918BC8AF400FB59C7 /* HAPFriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPFriendListViewController.h; sourceTree = "<group>"; };
@@ -229,6 +232,8 @@
 				042B30FD189A15BE00BBCC2F /* HAPFriendsFeedViewController.m */,
 				04DD319818A490FC008BA5DF /* HAPFeedViewController.h */,
 				04DD319918A490FC008BA5DF /* HAPFeedViewController.m */,
+				2967D99218E8CC13009057D1 /* HAPFeedCell.h */,
+				2967D99318E8CC13009057D1 /* HAPFeedCell.m */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -536,6 +541,7 @@
 				297409FB18BC8AF400FB59C7 /* HAPFriendListViewController.m in Sources */,
 				04DD31A018A495E0008BA5DF /* RMMultipleViewsController.m in Sources */,
 				29740A0118BE883200FB59C7 /* HAPSearchFriendViewController.m in Sources */,
+				2967D99418E8CC13009057D1 /* HAPFeedCell.m in Sources */,
 				04332E7418C523F200488139 /* HAPRequestFriendButton.m in Sources */,
 				D999AD3618BE916300500FF4 /* HAPFriendRequestTableViewController.m in Sources */,
 				04DD319A18A490FC008BA5DF /* HAPFeedViewController.m in Sources */,
