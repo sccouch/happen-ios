@@ -260,6 +260,7 @@
                     
                     [meToos addObject:[PFUser currentUser]];
                     [event saveInBackground];
+                    [self loadObjects];
                 }
             } else {
                 // Log details of the failure
@@ -267,7 +268,7 @@
             }
         }];
         
-        [self.tableView reloadData];
+        
     }
     
 //    else if([title isEqualToString:@"Hide"])

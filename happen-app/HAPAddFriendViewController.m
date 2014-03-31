@@ -219,6 +219,7 @@
     [request setObject:friendRequestButton.user forKey:@"target"];
     [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [self dismissViewControllerAnimated:YES completion:nil];
+        [self loadObjects];
     }];
 }
 

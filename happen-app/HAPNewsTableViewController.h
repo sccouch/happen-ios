@@ -8,6 +8,6 @@
 
 #import <Parse/Parse.h>
 
-@interface HAPNewsTableViewController : UITableViewController
+@interface HAPNewsTableViewController : PFQueryTableViewController
 
 @end

@@ -180,6 +180,7 @@
                                 block:^(NSString *result, NSError *error) {
                                     if (!error) {
                                         // result is @"Hello world!"
+                                        [self loadObjects];
                                     }
                                 }];
 }
