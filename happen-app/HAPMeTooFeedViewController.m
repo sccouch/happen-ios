@@ -106,28 +106,26 @@
 - (PFQuery *)queryForTable {
     
     // Query for friends
-    PFRelation *relation = [[PFUser currentUser] relationForKey:@"friends"];
-    PFQuery *friends = [relation query];
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
     
-    // Query for events created by friends
-    PFQuery *friendsEventsQuery = [PFQuery queryWithClassName:self.parseClassName];
-    [friendsEventsQuery whereKey:@"creator" matchesQuery:friends];
+    [query includeKey:@"creator"];
+    
+    [query orderByDescending:@"createdAt"];
+    
+    [query whereKey:@"meToos" equalTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:[[PFUser currentUser] objectId]]];
     
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
-        friendsEventsQuery.cachePolicy = kPFCachePolicyNetworkOnly;
+        query.cachePolicy = kPFCachePolicyNetworkOnly;
     }
     
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
     if (self.objects.count == 0) {
-        friendsEventsQuery.cachePolicy = kPFCachePolicyCacheThenNetwork;
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
     
-    [friendsEventsQuery includeKey:@"creator"];
-    [friendsEventsQuery orderByDescending:@"createdAt"];
-    
-    return friendsEventsQuery;
+    return query;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

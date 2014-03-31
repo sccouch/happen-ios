@@ -112,6 +112,8 @@
      // Query for events created by friends
      PFQuery *friendsEventsQuery = [PFQuery queryWithClassName:self.parseClassName];
      [friendsEventsQuery whereKey:@"creator" matchesQuery:friends];
+     
+     [friendsEventsQuery whereKey:@"meToos" notEqualTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:[[PFUser currentUser] objectId]]];
 
      // If Pull To Refresh is enabled, query against the network by default.
      if (self.pullToRefreshEnabled) {
