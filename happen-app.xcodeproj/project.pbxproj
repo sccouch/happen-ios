@@ -16,6 +16,7 @@
 		0459278218B55B7D00B8A13D /* HAPSelectEventTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459278118B55B7D00B8A13D /* HAPSelectEventTimeViewController.m */; };
 		045E4EEF18ADB5C200A480DD /* HAPAddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E4EEE18ADB5C200A480DD /* HAPAddEventViewController.m */; };
 		045E4EF218ADC79900A480DD /* HAPMyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E4EF118ADC79900A480DD /* HAPMyListViewController.m */; };
+		04CFAE6E18E903B700D21F81 /* HAPMeTooFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CFAE6D18E903B700D21F81 /* HAPMeTooFeedViewController.m */; };
 		04DD319A18A490FC008BA5DF /* HAPFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD319918A490FC008BA5DF /* HAPFeedViewController.m */; };
 		04DD31A018A495E0008BA5DF /* RMMultipleViewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD319E18A495E0008BA5DF /* RMMultipleViewsController.m */; };
 		04DD31A118A495E0008BA5DF /* RMMultipleViewsController.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DD319F18A495E0008BA5DF /* RMMultipleViewsController.xcassets */; };
@@ -98,6 +99,8 @@
 		045E4EEE18ADB5C200A480DD /* HAPAddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPAddEventViewController.m; sourceTree = "<group>"; };
 		045E4EF018ADC79900A480DD /* HAPMyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPMyListViewController.h; sourceTree = "<group>"; };
 		045E4EF118ADC79900A480DD /* HAPMyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPMyListViewController.m; sourceTree = "<group>"; };
+		04CFAE6C18E903B700D21F81 /* HAPMeTooFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPMeTooFeedViewController.h; sourceTree = "<group>"; };
+		04CFAE6D18E903B700D21F81 /* HAPMeTooFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPMeTooFeedViewController.m; sourceTree = "<group>"; };
 		04DD319818A490FC008BA5DF /* HAPFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPFeedViewController.h; sourceTree = "<group>"; };
 		04DD319918A490FC008BA5DF /* HAPFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPFeedViewController.m; sourceTree = "<group>"; };
 		04DD319D18A495E0008BA5DF /* RMMultipleViewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMultipleViewsController.h; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 				04DD319918A490FC008BA5DF /* HAPFeedViewController.m */,
 				2967D99218E8CC13009057D1 /* HAPFeedCell.h */,
 				2967D99318E8CC13009057D1 /* HAPFeedCell.m */,
+				04CFAE6C18E903B700D21F81 /* HAPMeTooFeedViewController.h */,
+				04CFAE6D18E903B700D21F81 /* HAPMeTooFeedViewController.m */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -535,6 +540,7 @@
 				D9A9716A1896DE5F002471D0 /* HAPAppDelegate.m in Sources */,
 				042B30FE189A15BE00BBCC2F /* HAPFriendsFeedViewController.m in Sources */,
 				042B311018A038F000BBCC2F /* HAPLoginViewController.m in Sources */,
+				04CFAE6E18E903B700D21F81 /* HAPMeTooFeedViewController.m in Sources */,
 				045E4EEF18ADB5C200A480DD /* HAPAddEventViewController.m in Sources */,
 				D999AD3318BE915400500FF4 /* HAPNewsTableViewController.m in Sources */,
 				04332E7118C4445F00488139 /* HAPAcceptFriendButton.m in Sources */,
