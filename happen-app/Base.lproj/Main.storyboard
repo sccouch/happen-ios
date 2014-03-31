@@ -58,7 +58,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYV-zk-2D0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1325" y="-696"/>
+            <point key="canvasLocation" x="1397" y="-648"/>
         </scene>
         <!--Me Too Feed View Controller - Me Too-->
         <scene sceneID="FX1-bJ-Rex">
@@ -180,6 +180,32 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4oI-wy-BtL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="QfW-gg-yhH">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Want some company?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="172" translatesAutoresizingMaskIntoConstraints="NO" id="aRE-Hh-rw2">
+                            <rect key="frame" x="74" y="100" width="172" height="92"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Oa-7b-r2N">
+                            <rect key="frame" x="96" y="240" width="128" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="Add Friends">
+                                <color key="titleColor" red="0.28343946920000002" green="0.736328125" blue="0.54799856830000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <segue destination="HxT-N4-8Ur" kind="modal" id="eHQ-ju-WBJ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.1110818855" green="0.12603608969999999" blue="0.20906409440000001" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1834" y="-2256"/>
         </scene>
@@ -202,7 +228,7 @@
         <!--Add Friend View Controller - Add Friends-->
         <scene sceneID="hnB-Uu-EKs">
             <objects>
-                <tableViewController id="aez-ZK-cq4" customClass="HAPAddFriendViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddFriends" id="aez-ZK-cq4" customClass="HAPAddFriendViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gc4-ly-vbL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -269,7 +295,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ySi-9v-yTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2483" y="-696"/>
+            <point key="canvasLocation" x="2439" y="-696"/>
         </scene>
         <!--Search Friend View Controller - Search Happen-->
         <scene sceneID="BL0-RR-khG">
@@ -379,7 +405,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yS8-EE-haS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1949" y="-696"/>
+            <point key="canvasLocation" x="1989" y="-696"/>
         </scene>
         <!--Friend Event List View Controller - Friends-->
         <scene sceneID="EJm-Nk-k0i">
@@ -1255,4 +1281,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="eHQ-ju-WBJ"/>
+    </inferredMetricsTieBreakers>
 </document>

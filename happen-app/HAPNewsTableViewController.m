@@ -88,9 +88,6 @@
 
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
-    
-    NSString *count = [NSString stringWithFormat: @"%d", (int)self.objects.count];
-    [[[[[self tabBarController] tabBar] items] objectAtIndex:2] setBadgeValue:count];
     // This method is called every time objects are loaded from Parse via the PFQuery
 }
 
