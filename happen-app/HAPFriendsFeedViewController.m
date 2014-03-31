@@ -244,22 +244,42 @@
     
     if([title isEqualToString:@"Me Too"])
     {
-        NSLog([_selectedObject objectForKey:self.textKey]);
+        PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+        
+        [query includeKey:@"creator"];
+        
+        [query whereKey:@"objectId" equalTo: [_selectedObject objectId]];
+        
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                for (PFObject *object in objects) {
+                    PFObject *event = object;
+                    PFRelation *meToos = [event relationForKey:@"meToos"];
+                    
+                    [meToos addObject:[PFUser currentUser]];
+                    [event saveInBackground];
+                }
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
     }
-    else if([title isEqualToString:@"Hide"])
-    {
-        NSLog(@"Hide");
-    }
+    
+//    else if([title isEqualToString:@"Hide"])
+//    {
+//        NSLog(@"Hide");
+//    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     _selectedObject = [self objectAtIndexPath:indexPath];
     UIAlertView *messageAlert = [[UIAlertView alloc]
-                                 initWithTitle:@"Row Selected"
+                                 initWithTitle:@"Me Too?"
                                  message:nil
                                  delegate:self
                                  cancelButtonTitle:@"Cancel"
-                                 otherButtonTitles:@"Me Too", @"Hide", nil];
+                                 otherButtonTitles:@"Me Too", nil];
     
     // Display Alert Message
     [messageAlert show];
