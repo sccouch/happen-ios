@@ -1,31 +1,32 @@
 //
-//  HAPFriendListViewController.m
+//  HAPFriendEventListViewController.m
 //  happen-app
 //
-//  Created by Kalyn Nakano on 2/25/14.
+//  Created by Kalyn Nakano on 3/31/14.
 //  Copyright (c) 2014 Happen. All rights reserved.
 //
 
-#import "HAPFriendListViewController.h"
 #import "HAPFriendEventListViewController.h"
-#import "HAPFriendsCell.h"
 
-@interface HAPFriendListViewController ()
+@interface HAPFriendEventListViewController ()
 
 @end
 
-@implementation HAPFriendListViewController
+@implementation HAPFriendEventListViewController
 
 - (id)initWithCoder:(NSCoder *)aCoder {
     self = [super initWithCoder:aCoder];
     if (self) {
         // Customize the table
         
+        // The className to query on
+        self.parseClassName = @"Event";
+        
         // The key of the PFObject to display in the label of the default cell style
-        self.textKey = @"firstName";
+        self.textKey = @"details";
         
         // Uncomment the following line to specify the key of a PFFile on the PFObject to display in the imageView of the default cell style
-        self.imageKey = @"profilePic";
+        // self.imageKey = @"image";
         
         // Whether the built-in pull-to-refresh is enabled
         self.pullToRefreshEnabled = YES;
@@ -35,20 +36,36 @@
         
         // The number of objects to show per page
         self.objectsPerPage = 25;
+
     }
     return self;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
+    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    // Release any cached data, images, etc that aren't in use.
 }
-
-#pragma mark - UIViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    PFUser *user = self.friend;
+    
+    PFFile *userImageFile = user[@"profilePic"];
+    [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+        if (!error) {
+            [self.profilePicture setImage: [UIImage imageWithData:imageData]];
+        }
+    }];
+    //    [imageLayer setCornerRadius:_profilePic.frame.size.width/2];
+    
+    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width/2;
+    self.profilePicture.layer.masksToBounds = YES;
+    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
+    self.usernameLabel.text = [NSString stringWithFormat:@"@%@", user[@"username"]];
+    
 }
 
 - (void)viewDidUnload {
@@ -94,20 +111,12 @@
 }
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 60;
-}
-
-
 // Override to customize what kind of query to perform on the class. The default is to query for
 // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
     
-    //PFQuery *query = [PFQuery queryWithClassName:@"User"];
-    //[query whereKey:@"creator" equalTo:[PFUser currentUser]];
-    PFRelation *relation = [[PFUser currentUser] relationForKey:@"friends"];
-    PFQuery *query = [relation query];
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    [query whereKey:@"creator" equalTo:self.friend];
     
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
@@ -120,7 +129,7 @@
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
     
-    [query orderByAscending:@"firstName"];
+    [query orderByDescending:@"createdAt"];
     
     return query;
 }
@@ -130,55 +139,18 @@
 // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
 // and the imageView being the imageKey in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
-    static NSString *CellIdentifier = @"HAPFriendsCell";
+    static NSString *CellIdentifier = @"Cell";
     
-    HAPFriendsCell *cell = (HAPFriendsCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[HAPFriendsCell alloc] init];
+        cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell
+    cell.textLabel.text = [object objectForKey:self.textKey];
+    cell.imageView.file = [object objectForKey:self.imageKey];
     
-    // With Friend Name
-    NSString *firstName = [object objectForKey:self.textKey];
-    NSString *lastName = [object objectForKey:@"lastName"];
-    cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
-    
-    // With Username
-    NSString *username = [object objectForKey:@"username"];
-    cell.usernameLabel.text = [NSString stringWithFormat:@"@%@", username];
-    
-    // And Profile picture
-    cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;
-    cell.profilePicView.image = [UIImage imageNamed:@"placeholder.jpg"];
-    PFFile *imageFile = [object objectForKey:@"profilePic"];
-    CALayer *imageLayer = cell.profilePicView.layer;
-    [imageLayer setCornerRadius:cell.profilePicView.frame.size.width/2];
-    [imageLayer setMasksToBounds:YES];
-    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        // Now that the data is fetched, update the cell's image property.
-        cell.profilePicView.image = [UIImage imageWithData:data];
-    }];
-
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Check that a new transition has been requested to the DetailViewController and prepares for it
-    if ([segue.identifier isEqualToString:@"FriendEventList"]){
-        
-        // Capture the object (e.g. exam) the user has selected from the list
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        PFObject *object = [self.objects objectAtIndex:indexPath.row];
-        
-        HAPFriendEventListViewController *detailViewController = [segue destinationViewController];
-        detailViewController.friend = object;
-    }
 }
 
 @end
