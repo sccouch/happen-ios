@@ -8,6 +8,7 @@
 
 #import <AddressBook/AddressBook.h>
 #import "HAPAddFriendViewController.h"
+#import "HAPFriendsCell.h"
 
 @interface HAPAddFriendViewController ()
 @property (nonatomic, unsafe_unretained) ABAddressBookRef addressBook;
@@ -164,50 +165,54 @@
     return query;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
 
 // Override to customize the look of a cell representing an object. The default is to display
 // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
 // and the imageView being the imageKey in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"HAPFriendsCell";
     
-    PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    HAPFriendsCell *cell = (HAPFriendsCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[HAPFriendsCell alloc] init];
     }
     
     // Configure the cell
+    
+    // With Friend Name
     NSString *firstName = [object objectForKey:self.textKey];
     NSString *lastName = [object objectForKey:@"lastName"];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+    
+    // With Username
+    NSString *username = [object objectForKey:@"username"];
+    cell.usernameLabel.text = [NSString stringWithFormat:@"@%@", username];
+    
     // And Profile picture
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-//    CALayer *imageLayer = cell.imageView.layer;
-//    [imageLayer setCornerRadius:cell.imageView.frame.size.height/2];
-//    [imageLayer setMasksToBounds:YES];
-    
-    cell.imageView.file = [object objectForKey:self.imageKey];
-    
-//    HAPAcceptFriendButton *acceptFriendRequestButton = [[HAPAcceptFriendButton alloc] initWithFrame:CGRectMake(200.0f, 5.0f, 75.0f, 30.0f)];
-//    acceptFriendRequestButton.objectId = object.objectId;
-//    [acceptFriendRequestButton setTitle:@"Accept" forState:UIControlStateNormal];
-//    [acceptFriendRequestButton setBackgroundColor: [UIColor redColor]];
-//    [cell addSubview:acceptFriendRequestButton];
-//    [acceptFriendRequestButton addTarget:self
-//                                  action:@selector(acceptFriendRequest:)
-//                        forControlEvents:UIControlEventTouchUpInside];
-    
-    HAPRequestFriendButton *requestFriendButton = [[HAPRequestFriendButton alloc] initWithFrame:CGRectMake(200.0f, 5.0f, 75.0f, 30.0f)];
-    requestFriendButton.user = (PFUser *)object;
-    [requestFriendButton setTitle:@"Add" forState:UIControlStateNormal];
-    [requestFriendButton setBackgroundColor:[UIColor blueColor]];
-    [cell addSubview:requestFriendButton];
-    [requestFriendButton addTarget:self action:@selector(requestFriend:) forControlEvents:UIControlEventTouchUpInside];
+    cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;
+    cell.profilePicView.image = [UIImage imageNamed:@"placeholder.jpg"];
+    PFFile *imageFile = [object objectForKey:@"profilePic"];
+    CALayer *imageLayer = cell.profilePicView.layer;
+    [imageLayer setCornerRadius:cell.profilePicView.frame.size.width/2];
+    [imageLayer setMasksToBounds:YES];
+    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        // Now that the data is fetched, update the cell's image property.
+        cell.profilePicView.image = [UIImage imageWithData:data];
+    }];
+
+    // Add Button
+    cell.addButton.user = (PFUser *)object;
+    [cell.addButton addTarget:self action:@selector(requestFriend:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }
 
 - (IBAction)requestFriend:(id)sender {
+    NSLog(@"send friend request pls");
     HAPRequestFriendButton *friendRequestButton = (HAPRequestFriendButton *)sender;
     PFObject *request = [PFObject objectWithClassName:@"FriendRequest"];
     [request setObject:[PFUser currentUser] forKey:@"source"];

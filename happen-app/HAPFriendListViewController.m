@@ -7,6 +7,7 @@
 //
 
 #import "HAPFriendListViewController.h"
+#import "HAPFriendsCell.h"
 
 @interface HAPFriendListViewController ()
 
@@ -92,6 +93,12 @@
 }
 
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
+
 // Override to customize what kind of query to perform on the class. The default is to query for
 // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
@@ -122,25 +129,36 @@
 // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
 // and the imageView being the imageKey in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"HAPFriendsCell";
     
-    PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    HAPFriendsCell *cell = (HAPFriendsCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[HAPFriendsCell alloc] init];
     }
     
     // Configure the cell
+    
     // With Friend Name
     NSString *firstName = [object objectForKey:self.textKey];
     NSString *lastName = [object objectForKey:@"lastName"];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
-    // And Profile picture
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-//    CALayer *imageLayer = cell.imageView.layer;
-//    [imageLayer setCornerRadius:cell.imageView.frame.size.height/2];
-//    [imageLayer setMasksToBounds:YES];
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
     
-    cell.imageView.file = [object objectForKey:self.imageKey];
+    // With Username
+    NSString *username = [object objectForKey:@"username"];
+    cell.usernameLabel.text = [NSString stringWithFormat:@"@%@", username];
+    
+    // And Profile picture
+    cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;
+    cell.profilePicView.image = [UIImage imageNamed:@"placeholder.jpg"];
+    PFFile *imageFile = [object objectForKey:@"profilePic"];
+    CALayer *imageLayer = cell.profilePicView.layer;
+    [imageLayer setCornerRadius:cell.profilePicView.frame.size.width/2];
+    [imageLayer setMasksToBounds:YES];
+    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        // Now that the data is fetched, update the cell's image property.
+        cell.profilePicView.image = [UIImage imageWithData:data];
+    }];
+
     return cell;
 }
 

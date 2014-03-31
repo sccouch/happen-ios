@@ -7,6 +7,7 @@
 //
 
 #import "HAPFriendRequestTableViewController.h"
+#import "HAPFriendsCell.h"
 
 @interface HAPFriendRequestTableViewController ()
 
@@ -88,6 +89,8 @@
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
     
+    NSString *count = [NSString stringWithFormat: @"%d", (int)self.objects.count];
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:2] setBadgeValue:count];
     // This method is called every time objects are loaded from Parse via the PFQuery
 }
 
@@ -116,36 +119,54 @@
     if (self.objects.count == 0) {
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
-    
+
     [query orderByAscending:@"createdAt"];
     
     return query;
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
 
 // Override to customize the look of a cell representing an object. The default is to display
 // a UITableViewCellStyleDefault style cell with the label being the first key in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"HAPFriendsCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    HAPFriendsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[HAPFriendsCell alloc] init];
     }
     
     // Configure the cell
     PFUser *source = [object objectForKey:@"source"];
+    
+    // With Source Name
     NSString *firstName = [source objectForKey:@"firstName"];
     NSString *lastName = [source objectForKey:@"lastName"];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
     
-    HAPAcceptFriendButton *acceptFriendRequestButton = [[HAPAcceptFriendButton alloc] initWithFrame:CGRectMake(200.0f, 5.0f, 75.0f, 30.0f)];
-    acceptFriendRequestButton.objectId = object.objectId;
-    [acceptFriendRequestButton setTitle:@"Accept" forState:UIControlStateNormal];
-    [acceptFriendRequestButton setBackgroundColor: [UIColor redColor]];
-    [cell addSubview:acceptFriendRequestButton];
-    [acceptFriendRequestButton addTarget:self
+    // With Source Username
+    NSString *username = [source objectForKey:@"username"];
+    cell.usernameLabel.text = [NSString stringWithFormat:@"@%@", username];
+    
+    // And Profile picture
+    cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;
+    cell.profilePicView.image = [UIImage imageNamed:@"placeholder.jpg"];
+    PFFile *imageFile = [source objectForKey:@"profilePic"];
+    CALayer *imageLayer = cell.profilePicView.layer;
+    [imageLayer setCornerRadius:cell.profilePicView.frame.size.width/2];
+    [imageLayer setMasksToBounds:YES];
+    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        // Now that the data is fetched, update the cell's image property.
+        cell.profilePicView.image = [UIImage imageWithData:data];
+    }];
+
+    // Accept Button
+    cell.acceptButton.objectId = object.objectId;
+    [cell.acceptButton addTarget:self
                         action:@selector(acceptFriendRequest:)
               forControlEvents:UIControlEventTouchUpInside];
     

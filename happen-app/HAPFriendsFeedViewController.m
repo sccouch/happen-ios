@@ -266,6 +266,8 @@
                 NSLog(@"Error: %@ %@", error, [error userInfo]);
             }
         }];
+        
+        [self.tableView reloadData];
     }
     
 //    else if([title isEqualToString:@"Hide"])

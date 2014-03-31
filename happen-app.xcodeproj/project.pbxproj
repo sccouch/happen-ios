@@ -37,6 +37,7 @@
 		293F2EE418A22FA400DDB17A /* tab-icons-news@.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDC18A22FA400DDB17A /* tab-icons-news@.png */; };
 		293F2EE518A22FA400DDB17A /* tab-icons-news@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDD18A22FA400DDB17A /* tab-icons-news@2x.png */; };
 		2967D99418E8CC13009057D1 /* HAPFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2967D99318E8CC13009057D1 /* HAPFeedCell.m */; };
+		2967D99A18E935E4009057D1 /* HAPFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2967D99918E935E4009057D1 /* HAPFriendsCell.m */; };
 		297409F518BC86B200FB59C7 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297409F418BC86B200FB59C7 /* AddressBook.framework */; };
 		297409F718BC86B900FB59C7 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297409F618BC86B900FB59C7 /* AddressBookUI.framework */; };
 		297409FB18BC8AF400FB59C7 /* HAPFriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 297409FA18BC8AF400FB59C7 /* HAPFriendListViewController.m */; };
@@ -124,6 +125,8 @@
 		293F2EDD18A22FA400DDB17A /* tab-icons-news@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-news@2x.png"; sourceTree = "<group>"; };
 		2967D99218E8CC13009057D1 /* HAPFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPFeedCell.h; sourceTree = "<group>"; };
 		2967D99318E8CC13009057D1 /* HAPFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPFeedCell.m; sourceTree = "<group>"; };
+		2967D99818E935E4009057D1 /* HAPFriendsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPFriendsCell.h; sourceTree = "<group>"; };
+		2967D99918E935E4009057D1 /* HAPFriendsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPFriendsCell.m; sourceTree = "<group>"; };
 		297409F418BC86B200FB59C7 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		297409F618BC86B900FB59C7 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		297409F918BC8AF400FB59C7 /* HAPFriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPFriendListViewController.h; sourceTree = "<group>"; };
@@ -318,6 +321,8 @@
 				29740A0018BE883200FB59C7 /* HAPSearchFriendViewController.m */,
 				04332E7218C523F200488139 /* HAPRequestFriendButton.h */,
 				04332E7318C523F200488139 /* HAPRequestFriendButton.m */,
+				2967D99818E935E4009057D1 /* HAPFriendsCell.h */,
+				2967D99918E935E4009057D1 /* HAPFriendsCell.m */,
 			);
 			name = Friends;
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9A9716A1896DE5F002471D0 /* HAPAppDelegate.m in Sources */,
+				2967D99A18E935E4009057D1 /* HAPFriendsCell.m in Sources */,
 				042B30FE189A15BE00BBCC2F /* HAPFriendsFeedViewController.m in Sources */,
 				042B311018A038F000BBCC2F /* HAPLoginViewController.m in Sources */,
 				04CFAE6E18E903B700D21F81 /* HAPMeTooFeedViewController.m in Sources */,

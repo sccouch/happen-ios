@@ -7,7 +7,7 @@
 //
 
 #import "HAPSearchFriendViewController.h"
-
+#import "HAPFriendsCell.h"
 
 @interface HAPSearchFriendViewController ()
 
@@ -69,38 +69,49 @@
     return self.friendSearchResults.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"HAPFriendsCell";
+    HAPFriendsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[HAPFriendsCell alloc] init];
     }
     
     // Configure the cell...
 //    cell.textLabel.text = [self.resultVenues[indexPath.row] name];
 //    venue = self.resultVenues[indexPath.row];
     NSLog(@"call made");
-    PFObject *user = self.friendSearchResults[indexPath.row];
-    NSString *firstName = [user objectForKey:@"firstName"];
-    NSString *lastName = [user objectForKey:@"lastName"];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+    PFObject *object = self.friendSearchResults[indexPath.row];
+    // With Friend Name
+    NSString *firstName = [object objectForKey:@"firstName"];
+    NSString *lastName = [object objectForKey:@"lastName"];
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+    
+    // With Username
+    NSString *username = [object objectForKey:@"username"];
+    cell.usernameLabel.text = [NSString stringWithFormat:@"@%@", username];
+    
     // And Profile picture
-    //cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    //    CALayer *imageLayer = cell.imageView.layer;
-    //    [imageLayer setCornerRadius:cell.imageView.frame.size.height/2];
-    //    [imageLayer setMasksToBounds:YES];
+    cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;
+    cell.profilePicView.image = [UIImage imageNamed:@"placeholder.jpg"];
+    PFFile *imageFile = [object objectForKey:@"profilePic"];
+    CALayer *imageLayer = cell.profilePicView.layer;
+    [imageLayer setCornerRadius:cell.profilePicView.frame.size.width/2];
+    [imageLayer setMasksToBounds:YES];
+    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        // Now that the data is fetched, update the cell's image property.
+        cell.profilePicView.image = [UIImage imageWithData:data];
+    }];
     
-    //cell.imageView.file = [user objectForKey:self.imageKey];
-    
-    HAPRequestFriendButton *requestFriendButton = [[HAPRequestFriendButton alloc] initWithFrame:CGRectMake(200.0f, 5.0f, 75.0f, 30.0f)];
-    requestFriendButton.user = (PFUser *)user;
-    [requestFriendButton setTitle:@"Add" forState:UIControlStateNormal];
-    [requestFriendButton setBackgroundColor:[UIColor blueColor]];
-    [cell addSubview:requestFriendButton];
-    [requestFriendButton addTarget:self action:@selector(requestFriend:) forControlEvents:UIControlEventTouchUpInside];
+    // Add Button
+    cell.addButton.user = (PFUser *)object;
+    [cell.addButton addTarget:self action:@selector(requestFriend:) forControlEvents:UIControlEventTouchUpInside];
 
-    
     return cell;
 }
 
