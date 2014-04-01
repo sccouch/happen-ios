@@ -13,6 +13,8 @@
 @interface HAPAddFriendViewController ()
 @property (nonatomic, unsafe_unretained) ABAddressBookRef addressBook;
 @property (nonatomic, strong) NSMutableArray *fetchedNumbers;
+@property (nonatomic, strong) NSMutableArray *friends;
+
 @end
 
 @implementation HAPAddFriendViewController
@@ -93,6 +95,21 @@
             break;
         }
     }
+    
+    if (!self.friends) {
+        self.friends = [[NSMutableArray alloc] init];
+    }
+    
+    PFRelation *friends = [[PFUser currentUser] objectForKey:@"friends"];
+    PFQuery *friendQuery = friends.query;
+    [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                [self.friends addObject:[object objectId]];
+            }
+        }
+    }];
+    
 
 }
 
@@ -203,10 +220,18 @@
         // Now that the data is fetched, update the cell's image property.
         cell.profilePicView.image = [UIImage imageWithData:data];
     }];
-
-    // Add Button
-    cell.addButton.user = (PFUser *)object;
-    [cell.addButton addTarget:self action:@selector(requestFriend:) forControlEvents:UIControlEventTouchUpInside];
+    
+    // Add button
+    if ([self.friends containsObject:[object objectId]]) {
+        cell.userInteractionEnabled = NO;
+        cell.addButton.userInteractionEnabled = NO;
+        [cell.addButton setTitle:@"Friends" forState:UIControlStateNormal];
+    }
+    else {
+        cell.addButton.user = (PFUser *)object;
+        [cell.addButton setTitle:@"Add" forState:UIControlStateNormal];
+        [cell.addButton addTarget:self action:@selector(requestFriend:) forControlEvents:UIControlEventTouchUpInside];
+    }
     
     return cell;
 }

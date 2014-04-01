@@ -82,10 +82,6 @@
         cell = [[HAPFriendsCell alloc] init];
     }
     
-    // Configure the cell...
-//    cell.textLabel.text = [self.resultVenues[indexPath.row] name];
-//    venue = self.resultVenues[indexPath.row];
-    NSLog(@"call made");
     PFObject *object = self.friendSearchResults[indexPath.row];
     // With Friend Name
     NSString *firstName = [object objectForKey:@"firstName"];
