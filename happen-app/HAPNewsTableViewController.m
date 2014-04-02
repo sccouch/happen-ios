@@ -105,6 +105,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"News"];
     [query whereKey:@"target" equalTo:[PFUser currentUser]];
     [query includeKey:@"source"];
+    [query includeKey:@"event"];
     
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
@@ -117,7 +118,7 @@
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
     
-    [query orderByAscending:@"createdAt"];
+    [query orderByDescending:@"createdAt"];
     
     return query;
 }
@@ -145,10 +146,20 @@
     NSString *lastName = [source objectForKey:@"lastName"];
     cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
     
-    // With Source Username
-    //NSString *username = [source objectForKey:@"username"];
-    //cell.usernameLabel.text = [NSString stringWithFormat:@"@%@", username];
-    cell.usernameLabel.text = @"sent you a friend request";
+    // With Notification Description
+    if ([[object objectForKey:@"type"] isEqualToString:@"SENT_REQUEST"]) {
+        cell.usernameLabel.text = @"sent you a friend request";
+    }
+    
+    if ([[object objectForKey:@"type"] isEqualToString:@"ACCEPT_REQUEST"]) {
+        cell.usernameLabel.text = @"accepted your friend request";
+    }
+    
+    if ([[object objectForKey:@"type"] isEqualToString:@"ME_TOO"]) {
+        PFObject *event = [object objectForKey:@"event"];
+        NSString *eventDescription = [event objectForKey:@"details"];
+        cell.usernameLabel.text = [NSString stringWithFormat:@"said me too to '%@'", eventDescription];
+    }
     
     // And Profile picture
     cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;

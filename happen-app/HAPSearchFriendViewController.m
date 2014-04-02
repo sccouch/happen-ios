@@ -117,6 +117,15 @@
     [request setObject:[PFUser currentUser] forKey:@"source"];
     [request setObject:friendRequestButton.user forKey:@"target"];
     [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    PFObject *news = [PFObject objectWithClassName:@"News"];
+    [news setObject:[PFUser currentUser] forKey:@"source"];
+    [news setObject:friendRequestButton.user forKey:@"target"];
+    [news setValue:@"SENT_REQUEST" forKey:@"type"];
+    [news setObject:[NSNumber numberWithBool:YES]  forKey:@"isUnread"];
+    [news saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }

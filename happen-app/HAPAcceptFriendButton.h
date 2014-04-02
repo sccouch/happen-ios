@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface HAPAcceptFriendButton : UIButton
 
 @property (weak, nonatomic) NSString *objectId;
+@property (weak, nonatomic) PFUser *user;
 
 @end

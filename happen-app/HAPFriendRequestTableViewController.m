@@ -168,6 +168,7 @@
 
     // Accept Button
     cell.acceptButton.objectId = object.objectId;
+    cell.acceptButton.user = source;
     [cell.acceptButton addTarget:self
                         action:@selector(acceptFriendRequest:)
               forControlEvents:UIControlEventTouchUpInside];
@@ -182,7 +183,17 @@
                                 block:^(NSString *result, NSError *error) {
                                     if (!error) {
                                         // result is @"Hello world!"
-                                        [self loadObjects];
+                                        NSLog(@"accepted");
+                                        PFObject *news = [PFObject objectWithClassName:@"News"];
+                                        [news setObject:[PFUser currentUser] forKey:@"source"];
+                                        [news setObject:acceptFriendButton.user forKey:@"target"];
+                                        [news setValue:@"ACCEPT_REQUEST" forKey:@"type"];
+                                        [news setObject:[NSNumber numberWithBool:YES]  forKey:@"isUnread"];
+                                        [news saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                            //[self dismissViewControllerAnimated:YES completion:nil];
+                                            [self loadObjects];
+                                            NSLog(@"successfully");
+                                        }];
                                     }
                                 }];
 }

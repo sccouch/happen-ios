@@ -274,7 +274,18 @@
                     
                     [meToos addObject:[PFUser currentUser]];
                     [event saveInBackground];
-                    [self loadObjects];
+                    
+                    
+                    PFObject *news = [PFObject objectWithClassName:@"News"];
+                    [news setObject:[PFUser currentUser] forKey:@"source"];
+                    [news setObject:[event objectForKey:@"creator"] forKey:@"target"];
+                    [news setObject:event forKey:@"event"];
+                    [news setValue:@"ME_TOO" forKey:@"type"];
+                    [news setObject:[NSNumber numberWithBool:YES]  forKey:@"isUnread"];
+                    [news saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        [self loadObjects];
+                    }];
+
                 }
             } else {
                 // Log details of the failure
