@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Parse/Parse.h"
+#import "MCSwipeTableViewCell.h"
 
-@interface HAPFriendsFeedViewController : PFQueryTableViewController <UIAlertViewDelegate>
-
+@interface HAPFriendsFeedViewController : PFQueryTableViewController <MCSwipeTableViewCellDelegate, UIAlertViewDelegate>
+@property (nonatomic, strong) MCSwipeTableViewCell *cellToDelete;
 @property (weak, nonatomic) PFObject *selectedObject;
 
 @end

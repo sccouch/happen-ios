@@ -9,6 +9,7 @@
 #import "HAPFeedCell.h"
 #import "HAPFriendsFeedViewController.h"
 
+
 @implementation HAPFriendsFeedViewController
 
 
@@ -50,7 +51,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -66,6 +67,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self loadObjects];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -128,6 +130,7 @@
      [friendsEventsQuery whereKey:@"creator" matchesQuery:friends];
      
      [friendsEventsQuery whereKey:@"meToos" notEqualTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:[[PFUser currentUser] objectId]]];
+     [friendsEventsQuery whereKey:@"hides" notEqualTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:[[PFUser currentUser] objectId]]];
 
      // If Pull To Refresh is enabled, query against the network by default.
      if (self.pullToRefreshEnabled) {
@@ -158,35 +161,91 @@
  // and the imageView being the imageKey in the object.
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
 
-     static NSString *CellIdentifier = @"HAPFeedCell";
-     //PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-     HAPFeedCell *cell = (HAPFeedCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//     static NSString *CellIdentifier = @"HAPFeedCell";
+//     //PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//     HAPFeedCell *cell = (HAPFeedCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//     if (cell == nil) {
+//     //cell = [[HAPFeedCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+//     cell = [[HAPFeedCell alloc] init];
+//     }
+
+     static NSString *CellIdentifier = @"HAPSwipeCell";
+     
+     MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+     
      if (cell == nil) {
-     //cell = [[HAPFeedCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-     cell = [[HAPFeedCell alloc] init];
+         cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+         cell = [[MCSwipeTableViewCell alloc] init];
      }
+     
+     //UIView *checkView = [self viewWithImageName:@"check"];
+     UIView *checkView = [self viewWithText:@"me too"];
+     UIColor *greenColor = [UIColor colorWithRed:102.0 / 255.0 green:197.0 / 255.0 blue:140.0 / 255.0 alpha:1.0];
+     
+     UIView *crossView = [self viewWithText:@"hide"];
+     UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
+
+     
+     [cell setDelegate:self];
      
      // Configure the cell
 
-     cell.eventLabel.text = [object objectForKey:self.textKey];
-     PFUser *friend = [object objectForKey:@"creator"];
-
-     NSString *firstName = [friend objectForKey:@"firstName"];
-     NSString *lastName = [friend objectForKey:@"lastName"];
+      cell.eventLabel.text = [object objectForKey:self.textKey];
+      PFUser *friend = [object objectForKey:@"creator"];
+ 
+      NSString *firstName = [friend objectForKey:@"firstName"];
+      NSString *lastName = [friend objectForKey:@"lastName"];
+ 
+      //cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+      NSString *fullName = [NSString stringWithFormat:@"%@ %@ ", firstName, lastName];
+      NSString *username = [NSString stringWithFormat:@" @%@",[friend objectForKey:@"username"]];
+      NSUInteger length = [username length];
      
-     cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
-     cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;
-
-     cell.profilePicView.image = [UIImage imageNamed:@"placeholder.jpg"];
-     PFFile *imageFile = [friend objectForKey:@"profilePic"];
-     CALayer *imageLayer = cell.profilePicView.layer;
-     [imageLayer setCornerRadius:cell.profilePicView.frame.size.width/2];
-     [imageLayer setMasksToBounds:YES];
-     [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-         // Now that the data is fetched, update the cell's image property.
+      //UIFont *nameFont = [UIFont fontWithName:@"HelveticaNeue-Medium" size:17.0];
+      UIFont *nameFont = [UIFont boldSystemFontOfSize:17];
+     
+      NSDictionary *nameDict = [NSDictionary dictionaryWithObject: nameFont forKey:NSFontAttributeName];
+      NSMutableAttributedString *nameAttrString = [[NSMutableAttributedString alloc] initWithString:fullName attributes: nameDict];
+     
+      UIFont *usernameFont = [UIFont systemFontOfSize:12];
+      NSDictionary *usernameDict = [NSDictionary dictionaryWithObject:usernameFont forKey:NSFontAttributeName];
+      NSMutableAttributedString *usernameAttrString = [[NSMutableAttributedString alloc]initWithString:username attributes:usernameDict];
+      [usernameAttrString addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor] range:(NSMakeRange(0, length))];
+     
+      [nameAttrString appendAttributedString:usernameAttrString];
+     
+      cell.nameLabel.attributedText = nameAttrString;
+     
+     
+      cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;
+ 
+      cell.profilePicView.image = [UIImage imageNamed:@"placeholder.jpg"];
+      PFFile *imageFile = [friend objectForKey:@"profilePic"];
+      CALayer *imageLayer = cell.profilePicView.layer;
+      [imageLayer setCornerRadius:cell.profilePicView.frame.size.width/2];
+      [imageLayer setMasksToBounds:YES];
+      [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+          // Now that the data is fetched, update the cell's image property.
          cell.profilePicView.image = [UIImage imageWithData:data];
+      }];
+     
+     cell.shouldAnimateIcons = YES;
+     
+     [cell setSwipeGestureWithView:checkView color:greenColor mode:MCSwipeTableViewCellModeExit state:MCSwipeTableViewCellState1 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
+         //NSLog(@"Did swipe \"Me Too\" cell");
+         
+         [self meTooAtIndexPath:indexPath];
+         
+     }];
+  
+     [cell setSwipeGestureWithView:crossView color:redColor mode:MCSwipeTableViewCellModeExit state:MCSwipeTableViewCellState3
+           completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
+         //NSLog(@"Did swipe \"Hide\" cell");
+         
+               [self hideAtIndexPath:indexPath];
      }];
      
+     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
      
      return cell;
  }
@@ -254,66 +313,139 @@
 
 #pragma mark - UITableViewDelegate
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+- (void)meTooAtIndexPath:(NSIndexPath *)indexPath {
     
-    if([title isEqualToString:@"Me Too"])
-    {
-        PFQuery *query = [PFQuery queryWithClassName:@"Event"];
-        
-        [query includeKey:@"creator"];
-        
-        [query whereKey:@"objectId" equalTo: [_selectedObject objectId]];
-        
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                for (PFObject *object in objects) {
-                    PFObject *event = object;
-                    PFRelation *meToos = [event relationForKey:@"meToos"];
-                    
-                    [meToos addObject:[PFUser currentUser]];
-                    [event saveInBackground];
-                    
-                    
-                    PFObject *news = [PFObject objectWithClassName:@"News"];
-                    [news setObject:[PFUser currentUser] forKey:@"source"];
-                    [news setObject:[event objectForKey:@"creator"] forKey:@"target"];
-                    [news setObject:event forKey:@"event"];
-                    [news setValue:@"ME_TOO" forKey:@"type"];
-                    [news setObject:[NSNumber numberWithBool:YES]  forKey:@"isUnread"];
-                    [news saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                        [self loadObjects];
-                    }];
-
-                }
-            } else {
-                // Log details of the failure
-                NSLog(@"Error: %@ %@", error, [error userInfo]);
+    _selectedObject = [self objectAtIndexPath:indexPath];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    
+    [query includeKey:@"creator"];
+    
+    [query whereKey:@"objectId" equalTo: [_selectedObject objectId]];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                PFObject *event = object;
+                PFRelation *meToos = [event relationForKey:@"meToos"];
+                
+                [meToos addObject:[PFUser currentUser]];
+                [event saveInBackground];
+                
+                
+                PFObject *news = [PFObject objectWithClassName:@"News"];
+                [news setObject:[PFUser currentUser] forKey:@"source"];
+                [news setObject:[event objectForKey:@"creator"] forKey:@"target"];
+                [news setObject:event forKey:@"event"];
+                [news setValue:@"ME_TOO" forKey:@"type"];
+                [news setObject:[NSNumber numberWithBool:YES]  forKey:@"isUnread"];
+                [news saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    //[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                    [self loadObjects];
+                }];
+                
             }
-        }];
-        
-        
-    }
-    
-//    else if([title isEqualToString:@"Hide"])
-//    {
-//        NSLog(@"Hide");
-//    }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    _selectedObject = [self objectAtIndexPath:indexPath];
-    UIAlertView *messageAlert = [[UIAlertView alloc]
-                                 initWithTitle:@"Me Too?"
-                                 message:nil
-                                 delegate:self
-                                 cancelButtonTitle:@"Cancel"
-                                 otherButtonTitles:@"Me Too", nil];
+- (void)hideAtIndexPath:(NSIndexPath *)indexPath {
     
-    // Display Alert Message
-    [messageAlert show];
-    //[super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    _selectedObject = [self objectAtIndexPath:indexPath];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    
+    [query includeKey:@"creator"];
+    
+    [query whereKey:@"objectId" equalTo: [_selectedObject objectId]];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                PFObject *event = object;
+                PFRelation *hides = [event relationForKey:@"hides"];
+                
+                [hides addObject:[PFUser currentUser]];
+                [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    //[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                    [self loadObjects];
+                }];
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+}
+
+#pragma mark - MCSwipeTableViewCellDelegate
+
+
+// When the user starts swiping the cell this method is called
+- (void)swipeTableViewCellDidStartSwiping:(MCSwipeTableViewCell *)cell {
+    //NSLog(@"Did start swiping the cell!");
+}
+
+// When the user ends swiping the cell this method is called
+- (void)swipeTableViewCellDidEndSwiping:(MCSwipeTableViewCell *)cell {
+    //NSLog(@"Did end swiping the cell!");
+}
+
+// When the user is dragging, this method is called and return the dragged percentage from the border
+- (void)swipeTableViewCell:(MCSwipeTableViewCell *)cell didSwipeWithPercentage:(CGFloat)percentage {
+    //NSLog(@"Did swipe with percentage : %f", percentage);
+}
+
+#pragma mark - Utils
+
+//- (void)reload:(id)sender {
+//    _nbItems = kMCNumItems;
+//    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+//}
+//
+//- (void)deleteCell:(MCSwipeTableViewCell *)cell {
+//    NSParameterAssert(cell);
+//    
+//    _nbItems--;
+//    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+//    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//}
+
+- (UIView *)viewWithImageName:(NSString *)imageName {
+    UIImage *image = [UIImage imageNamed:imageName];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.contentMode = UIViewContentModeCenter;
+    return imageView;
+}
+
+- (UIView *)viewWithText:(NSString *)textName {
+    UIView *textView = [[UIView alloc] init];
+    CGRect bounds;
+    
+    if ([textName isEqual: @"me too"]) {
+        bounds = CGRectMake(-35, -27, 75, 50);
+    }
+    if ([textName isEqual: @"hide"]) {
+        bounds = CGRectMake(-25, -27, 75, 50);
+    }
+    UILabel *textLabel = [[UILabel alloc] initWithFrame:bounds];
+    NSAttributedString *attributedString =
+    [[NSAttributedString alloc]
+     initWithString:textName
+     attributes:
+     @{
+       NSFontAttributeName : [UIFont fontWithName: @"HelveticaNeue-Medium" size: 18.0f],
+       NSForegroundColorAttributeName : [UIColor whiteColor]
+       }];
+    textLabel.attributedText = attributedString;
+    [textView addSubview:textLabel];
+    textView.contentMode = UIViewContentModeCenter;
+    return textView;
 }
 
 @end

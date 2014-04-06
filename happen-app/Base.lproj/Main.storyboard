@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="owN-pT-dzi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="owN-pT-dzi">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Friend List View Controller - Friends-->
@@ -69,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="HAPFeedCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HAPFeedCell" rowHeight="70" id="LfG-2g-mgP" customClass="HAPFeedCell">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="HAPFeedCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HAPSwipeCell" rowHeight="70" id="LfG-2g-mgP" customClass="MCSwipeTableViewCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LfG-2g-mgP" id="17V-47-VaF">
@@ -96,9 +96,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="eventLabel" destination="xqM-UR-PrK" id="4q9-1y-mzA"/>
-                                    <outlet property="nameLabel" destination="jCL-v2-bbx" id="Why-vy-VbD"/>
-                                    <outlet property="profilePicView" destination="mMD-Ar-OgV" id="DBB-Oh-7Yl"/>
+                                    <outlet property="eventLabel" destination="xqM-UR-PrK" id="gdP-sX-I5e"/>
+                                    <outlet property="nameLabel" destination="jCL-v2-bbx" id="wTt-ig-NcV"/>
+                                    <outlet property="profilePicView" destination="mMD-Ar-OgV" id="Cxv-FV-3SQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -140,7 +140,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="HAPFeedCell" rowHeight="70" id="lGd-rW-egJ" customClass="HAPFeedCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="HAPSwipeCell" rowHeight="70" id="lGd-rW-egJ" customClass="MCSwipeTableViewCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lGd-rW-egJ" id="6Ui-jj-ms5">
@@ -167,9 +167,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="eventLabel" destination="6zz-6b-V2O" id="lng-3T-Fhf"/>
-                                    <outlet property="nameLabel" destination="NSp-Vl-L64" id="GYZ-WD-ePE"/>
-                                    <outlet property="profilePicView" destination="Sz7-MZ-T7G" id="qvs-wv-Y7w"/>
+                                    <outlet property="eventLabel" destination="6zz-6b-V2O" id="9DZ-nA-iAH"/>
+                                    <outlet property="nameLabel" destination="NSp-Vl-L64" id="iWw-Jy-XVp"/>
+                                    <outlet property="profilePicView" destination="Sz7-MZ-T7G" id="GUi-Pu-Sfs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -225,17 +225,30 @@
             </objects>
             <point key="canvasLocation" x="768" y="-696"/>
         </scene>
-        <!--Add Friend View Controller - Add Friends-->
+        <!--Add Friend View Controller - Add From Contacts-->
         <scene sceneID="hnB-Uu-EKs">
             <objects>
-                <tableViewController storyboardIdentifier="AddFriends" id="aez-ZK-cq4" customClass="HAPAddFriendViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddFriends" title="Add From Contacts" id="aez-ZK-cq4" customClass="HAPAddFriendViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gc4-ly-vbL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="vZI-tq-7Rd">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your friends already using Happen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8z9-9S-ZaA">
+                                    <rect key="frame" x="20" y="15" width="280" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.82690927930000002" green="0.82690927930000002" blue="0.82690927930000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HAPFriendsCell" rowHeight="60" id="8rW-YE-Nhw" customClass="HAPFriendsCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="73" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8rW-YE-Nhw" id="HdM-7k-5m5">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -306,7 +319,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="MTP-JN-zne">
-                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -315,7 +328,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HAPFriendsCell" rowHeight="60" id="SBv-SA-brp" customClass="HAPFriendsCell">
-                                <rect key="frame" x="0.0" y="130" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SBv-SA-brp" id="hmH-9U-CSA">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -497,10 +510,10 @@
             </objects>
             <point key="canvasLocation" x="1251" y="336"/>
         </scene>
-        <!--Friend Request Table View Controller - Friends-->
+        <!--Friend Request Table View Controller - Requests-->
         <scene sceneID="kC8-ue-uNp">
             <objects>
-                <tableViewController storyboardIdentifier="FriendRequestView" title="Friends" id="ug7-zN-L0V" customClass="HAPFriendRequestTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FriendRequestView" title="Requests" id="ug7-zN-L0V" customClass="HAPFriendRequestTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3Kc-lv-TOA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -588,7 +601,7 @@
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8d2-Zn-Tyr">
                                             <rect key="frame" x="68" y="29" width="232" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -652,7 +665,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.1110818855" green="0.12603608969999999" blue="0.20906409440000001" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="48U-z9-O1n">

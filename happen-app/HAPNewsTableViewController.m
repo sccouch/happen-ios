@@ -144,22 +144,45 @@
     // With Source Name
     NSString *firstName = [source objectForKey:@"firstName"];
     NSString *lastName = [source objectForKey:@"lastName"];
-    cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+    NSString *fullName = [NSString stringWithFormat:@"%@ %@ ", firstName, lastName];
+    //cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
     
     // With Notification Description
     if ([[object objectForKey:@"type"] isEqualToString:@"SENT_REQUEST"]) {
+        cell.nameLabel.text = fullName;
         cell.usernameLabel.text = @"sent you a friend request";
     }
     
     if ([[object objectForKey:@"type"] isEqualToString:@"ACCEPT_REQUEST"]) {
+        cell.nameLabel.text = fullName;
         cell.usernameLabel.text = @"accepted your friend request";
     }
     
     if ([[object objectForKey:@"type"] isEqualToString:@"ME_TOO"]) {
+        
+        NSString *meToo = @"said me too";
+        //NSUInteger length = [meToo length];
+        //UIFont *nameFont = [UIFont fontWithName:@"HelveticaNeue-Medium" size:17.0];
+        UIFont *nameFont = [UIFont boldSystemFontOfSize:14];
+        
+        NSDictionary *nameDict = [NSDictionary dictionaryWithObject: nameFont forKey:NSFontAttributeName];
+        NSMutableAttributedString *nameAttrString = [[NSMutableAttributedString alloc] initWithString:fullName attributes: nameDict];
+        
+        UIFont *meTooFont = [UIFont systemFontOfSize:14];
+        NSDictionary *meTooDict = [NSDictionary dictionaryWithObject:meTooFont forKey:NSFontAttributeName];
+        NSMutableAttributedString *meTooAttrString = [[NSMutableAttributedString alloc]initWithString:meToo attributes:meTooDict];
+        //[meTooAttrString addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor] range:(NSMakeRange(0, length))];
+        
+        [nameAttrString appendAttributedString:meTooAttrString];
+        
+        cell.nameLabel.attributedText = nameAttrString;
+        
         PFObject *event = [object objectForKey:@"event"];
         NSString *eventDescription = [event objectForKey:@"details"];
-        cell.usernameLabel.text = [NSString stringWithFormat:@"said me too to '%@'", eventDescription];
+        //cell.usernameLabel.text = [NSString stringWithFormat:@"said me too to '%@'", eventDescription];
+        cell.usernameLabel.text = eventDescription;
     }
+    
     
     // And Profile picture
     cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;

@@ -38,6 +38,20 @@
         
         // The number of objects to show per page
         self.objectsPerPage = 25;
+        
+        if (!self.friends) {
+            self.friends = [[NSMutableArray alloc] init];
+        }
+        
+        PFRelation *friends = [[PFUser currentUser] objectForKey:@"friends"];
+        PFQuery *friendQuery = friends.query;
+        [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                for (PFObject *object in objects) {
+                    [self.friends addObject:[object objectId]];
+                }
+            }
+        }];
     }
     return self;
 }
@@ -96,19 +110,7 @@
         }
     }
     
-    if (!self.friends) {
-        self.friends = [[NSMutableArray alloc] init];
-    }
-    
-    PFRelation *friends = [[PFUser currentUser] objectForKey:@"friends"];
-    PFQuery *friendQuery = friends.query;
-    [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            for (PFObject *object in objects) {
-                [self.friends addObject:[object objectId]];
-            }
-        }
-    }];
+    //[self loadObjects];
     
 
 }
@@ -165,8 +167,9 @@
     if (self.fetchedNumbers == NULL) {
         NSLog(@"well fuck");
     }
+    //[query whereKey:@"objectId" notContainedIn:self.friends];
+    //[query whereKey:@"objectId" notEqualTo:[[PFUser currentUser] objectId]];
     [query whereKey:@"phoneNumber" containedIn:self.fetchedNumbers];
-    
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
         query.cachePolicy = kPFCachePolicyNetworkOnly;
@@ -225,7 +228,8 @@
     if ([self.friends containsObject:[object objectId]]) {
         cell.userInteractionEnabled = NO;
         cell.addButton.userInteractionEnabled = NO;
-        [cell.addButton setTitle:@"Friends" forState:UIControlStateNormal];
+        cell.addButton.hidden = TRUE;
+        //[cell.addButton setTitle:@"Friends" forState:UIControlStateNormal];
     }
     else {
         cell.addButton.user = (PFUser *)object;

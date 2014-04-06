@@ -50,6 +50,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -141,13 +142,28 @@
 // and the imageView being the imageKey in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     
-    static NSString *CellIdentifier = @"HAPFeedCell";
-    //PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    HAPFeedCell *cell = (HAPFeedCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    static NSString *CellIdentifier = @"HAPFeedCell";
+//    //PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    HAPFeedCell *cell = (HAPFeedCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    if (cell == nil) {
+//        //cell = [[HAPFeedCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+//        cell = [[HAPFeedCell alloc] init];
+//    }
+//    
+    static NSString *CellIdentifier = @"HAPSwipeCell";
+    
+    MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     if (cell == nil) {
-        //cell = [[HAPFeedCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell = [[HAPFeedCell alloc] init];
+        cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[MCSwipeTableViewCell alloc] init];
     }
+ 
+    UIView *crossView = [self viewWithText:@"jk nvm"];
+    UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
+    
+    
+    [cell setDelegate:self];
     
     // Configure the cell
     
@@ -157,7 +173,28 @@
     NSString *firstName = [friend objectForKey:@"firstName"];
     NSString *lastName = [friend objectForKey:@"lastName"];
     
-    cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+    //cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+    
+    //cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+    NSString *fullName = [NSString stringWithFormat:@"%@ %@ ", firstName, lastName];
+    NSString *username = [NSString stringWithFormat:@" @%@",[friend objectForKey:@"username"]];
+    NSUInteger length = [username length];
+    
+    //UIFont *nameFont = [UIFont fontWithName:@"HelveticaNeue-Medium" size:17.0];
+    UIFont *nameFont = [UIFont boldSystemFontOfSize:17];
+    
+    NSDictionary *nameDict = [NSDictionary dictionaryWithObject: nameFont forKey:NSFontAttributeName];
+    NSMutableAttributedString *nameAttrString = [[NSMutableAttributedString alloc] initWithString:fullName attributes: nameDict];
+    
+    UIFont *usernameFont = [UIFont systemFontOfSize:12];
+    NSDictionary *usernameDict = [NSDictionary dictionaryWithObject:usernameFont forKey:NSFontAttributeName];
+    NSMutableAttributedString *usernameAttrString = [[NSMutableAttributedString alloc]initWithString:username attributes:usernameDict];
+    [usernameAttrString addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor] range:(NSMakeRange(0, length))];
+    
+    [nameAttrString appendAttributedString:usernameAttrString];
+    
+    cell.nameLabel.attributedText = nameAttrString;
+    
     cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;
     
     cell.profilePicView.image = [UIImage imageNamed:@"placeholder.jpg"];
@@ -170,6 +207,16 @@
         cell.profilePicView.image = [UIImage imageWithData:data];
     }];
     
+    cell.shouldAnimateIcons = YES;
+    
+    [cell setSwipeGestureWithView:crossView color:redColor mode:MCSwipeTableViewCellModeExit state:MCSwipeTableViewCellState3
+                  completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
+                      //NSLog(@"Did swipe \"Un Me Too\" cell");
+                      
+                      [self unMeTooAtIndexPath:indexPath];
+                  }];
+    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     return cell;
 }
@@ -234,6 +281,87 @@
  return YES;
  }
  */
+
+
+- (void)unMeTooAtIndexPath:(NSIndexPath *)indexPath {
+    
+    _selectedObject = [self objectAtIndexPath:indexPath];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    
+    [query includeKey:@"creator"];
+    
+    [query whereKey:@"objectId" equalTo: [_selectedObject objectId]];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                PFObject *event = object;
+                PFRelation *meToos = [event relationForKey:@"meToos"];
+                
+                [meToos removeObject:[PFUser currentUser]];
+                [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    //[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                    [self loadObjects];
+                }];
+                
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+}
+
+#pragma mark - MCSwipeTableViewCellDelegate
+
+
+// When the user starts swiping the cell this method is called
+- (void)swipeTableViewCellDidStartSwiping:(MCSwipeTableViewCell *)cell {
+    //NSLog(@"Did start swiping the cell!");
+}
+
+// When the user ends swiping the cell this method is called
+- (void)swipeTableViewCellDidEndSwiping:(MCSwipeTableViewCell *)cell {
+    //NSLog(@"Did end swiping the cell!");
+}
+
+// When the user is dragging, this method is called and return the dragged percentage from the border
+- (void)swipeTableViewCell:(MCSwipeTableViewCell *)cell didSwipeWithPercentage:(CGFloat)percentage {
+    //NSLog(@"Did swipe with percentage : %f", percentage);
+}
+
+#pragma mark - Utils
+
+- (UIView *)viewWithImageName:(NSString *)imageName {
+    UIImage *image = [UIImage imageNamed:imageName];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.contentMode = UIViewContentModeCenter;
+    return imageView;
+}
+
+- (UIView *)viewWithText:(NSString *)textName {
+    UIView *textView = [[UIView alloc] init];
+    CGRect bounds;
+
+    if ([textName isEqual: @"jk nvm"]) {
+        bounds = CGRectMake(-25, -27, 75, 50);
+    }
+    UILabel *textLabel = [[UILabel alloc] initWithFrame:bounds];
+    NSAttributedString *attributedString =
+    [[NSAttributedString alloc]
+     initWithString:textName
+     attributes:
+     @{
+       NSFontAttributeName : [UIFont fontWithName: @"HelveticaNeue-Medium" size: 18.0f],
+       NSForegroundColorAttributeName : [UIColor whiteColor]
+       }];
+    textLabel.attributedText = attributedString;
+    [textView addSubview:textLabel];
+    textView.contentMode = UIViewContentModeCenter;
+    return textView;
+}
 
 
 @end

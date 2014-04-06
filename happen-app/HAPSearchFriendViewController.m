@@ -12,7 +12,7 @@
 @interface HAPSearchFriendViewController ()
 
 @property (strong, nonatomic) NSMutableArray *friendSearchResults;
-
+@property (nonatomic, strong) NSMutableArray *friends;
 @end
 
 @implementation HAPSearchFriendViewController
@@ -22,6 +22,8 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        [self.searchDisplayController.searchResultsTableView registerClass:[HAPFriendsCell class] forCellReuseIdentifier:@"HAPFriendsCell"];
+
     }
     return self;
 }
@@ -30,7 +32,19 @@
 {
     [super viewDidLoad];
     
-
+    if (!self.friends) {
+        self.friends = [[NSMutableArray alloc] init];
+    }
+    
+    PFRelation *friends = [[PFUser currentUser] objectForKey:@"friends"];
+    PFQuery *friendQuery = friends.query;
+    [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                [self.friends addObject:[object objectId]];
+            }
+        }
+    }];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -77,7 +91,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"HAPFriendsCell";
-    HAPFriendsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    HAPFriendsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[HAPFriendsCell alloc] init];
     }
@@ -105,8 +120,21 @@
     }];
     
     // Add Button
-    cell.addButton.user = (PFUser *)object;
-    [cell.addButton addTarget:self action:@selector(requestFriend:) forControlEvents:UIControlEventTouchUpInside];
+    //cell.addButton.user = (PFUser *)object;
+    //[cell.addButton addTarget:self action:@selector(requestFriend:) forControlEvents:UIControlEventTouchUpInside];
+    // Add button
+    if ([self.friends containsObject:[object objectId]]) {
+        cell.userInteractionEnabled = NO;
+        cell.addButton.userInteractionEnabled = NO;
+        cell.addButton.hidden = TRUE;
+        //[cell.addButton setTitle:@"Friends" forState:UIControlStateNormal];
+    }
+    else {
+        cell.addButton.user = (PFUser *)object;
+        [cell.addButton setTitle:@"Add" forState:UIControlStateNormal];
+        [cell.addButton addTarget:self action:@selector(requestFriend:) forControlEvents:UIControlEventTouchUpInside];
+    }
+
 
     return cell;
 }
@@ -140,8 +168,9 @@
 //    PFQuery *query = [PFQuery queryWithClassName:@"User"];
     PFQuery *query = [PFUser query];
 
-    [query whereKey:@"firstName" equalTo:input];
-    
+    [query whereKey:@"firstName" containsString:input];
+    [query whereKey:@"objectId" notContainedIn:self.friends];
+    [query whereKey:@"objectId" notEqualTo:[[PFUser currentUser] objectId]];
     
     [query orderByAscending:@"firstName"];
   

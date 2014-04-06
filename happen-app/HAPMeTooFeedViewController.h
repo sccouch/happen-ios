@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "MCSwipeTableViewCell.h"
 
-@interface HAPMeTooFeedViewController : PFQueryTableViewController
-
+@interface HAPMeTooFeedViewController : PFQueryTableViewController <MCSwipeTableViewCellDelegate>
+@property (weak, nonatomic) PFObject *selectedObject;
 @end
