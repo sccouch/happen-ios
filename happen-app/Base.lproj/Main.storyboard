@@ -468,7 +468,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="metoo.png" translatesAutoresizingMaskIntoConstraints="NO" id="x9e-Wz-8Im">
-                                            <rect key="frame" x="275" y="12" width="25" height="25"/>
+                                            <rect key="frame" x="281" y="15" width="19" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>

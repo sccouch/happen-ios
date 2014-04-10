@@ -161,31 +161,21 @@
  // and the imageView being the imageKey in the object.
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
 
-//     static NSString *CellIdentifier = @"HAPFeedCell";
-//     //PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//     HAPFeedCell *cell = (HAPFeedCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//     if (cell == nil) {
-//     //cell = [[HAPFeedCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-//     cell = [[HAPFeedCell alloc] init];
-//     }
-
      static NSString *CellIdentifier = @"HAPSwipeCell";
      
      MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
      
      if (cell == nil) {
-         cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
          cell = [[MCSwipeTableViewCell alloc] init];
      }
      
      //UIView *checkView = [self viewWithImageName:@"check"];
      UIView *checkView = [self viewWithText:@"me too"];
-     UIColor *greenColor = [UIColor colorWithRed:100.0 / 205.0 green:197.0 / 255.0 blue:157.0 / 255.0 alpha:1.0];
+     UIColor *greenColor = [UIColor colorWithRed:100.0 / 255.0 green:197.0 / 255.0 blue:157.0 / 255.0 alpha:1.0];
      
      UIView *crossView = [self viewWithText:@"hide"];
      UIColor *redColor = [UIColor colorWithRed:244.0 / 255.0 green:100.0 / 255.0 blue:100.0 / 255.0 alpha:1.0];
      //UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
-
      
      [cell setDelegate:self];
      
@@ -197,7 +187,6 @@
       NSString *firstName = [friend objectForKey:@"firstName"];
       NSString *lastName = [friend objectForKey:@"lastName"];
  
-      //cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
       NSString *fullName = [NSString stringWithFormat:@"%@ %@ ", firstName, lastName];
       NSString *username = [NSString stringWithFormat:@" @%@",[friend objectForKey:@"username"]];
       NSUInteger length = [username length];
@@ -217,10 +206,10 @@
      
       cell.nameLabel.attributedText = nameAttrString;
      
-     
       cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;
  
-      cell.profilePicView.image = [UIImage imageNamed:@"placeholder.jpg"];
+      cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;
+      //cell.profilePicView.image = [UIImage imageNamed:@"placeholder.jpg"];
       PFFile *imageFile = [friend objectForKey:@"profilePic"];
       CALayer *imageLayer = cell.profilePicView.layer;
       [imageLayer setCornerRadius:cell.profilePicView.frame.size.width/2];
@@ -228,6 +217,8 @@
       [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
           // Now that the data is fetched, update the cell's image property.
          cell.profilePicView.image = [UIImage imageWithData:data];
+          //cell.profilePicView.file = imageFile;
+          
       }];
      
      cell.shouldAnimateIcons = YES;

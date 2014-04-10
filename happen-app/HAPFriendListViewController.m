@@ -149,6 +149,7 @@
     cell.usernameLabel.text = [NSString stringWithFormat:@"@%@", username];
     
     // And Profile picture
+    
     cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;
     cell.profilePicView.image = [UIImage imageNamed:@"placeholder.jpg"];
     PFFile *imageFile = [object objectForKey:@"profilePic"];

@@ -135,34 +135,23 @@
     return 70;
 }
 
-
-
 // Override to customize the look of a cell representing an object. The default is to display
 // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
 // and the imageView being the imageKey in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     
-//    static NSString *CellIdentifier = @"HAPFeedCell";
-//    //PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    HAPFeedCell *cell = (HAPFeedCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    if (cell == nil) {
-//        //cell = [[HAPFeedCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-//        cell = [[HAPFeedCell alloc] init];
-//    }
-//    
     static NSString *CellIdentifier = @"HAPSwipeCell";
     
     MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        //cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell = [[MCSwipeTableViewCell alloc] init];
     }
  
     UIView *crossView = [self viewWithText:@"jk nvm"];
     //UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
     UIColor *redColor = [UIColor colorWithRed:244.0 / 255.0 green:100.0 / 255.0 blue:100.0 / 255.0 alpha:1.0];
-    
     
     [cell setDelegate:self];
     
@@ -174,9 +163,6 @@
     NSString *firstName = [friend objectForKey:@"firstName"];
     NSString *lastName = [friend objectForKey:@"lastName"];
     
-    //cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
-    
-    //cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
     NSString *fullName = [NSString stringWithFormat:@"%@ %@ ", firstName, lastName];
     NSString *username = [NSString stringWithFormat:@" @%@",[friend objectForKey:@"username"]];
     NSUInteger length = [username length];
@@ -191,11 +177,10 @@
     NSDictionary *usernameDict = [NSDictionary dictionaryWithObject:usernameFont forKey:NSFontAttributeName];
     NSMutableAttributedString *usernameAttrString = [[NSMutableAttributedString alloc]initWithString:username attributes:usernameDict];
     [usernameAttrString addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor] range:(NSMakeRange(0, length))];
-    
     [nameAttrString appendAttributedString:usernameAttrString];
     
     cell.nameLabel.attributedText = nameAttrString;
-    
+ 
     cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;
     
     cell.profilePicView.image = [UIImage imageNamed:@"placeholder.jpg"];
@@ -207,7 +192,7 @@
         // Now that the data is fetched, update the cell's image property.
         cell.profilePicView.image = [UIImage imageWithData:data];
     }];
-    
+
     cell.shouldAnimateIcons = YES;
     
     [cell setSwipeGestureWithView:crossView color:redColor mode:MCSwipeTableViewCellModeExit state:MCSwipeTableViewCellState3

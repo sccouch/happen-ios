@@ -160,17 +160,16 @@
     
     if (cell == nil) {
         cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell = [[MCSwipeTableViewCell alloc] init];
+        //cell = [[MCSwipeTableViewCell alloc] init];
     }
     
     //UIView *checkView = [self viewWithImageName:@"check"];
     UIView *checkView = [self viewWithText:@"me too"];
-    UIColor *greenColor = [UIColor colorWithRed:100.0 / 205.0 green:197.0 / 255.0 blue:157.0 / 255.0 alpha:1.0];
+    UIColor *greenColor = [UIColor colorWithRed:100.0 / 255.0 green:197.0 / 255.0 blue:157.0 / 255.0 alpha:1.0];
     
     UIView *crossView = [self viewWithText:@"jk nvm"];
     UIColor *redColor = [UIColor colorWithRed:244.0 / 255.0 green:100.0 / 255.0 blue:100.0 / 255.0 alpha:1.0];
     //UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
-    
     
     [cell setDelegate:self];
     
@@ -195,8 +194,8 @@
                               completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
                                   //NSLog(@"Did swipe \"Hide\" cell");
                                   
-                                  [self unMeTooAtIndexPath:indexPath];
-                              }];
+                    [self unMeTooAtIndexPath:indexPath];
+                }];
                 cell.meTooCheck.hidden = NO;
             }
             
@@ -207,9 +206,7 @@
                     [self meTooAtIndexPath:indexPath];
                     
                 }];
-
             }
-            
         }
         else {
             NSLog(@"ERRERE");
