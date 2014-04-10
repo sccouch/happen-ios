@@ -180,10 +180,11 @@
      
      //UIView *checkView = [self viewWithImageName:@"check"];
      UIView *checkView = [self viewWithText:@"me too"];
-     UIColor *greenColor = [UIColor colorWithRed:102.0 / 255.0 green:197.0 / 255.0 blue:140.0 / 255.0 alpha:1.0];
+     UIColor *greenColor = [UIColor colorWithRed:100.0 / 205.0 green:197.0 / 255.0 blue:157.0 / 255.0 alpha:1.0];
      
      UIView *crossView = [self viewWithText:@"hide"];
-     UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
+     UIColor *redColor = [UIColor colorWithRed:244.0 / 255.0 green:100.0 / 255.0 blue:100.0 / 255.0 alpha:1.0];
+     //UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
 
      
      [cell setDelegate:self];

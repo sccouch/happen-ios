@@ -8,7 +8,9 @@
 
 #import <Parse/Parse.h>
 #import "HAPAddEventViewController.h"
+#import "MCSwipeTableViewCell.h"
 
-@interface HAPMyListViewController : PFQueryTableViewController<AddEventViewContollerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
+@interface HAPMyListViewController : PFQueryTableViewController<AddEventViewContollerDelegate, MCSwipeTableViewCellDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
+@property (weak, nonatomic) PFObject *selectedObject;
 
 @end

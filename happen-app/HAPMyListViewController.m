@@ -8,6 +8,7 @@
 
 #import "HAPMyListViewController.h"
 
+
 @interface HAPMyListViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -172,6 +173,7 @@ NSData *imageData;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     
     PFUser *user = [PFUser currentUser];
     
@@ -261,16 +263,45 @@ NSData *imageData;
 // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
 // and the imageView being the imageKey in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
-    static NSString *CellIdentifier = @"Cell";
+//    static NSString *CellIdentifier = @"Cell";
+//    
+//    PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    if (cell == nil) {
+//        cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//    }
+//    
+//    // Configure the cell
+//    cell.textLabel.text = [object objectForKey:self.textKey];
+//    cell.imageView.file = [object objectForKey:self.imageKey];
+    static NSString *CellIdentifier = @"HAPSwipeCell";
     
-    PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     if (cell == nil) {
-        cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[MCSwipeTableViewCell alloc] init];
     }
     
-    // Configure the cell
-    cell.textLabel.text = [object objectForKey:self.textKey];
-    cell.imageView.file = [object objectForKey:self.imageKey];
+    UIView *crossView = [self viewWithText:@"delete"];
+    UIColor *redColor = [UIColor colorWithRed:244.0 / 255.0 green:100.0 / 255.0 blue:100.0 / 255.0 alpha:1.0];
+    //UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
+    
+    
+    [cell setDelegate:self];
+    
+    cell.eventLabel.text = [object objectForKey:self.textKey];
+    
+    cell.shouldAnimateIcons = YES;
+ 
+    [cell setSwipeGestureWithView:crossView color:redColor mode:MCSwipeTableViewCellModeExit state:MCSwipeTableViewCellState3
+                  completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
+                      //NSLog(@"Did swipe \"Hide\" cell");
+                      
+                      [self deleteAtIndexPath:indexPath];
+                  }];
+    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+
     
     return cell;
 }
@@ -291,6 +322,86 @@ NSData *imageData;
 - (void)addEventViewContollerDidAdd:(HAPAddEventViewController *)controller {
     [self dismissViewControllerAnimated:YES completion:nil];
     [self loadObjects];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50;
+}
+
+#pragma mark - MCSwipeTableViewCellDelegate
+
+- (void)deleteAtIndexPath:(NSIndexPath *)indexPath {
+    
+    _selectedObject = [self objectAtIndexPath:indexPath];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    
+    //[query includeKey:@"creator"];
+    
+    [query whereKey:@"objectId" equalTo: [_selectedObject objectId]];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                PFObject *event = object;
+                
+                [event deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error2) {
+                        [self loadObjects];
+                }];
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error with finding: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+}
+
+// When the user starts swiping the cell this method is called
+- (void)swipeTableViewCellDidStartSwiping:(MCSwipeTableViewCell *)cell {
+    //NSLog(@"Did start swiping the cell!");
+}
+
+// When the user ends swiping the cell this method is called
+- (void)swipeTableViewCellDidEndSwiping:(MCSwipeTableViewCell *)cell {
+    //NSLog(@"Did end swiping the cell!");
+}
+
+// When the user is dragging, this method is called and return the dragged percentage from the border
+- (void)swipeTableViewCell:(MCSwipeTableViewCell *)cell didSwipeWithPercentage:(CGFloat)percentage {
+    //NSLog(@"Did swipe with percentage : %f", percentage);
+}
+
+#pragma mark - Utils
+
+- (UIView *)viewWithImageName:(NSString *)imageName {
+    UIImage *image = [UIImage imageNamed:imageName];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.contentMode = UIViewContentModeCenter;
+    return imageView;
+}
+
+- (UIView *)viewWithText:(NSString *)textName {
+    UIView *textView = [[UIView alloc] init];
+    CGRect bounds;
+    
+    if ([textName isEqual: @"delete"]) {
+        bounds = CGRectMake(-25, -27, 75, 50);
+    }
+    UILabel *textLabel = [[UILabel alloc] initWithFrame:bounds];
+    NSAttributedString *attributedString =
+    [[NSAttributedString alloc]
+     initWithString:textName
+     attributes:
+     @{
+       NSFontAttributeName : [UIFont fontWithName: @"HelveticaNeue-Medium" size: 18.0f],
+       NSForegroundColorAttributeName : [UIColor whiteColor]
+       }];
+    textLabel.attributedText = attributedString;
+    [textView addSubview:textLabel];
+    textView.contentMode = UIViewContentModeCenter;
+    return textView;
 }
 
 
