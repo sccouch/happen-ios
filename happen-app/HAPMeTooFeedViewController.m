@@ -171,7 +171,7 @@
      
     cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;
     
-    cell.profilePicView.image = [UIImage imageNamed:@"placeholder.jpg"];
+    //cell.profilePicView.image = [UIImage imageNamed:@"placeholder.jpg"];
     PFFile *imageFile = [friend objectForKey:@"profilePic"];
     CALayer *imageLayer = cell.profilePicView.layer;
     [imageLayer setCornerRadius:cell.profilePicView.frame.size.width/2];
