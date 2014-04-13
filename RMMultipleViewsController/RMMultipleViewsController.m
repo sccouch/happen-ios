@@ -510,6 +510,7 @@ static char const * const multipleViewsControllerKey = "multipleViewsControllerK
         
         if(self.navigationStrategy == RMMultipleViewsControllerNavigationStrategySegmentedControl) {
             self.segmentedControl = [[UISegmentedControl alloc] initWithItems:items];
+             _segmentedControl.frame = CGRectMake(_segmentedControl.frame.origin.x, _segmentedControl.frame.origin.y, _segmentedControl.frame.size.width + 65 , _segmentedControl.frame.size.height);
             [_segmentedControl addTarget:self action:@selector(segmentedControlTapped:) forControlEvents:UIControlEventValueChanged];
         } else if(self.navigationStrategy == RMMultipleViewsControllerNavigationStrategyArrows) {
             UIImage *imagePrev = [UIImage imageNamed:@"LeftReveal.png"];

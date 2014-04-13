@@ -43,6 +43,18 @@
 		293F2EE318A22FA400DDB17A /* tab-icons-mylist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDB18A22FA400DDB17A /* tab-icons-mylist@2x.png */; };
 		293F2EE418A22FA400DDB17A /* tab-icons-news@.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDC18A22FA400DDB17A /* tab-icons-news@.png */; };
 		293F2EE518A22FA400DDB17A /* tab-icons-news@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDD18A22FA400DDB17A /* tab-icons-news@2x.png */; };
+		2957EEFC18F8F16800500F07 /* HAPEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2957EEFB18F8F16800500F07 /* HAPEventDetailViewController.m */; };
+		2957EEFF18F905AC00500F07 /* HAPMeTooCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2957EEFE18F905AC00500F07 /* HAPMeTooCell.m */; };
+		2957EF0818F9C6DA00500F07 /* friend-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 2957EF0418F9C6DA00500F07 /* friend-add.png */; };
+		2957EF0918F9C6DA00500F07 /* friend-added.png in Resources */ = {isa = PBXBuildFile; fileRef = 2957EF0518F9C6DA00500F07 /* friend-added.png */; };
+		2957EF0A18F9C6DA00500F07 /* friend-add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2957EF0618F9C6DA00500F07 /* friend-add@2x.png */; };
+		2957EF0B18F9C6DA00500F07 /* friend-added@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2957EF0718F9C6DA00500F07 /* friend-added@2x.png */; };
+		2957EF0E18F9CAD800500F07 /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 2957EF0C18F9CAD800500F07 /* notification.png */; };
+		2957EF0F18F9CAD800500F07 /* notification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2957EF0D18F9CAD800500F07 /* notification@2x.png */; };
+		2957EF1418FA4ADB00500F07 /* placeholder-feed.png in Resources */ = {isa = PBXBuildFile; fileRef = 2957EF1018FA4ADB00500F07 /* placeholder-feed.png */; };
+		2957EF1518FA4ADB00500F07 /* placeholder-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 2957EF1118FA4ADB00500F07 /* placeholder-list.png */; };
+		2957EF1618FA4ADB00500F07 /* placeholder-list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2957EF1218FA4ADB00500F07 /* placeholder-list@2x.png */; };
+		2957EF1718FA4ADB00500F07 /* placeholder-feed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2957EF1318FA4ADB00500F07 /* placeholder-feed@2x.png */; };
 		2967D99418E8CC13009057D1 /* HAPFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2967D99318E8CC13009057D1 /* HAPFeedCell.m */; };
 		2967D99A18E935E4009057D1 /* HAPFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2967D99918E935E4009057D1 /* HAPFriendsCell.m */; };
 		2967D99D18E9F92E009057D1 /* HAPFriendEventListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2967D99C18E9F92E009057D1 /* HAPFriendEventListViewController.m */; };
@@ -138,6 +150,20 @@
 		293F2EDB18A22FA400DDB17A /* tab-icons-mylist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-mylist@2x.png"; sourceTree = "<group>"; };
 		293F2EDC18A22FA400DDB17A /* tab-icons-news@.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-news@.png"; sourceTree = "<group>"; };
 		293F2EDD18A22FA400DDB17A /* tab-icons-news@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-news@2x.png"; sourceTree = "<group>"; };
+		2957EEFA18F8F16800500F07 /* HAPEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPEventDetailViewController.h; sourceTree = "<group>"; };
+		2957EEFB18F8F16800500F07 /* HAPEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPEventDetailViewController.m; sourceTree = "<group>"; };
+		2957EEFD18F905AC00500F07 /* HAPMeTooCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPMeTooCell.h; sourceTree = "<group>"; };
+		2957EEFE18F905AC00500F07 /* HAPMeTooCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPMeTooCell.m; sourceTree = "<group>"; };
+		2957EF0418F9C6DA00500F07 /* friend-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-add.png"; sourceTree = "<group>"; };
+		2957EF0518F9C6DA00500F07 /* friend-added.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-added.png"; sourceTree = "<group>"; };
+		2957EF0618F9C6DA00500F07 /* friend-add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-add@2x.png"; sourceTree = "<group>"; };
+		2957EF0718F9C6DA00500F07 /* friend-added@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-added@2x.png"; sourceTree = "<group>"; };
+		2957EF0C18F9CAD800500F07 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
+		2957EF0D18F9CAD800500F07 /* notification@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notification@2x.png"; sourceTree = "<group>"; };
+		2957EF1018FA4ADB00500F07 /* placeholder-feed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder-feed.png"; sourceTree = "<group>"; };
+		2957EF1118FA4ADB00500F07 /* placeholder-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder-list.png"; sourceTree = "<group>"; };
+		2957EF1218FA4ADB00500F07 /* placeholder-list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder-list@2x.png"; sourceTree = "<group>"; };
+		2957EF1318FA4ADB00500F07 /* placeholder-feed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder-feed@2x.png"; sourceTree = "<group>"; };
 		2967D99218E8CC13009057D1 /* HAPFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPFeedCell.h; sourceTree = "<group>"; };
 		2967D99318E8CC13009057D1 /* HAPFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPFeedCell.m; sourceTree = "<group>"; };
 		2967D99818E935E4009057D1 /* HAPFriendsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPFriendsCell.h; sourceTree = "<group>"; };
@@ -270,6 +296,10 @@
 				045E4EF118ADC79900A480DD /* HAPMyListViewController.m */,
 				0459278018B55B7D00B8A13D /* HAPSelectEventTimeViewController.h */,
 				0459278118B55B7D00B8A13D /* HAPSelectEventTimeViewController.m */,
+				2957EEFA18F8F16800500F07 /* HAPEventDetailViewController.h */,
+				2957EEFB18F8F16800500F07 /* HAPEventDetailViewController.m */,
+				2957EEFD18F905AC00500F07 /* HAPMeTooCell.h */,
+				2957EEFE18F905AC00500F07 /* HAPMeTooCell.m */,
 			);
 			name = MyList;
 			sourceTree = "<group>";
@@ -305,6 +335,16 @@
 		29191D1218F09ACD00EE118A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2957EF1018FA4ADB00500F07 /* placeholder-feed.png */,
+				2957EF1118FA4ADB00500F07 /* placeholder-list.png */,
+				2957EF1218FA4ADB00500F07 /* placeholder-list@2x.png */,
+				2957EF1318FA4ADB00500F07 /* placeholder-feed@2x.png */,
+				2957EF0C18F9CAD800500F07 /* notification.png */,
+				2957EF0D18F9CAD800500F07 /* notification@2x.png */,
+				2957EF0418F9C6DA00500F07 /* friend-add.png */,
+				2957EF0518F9C6DA00500F07 /* friend-added.png */,
+				2957EF0618F9C6DA00500F07 /* friend-add@2x.png */,
+				2957EF0718F9C6DA00500F07 /* friend-added@2x.png */,
 				291EB07718F6481E0041E57A /* metoo.png */,
 				291EB07818F6481E0041E57A /* metoo@2x.png */,
 				29191D1318F09B0F00EE118A /* check.png */,
@@ -560,29 +600,39 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2957EF0A18F9C6DA00500F07 /* friend-add@2x.png in Resources */,
+				2957EF0B18F9C6DA00500F07 /* friend-added@2x.png in Resources */,
 				293F2EE418A22FA400DDB17A /* tab-icons-news@.png in Resources */,
+				2957EF0818F9C6DA00500F07 /* friend-add.png in Resources */,
 				D9A971751896DE5F002471D0 /* Images.xcassets in Resources */,
 				293F2EE318A22FA400DDB17A /* tab-icons-mylist@2x.png in Resources */,
 				29266DEA18A19C84004F5916 /* Mark Simonson - Proxima Nova Thin.otf in Resources */,
 				293F2ED518A22F0700DDB17A /* tab-icons-feed@2x.png in Resources */,
 				29266DE918A19C84004F5916 /* Mark Simonson - Proxima Nova Semibold.otf in Resources */,
 				293F2EE118A22FA400DDB17A /* tab-icons-friends@2x.png in Resources */,
+				2957EF1418FA4ADB00500F07 /* placeholder-feed.png in Resources */,
 				D9A971641896DE5F002471D0 /* InfoPlist.strings in Resources */,
 				293F2EE218A22FA400DDB17A /* tab-icons-mylist.png in Resources */,
+				2957EF0918F9C6DA00500F07 /* friend-added.png in Resources */,
 				29191D1718F09B0F00EE118A /* check.png in Resources */,
 				29191D1918F09B0F00EE118A /* cross.png in Resources */,
 				29191D1A18F09B0F00EE118A /* cross@2x.png in Resources */,
+				2957EF1518FA4ADB00500F07 /* placeholder-list.png in Resources */,
 				291EB07918F6481E0041E57A /* metoo.png in Resources */,
 				291EB07A18F6481E0041E57A /* metoo@2x.png in Resources */,
 				29266DEE18A1C068004F5916 /* logo.png in Resources */,
 				293F2EDE18A22FA400DDB17A /* tab-icons-feed.png in Resources */,
 				D9A9716D1896DE5F002471D0 /* Main.storyboard in Resources */,
+				2957EF0E18F9CAD800500F07 /* notification.png in Resources */,
 				29266DE718A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Light.otf in Resources */,
+				2957EF0F18F9CAD800500F07 /* notification@2x.png in Resources */,
 				293F2EE518A22FA400DDB17A /* tab-icons-news@2x.png in Resources */,
 				29266DEF18A1C068004F5916 /* logo@2x.png in Resources */,
+				2957EF1618FA4ADB00500F07 /* placeholder-list@2x.png in Resources */,
 				293F2EE018A22FA400DDB17A /* tab-icons-friends.png in Resources */,
 				29191D1818F09B0F00EE118A /* check@2x.png in Resources */,
 				293F2EDF18A22FA400DDB17A /* tab-icons-feed@2x.png in Resources */,
+				2957EF1718FA4ADB00500F07 /* placeholder-feed@2x.png in Resources */,
 				293F2ED418A22F0700DDB17A /* tab-icons-feed.png in Resources */,
 				29266DE818A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Regular.otf in Resources */,
 				04DD31A118A495E0008BA5DF /* RMMultipleViewsController.xcassets in Resources */,
@@ -610,9 +660,11 @@
 				042B30FE189A15BE00BBCC2F /* HAPFriendsFeedViewController.m in Sources */,
 				29191D1018EF6E6300EE118A /* MCSwipeTableViewCell.m in Sources */,
 				042B311018A038F000BBCC2F /* HAPLoginViewController.m in Sources */,
+				2957EEFC18F8F16800500F07 /* HAPEventDetailViewController.m in Sources */,
 				04CFAE6E18E903B700D21F81 /* HAPMeTooFeedViewController.m in Sources */,
 				045E4EEF18ADB5C200A480DD /* HAPAddEventViewController.m in Sources */,
 				D999AD3318BE915400500FF4 /* HAPNewsTableViewController.m in Sources */,
+				2957EEFF18F905AC00500F07 /* HAPMeTooCell.m in Sources */,
 				04332E7118C4445F00488139 /* HAPAcceptFriendButton.m in Sources */,
 				297409FB18BC8AF400FB59C7 /* HAPFriendListViewController.m in Sources */,
 				04DD31A018A495E0008BA5DF /* RMMultipleViewsController.m in Sources */,

@@ -45,6 +45,11 @@
         
         PFRelation *friends = [[PFUser currentUser] objectForKey:@"friends"];
         PFQuery *friendQuery = friends.query;
+        
+        if (self.friends.count == 0) {
+            friendQuery.cachePolicy = kPFCachePolicyCacheThenNetwork;
+        }
+        
         [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 for (PFObject *object in objects) {
@@ -228,7 +233,10 @@
     if ([self.friends containsObject:[object objectId]]) {
         cell.userInteractionEnabled = NO;
         cell.addButton.userInteractionEnabled = NO;
-        cell.addButton.hidden = TRUE;
+        //cell.addButton.hidden = TRUE;
+        UIImage * buttonImage = [UIImage imageNamed:@"friend-added.png"];
+        [cell.addButton setImage:buttonImage forState:UIControlStateNormal];
+        
         //[cell.addButton setTitle:@"Friends" forState:UIControlStateNormal];
     }
     else {
@@ -295,11 +303,11 @@
     }
     
     //For debugging: Log all phone numbers in contact book to console
-    NSMutableString *exString = [[NSMutableString alloc]init];
-    for (NSString *phoneNum in self.fetchedNumbers) {
-        NSLog (@"%@", phoneNum);
-        [exString appendFormat:@"\n%@",phoneNum];
-    }
+//    NSMutableString *exString = [[NSMutableString alloc]init];
+//    for (NSString *phoneNum in self.fetchedNumbers) {
+//        NSLog (@"%@", phoneNum);
+//        [exString appendFormat:@"\n%@",phoneNum];
+//    }
 }
 
 

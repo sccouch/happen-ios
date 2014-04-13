@@ -18,6 +18,7 @@
     [initialViewController addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"MeTooFeedView"]];
     
     self.viewController = initialViewController;
+
 }
 
 @end

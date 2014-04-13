@@ -56,11 +56,13 @@ typedef void (^MCSwipeCompletionBlock)(MCSwipeTableViewCell *cell, MCSwipeTableV
 
 @interface MCSwipeTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *timeFrame;
 
 @property(nonatomic,weak) IBOutlet UILabel *nameLabel;
 @property(nonatomic,weak) IBOutlet UILabel *eventLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicView;
 @property (weak, nonatomic) IBOutlet UIImageView *meTooCheck;
+@property (weak, nonatomic) IBOutlet UILabel *meTooCount;
 
 /** Delegate of `MCSwipeTableViewCell` */
 @property (nonatomic, assign) id <MCSwipeTableViewCellDelegate> delegate;

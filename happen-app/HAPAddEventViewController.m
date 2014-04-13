@@ -54,8 +54,10 @@
     event[@"timeFrame"] = self.eventTimeLabel.text;
     [event setObject:[PFUser currentUser] forKey:@"creator"];
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+        [self dismissViewControllerAnimated:YES completion:nil];
         [self.delegate addEventViewContollerDidAdd:self];
     }];
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

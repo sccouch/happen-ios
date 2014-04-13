@@ -10,7 +10,6 @@
 
 
 @interface HAPMyListViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *profilePicButton;
@@ -21,7 +20,6 @@
 
 NSData *imageData;
 @synthesize profilePicButton = _profilePicButton;
-@synthesize profilePicture = _profilePicture;
 
 - (id)initWithCoder:(NSCoder *)aCoder {
     self = [super initWithCoder:aCoder];
@@ -147,9 +145,9 @@ NSData *imageData;
         NSLog(@"Writing profile picture complete");
         
         // Show the profile pic
-        [_profilePicture setImage:croppedImage];
-        CALayer *imageLayer = _profilePicture.layer;
-        [imageLayer setCornerRadius:_profilePicture.frame.size.width/2];
+        [self.profilePicButton setImage:croppedImage forState:UIControlStateNormal];
+        CALayer *imageLayer = self.profilePicButton.layer;
+        [imageLayer setCornerRadius:self.profilePicButton.frame.size.width/2];
         [imageLayer setMasksToBounds:YES];
         imageData = UIImagePNGRepresentation(croppedImage);
         
@@ -180,13 +178,13 @@ NSData *imageData;
     PFFile *userImageFile = user[@"profilePic"];
     [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
         if (!error) {
-            [self.profilePicture setImage: [UIImage imageWithData:imageData]];
+            [self.profilePicButton setImage:[UIImage imageWithData:imageData] forState:UIControlStateNormal];
         }
     }];
 //    [imageLayer setCornerRadius:_profilePic.frame.size.width/2];
     
-    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width/2;
-    self.profilePicture.layer.masksToBounds = YES;
+    self.profilePicButton.layer.cornerRadius = self.profilePicButton.frame.size.width/2;
+    self.profilePicButton.layer.masksToBounds = YES;
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
     self.usernameLabel.text = [NSString stringWithFormat:@"@%@", user[@"username"]];
     
@@ -291,6 +289,21 @@ NSData *imageData;
     
     cell.eventLabel.text = [object objectForKey:self.textKey];
     
+    PFRelation *meToos = [object relationForKey:@"meToos"];
+    PFQuery *friendQuery = meToos.query;
+    
+    [friendQuery countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
+        if (!error) {
+            
+            if (count!= 0) {
+                NSString *meTooCount = [NSString stringWithFormat:@"+%d", count];
+                cell.meTooCount.text = meTooCount;
+            }
+        }
+        
+    }];
+
+    
     cell.shouldAnimateIcons = YES;
  
     [cell setSwipeGestureWithView:crossView color:redColor mode:MCSwipeTableViewCellModeExit state:MCSwipeTableViewCellState3
@@ -313,6 +326,16 @@ NSData *imageData;
         HAPAddEventViewController *addEventViewController = [navigationController viewControllers][0];
         addEventViewController.delegate = self;
     }
+    
+    if ([segue.identifier isEqualToString:@"ViewDetails"]) {
+        // Capture the object (e.g. exam) the user has selected from the list
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        PFObject *object = [self.objects objectAtIndex:indexPath.row];
+        
+        HAPEventDetailViewController *detailViewController = [segue destinationViewController];
+        detailViewController.selectedEvent = object;
+    }
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -320,7 +343,7 @@ NSData *imageData;
 }
 
 - (void)addEventViewContollerDidAdd:(HAPAddEventViewController *)controller {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
     [self loadObjects];
 }
 
@@ -372,6 +395,7 @@ NSData *imageData;
 - (void)swipeTableViewCell:(MCSwipeTableViewCell *)cell didSwipeWithPercentage:(CGFloat)percentage {
     //NSLog(@"Did swipe with percentage : %f", percentage);
 }
+
 
 #pragma mark - Utils
 
