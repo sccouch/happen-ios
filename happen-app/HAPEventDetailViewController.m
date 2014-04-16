@@ -7,12 +7,15 @@
 //
 
 #import "HAPEventDetailViewController.h"
+#import "HAPFriendEventListViewController.h"
 #import "HAPMeTooCell.h"
 
 @interface HAPEventDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *eventTitle;
+@property (weak, nonatomic) IBOutlet UILabel *timeFrame;
 @property (nonatomic) NSInteger meTooCount;
 @property (nonatomic, strong) NSArray *meTooers;
+@property (nonatomic) NSIndexPath *selectedIndex;
 
 @end
 
@@ -32,34 +35,17 @@
 {
     
     self.meTooers = [[NSArray alloc]init];
-    
-    PFRelation *meToos = [self.selectedEvent relationForKey:@"meToos"];
-    PFQuery *friendQuery = meToos.query;
-    
-    [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            
-            self.meTooers = [NSMutableArray arrayWithArray:objects];
-//            for (PFObject *object in self.meTooers) {
-//                //NSLog(@"me tooer %@", object[@"firstName"]);
-//            }
-//            
-            [self.meTooView reloadData];
-            
-        }
-    }];
-    
-//    UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
-//    _meTooView=[[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
+
+    self.meTooers = [self.selectedEvent objectForKey:@"MeToos"];
+
     [_meTooView setDataSource:self];
     [_meTooView setDelegate:self];
-    
-    //[_meTooView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"HAPMeTooCell"];
     
     [self.view addSubview:_meTooView];
 	// Do any additional setup after loading the view.
     
     self.eventTitle.text = [NSString stringWithFormat:@"%@", self.selectedEvent[@"details"]];
+    self.timeFrame.text = [NSString stringWithFormat:@"%@", self.selectedEvent[@"timeFrame"]];
     
     [super viewDidLoad];
     
@@ -97,18 +83,24 @@
     HAPMeTooCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HAPMeTooCell"
                                               forIndexPath:indexPath];
     
-    PFObject *object = [self.meTooers objectAtIndex:indexPath.row];
-    cell.profilePic.contentMode = UIViewContentModeScaleAspectFit;
-    cell.profilePic.image = [UIImage imageNamed:@"placeholder.jpg"];
-    PFFile *imageFile = [object objectForKey:@"profilePic"];
-    CALayer *imageLayer = cell.profilePic.layer;
-    [imageLayer setCornerRadius:cell.profilePic.frame.size.width/2];
-    [imageLayer setMasksToBounds:YES];
-    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        // Now that the data is fetched, update the cell's image property.
-        cell.profilePic.image = [UIImage imageWithData:data];
-    }];
-
+    if (!self.meTooers) {
+        return cell;
+    }
+    
+    else {
+        PFObject *object = [self.meTooers objectAtIndex:indexPath.row];
+        cell.profilePic.contentMode = UIViewContentModeScaleAspectFit;
+        cell.profilePic.image = [UIImage imageNamed:@"placeholder.jpg"];
+        PFFile *imageFile = [object objectForKey:@"profilePic"];
+        CALayer *imageLayer = cell.profilePic.layer;
+        [imageLayer setCornerRadius:cell.profilePic.frame.size.width/2];
+        [imageLayer setMasksToBounds:YES];
+        [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            // Now that the data is fetched, update the cell's image property.
+            cell.profilePic.image = [UIImage imageWithData:data];
+        }];
+    }
+    
     
     return cell;
 }
@@ -125,9 +117,30 @@
     
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectedIndex = indexPath;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Check that a new transition has been requested to the DetailViewController and prepares for it
+    if ([segue.identifier isEqualToString:@"FriendList"]){
+        
+        // Capture the object (e.g. exam) the user has selected from the list
+        //NSIndexPath *indexPath = [self.meTooView cellForItemAtIndexPath:self.selectedIndex];
+        NSIndexPath *selectedIndexPath = [[self.meTooView indexPathsForSelectedItems] objectAtIndex:0];
+        PFObject *object = [self.meTooers objectAtIndex:selectedIndexPath.row];
+        
+        HAPFriendEventListViewController *detailViewController = [segue destinationViewController];
+        detailViewController.friend = object;
+    }
+}
+
+
+
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(5, 5, 5, 5);
+    return UIEdgeInsetsMake(2, 2, 2, 2);
 }
 
 @end

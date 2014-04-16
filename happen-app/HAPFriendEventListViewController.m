@@ -113,7 +113,15 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    PFObject* update = [self.objects objectAtIndex:indexPath.row];
+    NSString *text = [update objectForKey:@"details"];
+    
+    if ([text length] > 37) {
+        return 65;
+    }
+    else {
+        return 50;
+    }
 }
 
 // Override to customize what kind of query to perform on the class. The default is to query for
@@ -122,6 +130,7 @@
     
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     [query whereKey:@"creator" equalTo:self.friend];
+    [query includeKey:@"MeToos"];
     
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
@@ -166,49 +175,37 @@
     
     cell.meTooCheck.hidden = YES;
     
-    //cell.eventLabel.text = [object objectForKey:self.textKey];
-    // Configure the cell
-    PFRelation *meToos = [object relationForKey:@"meToos"];
-    NSMutableArray *likers = [NSMutableArray array];
-
     cell.eventLabel.text = [object objectForKey:self.textKey];
-    PFQuery *friendQuery = meToos.query;
-    [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *meTooers, NSError *error) {
-        if (!error) {
-            for (PFObject *meTooer in meTooers) {
-                [likers addObject:[meTooer objectId]];
-                //NSLog(@"%@", [meTooer objectForKey:@"firstName"]);
-            }
+    
+    // Configure the cell
+    NSMutableArray *likers = [NSMutableArray array];
+    NSArray *metoos = [object objectForKey:@"MeToos"];
+    
+    for (PFUser *metoo in metoos) {
+        [likers addObject:[metoo objectId]];
+    }
+    
+    if ([likers containsObject:[[PFUser currentUser] objectId]]) {
+        [cell setSwipeGestureWithView:crossView color:redColor mode:MCSwipeTableViewCellModeExit state:MCSwipeTableViewCellState3
+                      completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
+                          //NSLog(@"Did swipe \"Hide\" cell");
+                          
+                          [self unMeTooAtIndexPath:indexPath];
+                      }];
+        cell.meTooCheck.hidden = NO;
+    }
+    
+    else {
+        [cell setSwipeGestureWithView:checkView color:greenColor mode:MCSwipeTableViewCellModeExit state:MCSwipeTableViewCellState1 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
+            //NSLog(@"Did swipe \"Me Too\" cell");
             
-            if ([likers containsObject:[[PFUser currentUser] objectId]]) {
-                [cell setSwipeGestureWithView:crossView color:redColor mode:MCSwipeTableViewCellModeExit state:MCSwipeTableViewCellState3
-                              completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
-                                  //NSLog(@"Did swipe \"Hide\" cell");
-                                  
-                    [self unMeTooAtIndexPath:indexPath];
-                }];
-                cell.meTooCheck.hidden = NO;
-            }
+            [self meTooAtIndexPath:indexPath];
             
-            else {
-                [cell setSwipeGestureWithView:checkView color:greenColor mode:MCSwipeTableViewCellModeExit state:MCSwipeTableViewCellState1 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
-                    //NSLog(@"Did swipe \"Me Too\" cell");
-                    
-                    [self meTooAtIndexPath:indexPath];
-                    
-                }];
-            }
-        }
-        else {
-            NSLog(@"ERRERE");
-        }
-    }];
-
-    //[query whereKey:@"meToos" equalTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:[[PFUser currentUser] objectId]]];
+        }];
+    }
 
     cell.shouldAnimateIcons = YES;
 
-    
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 
     return cell;
@@ -220,39 +217,17 @@
     
     _selectedObject = [self objectAtIndexPath:indexPath];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    [PFCloud callFunctionInBackground:@"meTooEvent"
+                       withParameters:@{@"eventId": [_selectedObject objectId]}
+                                block:^(NSString *unused, NSError *error) {
+                                    if (!error) {
+                                        //success
+                                        //NSLog(@"cloud code worked");
+                                        [self loadObjects];
+                                    }
+                                }];
     
-    [query includeKey:@"creator"];
     
-    [query whereKey:@"objectId" equalTo: [_selectedObject objectId]];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            for (PFObject *object in objects) {
-                PFObject *event = object;
-                PFRelation *meToos = [event relationForKey:@"meToos"];
-                
-                [meToos addObject:[PFUser currentUser]];
-                [event saveInBackground];
-                
-                
-                PFObject *news = [PFObject objectWithClassName:@"News"];
-                [news setObject:[PFUser currentUser] forKey:@"source"];
-                [news setObject:[event objectForKey:@"creator"] forKey:@"target"];
-                [news setObject:event forKey:@"event"];
-                [news setValue:@"ME_TOO" forKey:@"type"];
-                [news setObject:[NSNumber numberWithBool:YES]  forKey:@"isUnread"];
-                [news saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                    //[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                    [self loadObjects];
-                }];
-                
-            }
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
     
 }
 
@@ -260,30 +235,15 @@
     
     _selectedObject = [self objectAtIndexPath:indexPath];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
-    
-    [query includeKey:@"creator"];
-    
-    [query whereKey:@"objectId" equalTo: [_selectedObject objectId]];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            for (PFObject *object in objects) {
-                PFObject *event = object;
-                PFRelation *meToos = [event relationForKey:@"meToos"];
-                
-                [meToos removeObject:[PFUser currentUser]];
-                [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                    //[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                    [self loadObjects];
-                }];
-                
-            }
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
+    [PFCloud callFunctionInBackground:@"undoMeTooEvent"
+                       withParameters:@{@"eventId": [_selectedObject objectId]}
+                                block:^(NSString *unused, NSError *error) {
+                                    if (!error) {
+                                        //success
+                                        //NSLog(@"cloud code worked");
+                                        [self loadObjects];
+                                    }
+                                }];
     
 }
 
@@ -307,18 +267,11 @@
 
 #pragma mark - Utils
 
-//- (void)reload:(id)sender {
-//    _nbItems = kMCNumItems;
-//    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-//}
-//
-//- (void)deleteCell:(MCSwipeTableViewCell *)cell {
-//    NSParameterAssert(cell);
-//
-//    _nbItems--;
-//    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-//    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//}
+- (IBAction)sendText:(id)sender {
+    
+    NSString *phone = [NSString stringWithFormat:@"sms:%@", [self.friend objectForKey:@"phoneNumber"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phone]];
+}
 
 - (UIView *)viewWithImageName:(NSString *)imageName {
     UIImage *image = [UIImage imageNamed:imageName];

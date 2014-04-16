@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *msgButton;
 @property (weak, nonatomic) PFObject *selectedObject;
 @property (weak, nonatomic) PFObject *friend;
 

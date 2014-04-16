@@ -181,7 +181,6 @@ NSData *imageData;
             [self.profilePicButton setImage:[UIImage imageWithData:imageData] forState:UIControlStateNormal];
         }
     }];
-//    [imageLayer setCornerRadius:_profilePic.frame.size.width/2];
     
     self.profilePicButton.layer.cornerRadius = self.profilePicButton.frame.size.width/2;
     self.profilePicButton.layer.masksToBounds = YES;
@@ -198,6 +197,7 @@ NSData *imageData;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self loadObjects];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -239,6 +239,7 @@ NSData *imageData;
     
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     [query whereKey:@"creator" equalTo:[PFUser currentUser]];
+    [query includeKey:@"MeToos"];
     
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
@@ -261,16 +262,7 @@ NSData *imageData;
 // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
 // and the imageView being the imageKey in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
-//    static NSString *CellIdentifier = @"Cell";
-//    
-//    PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    if (cell == nil) {
-//        cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//    }
-//    
-//    // Configure the cell
-//    cell.textLabel.text = [object objectForKey:self.textKey];
-//    cell.imageView.file = [object objectForKey:self.imageKey];
+
     static NSString *CellIdentifier = @"HAPSwipeCell";
     
     MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -289,21 +281,15 @@ NSData *imageData;
     
     cell.eventLabel.text = [object objectForKey:self.textKey];
     
-    PFRelation *meToos = [object relationForKey:@"meToos"];
-    PFQuery *friendQuery = meToos.query;
-    
-    [friendQuery countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
-        if (!error) {
-            
-            if (count!= 0) {
-                NSString *meTooCount = [NSString stringWithFormat:@"+%d", count];
-                cell.meTooCount.text = meTooCount;
-            }
-        }
-        
-    }];
+    int count = [[object objectForKey:@"meTooCount"] intValue];
+    if (count != 0) {
+        NSString *meTooCount = [NSString stringWithFormat:@"+%d", count];
+        cell.meTooCount.text = meTooCount;
+    }
+    else {
+        cell.meTooCount.hidden = YES;
+    }
 
-    
     cell.shouldAnimateIcons = YES;
  
     [cell setSwipeGestureWithView:crossView color:redColor mode:MCSwipeTableViewCellModeExit state:MCSwipeTableViewCellState3
@@ -349,7 +335,16 @@ NSData *imageData;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    PFObject* update = [self.objects objectAtIndex:indexPath.row];
+    NSString *text = [update objectForKey:@"details"];
+    
+    if ([text length] > 33) {
+        return 65;
+    }
+    else {
+        return 50;
+    }
+
 }
 
 #pragma mark - MCSwipeTableViewCellDelegate
@@ -357,27 +352,15 @@ NSData *imageData;
 - (void)deleteAtIndexPath:(NSIndexPath *)indexPath {
     
     _selectedObject = [self objectAtIndexPath:indexPath];
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
-    
-    //[query includeKey:@"creator"];
-    
-    [query whereKey:@"objectId" equalTo: [_selectedObject objectId]];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            for (PFObject *object in objects) {
-                PFObject *event = object;
-                
-                [event deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error2) {
-                        [self loadObjects];
-                }];
-            }
-        } else {
-            // Log details of the failure
-            NSLog(@"Error with finding: %@ %@", error, [error userInfo]);
-        }
-    }];
+   
+    [PFCloud callFunctionInBackground:@"deleteEvent"
+                       withParameters:@{@"eventId": [_selectedObject objectId]/*objectID of event*/}
+                                block:^(NSString *unused, NSError *error) {
+                                    if (!error) {
+                                        //NSLog(@"cloud code worked");
+                                        [self loadObjects];
+                                    }
+                                }];
     
 }
 

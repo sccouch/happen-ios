@@ -7,6 +7,7 @@
 //
 
 #import "HAPNewsTableViewController.h"
+#import "HAPEventDetailViewController.h"
 #import "HAPFriendsCell.h"
 
 @interface HAPNewsTableViewController ()
@@ -65,6 +66,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self loadObjects];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -77,6 +79,11 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:2] setBadgeValue:nil];
+    for (PFObject *unread in self.objects) {
+        [unread setObject:[NSNumber numberWithBool:NO] forKey:@"isUnread"];
+    }
+    [PFObject saveAllInBackground:self.objects];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -147,15 +154,25 @@
     NSString *fullName = [NSString stringWithFormat:@"%@ %@ ", firstName, lastName];
     //cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
     
+    if ([[object objectForKey:@"isUnread"] boolValue] == NO) {
+        cell.unreadDot.hidden = YES;
+    }
+    
+    else {
+        cell.unreadDot.hidden = NO;
+    }
+    
     // With Notification Description
     if ([[object objectForKey:@"type"] isEqualToString:@"SENT_REQUEST"]) {
         cell.nameLabel.text = fullName;
         cell.usernameLabel.text = @"sent you a friend request";
+        [cell setUserInteractionEnabled:NO];
     }
     
     if ([[object objectForKey:@"type"] isEqualToString:@"ACCEPT_REQUEST"]) {
         cell.nameLabel.text = fullName;
         cell.usernameLabel.text = @"accepted your friend request";
+        [cell setUserInteractionEnabled:NO];
     }
     
     if ([[object objectForKey:@"type"] isEqualToString:@"ME_TOO"]) {
@@ -196,7 +213,7 @@
         // Now that the data is fetched, update the cell's image property.
         cell.profilePicView.image = [UIImage imageWithData:data];
     }];
-
+    
     return cell;
 }
 
@@ -232,6 +249,52 @@
 {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    PFObject *object = [self.objects objectAtIndex:indexPath.row];
+    if ([[object objectForKey:@"type"] isEqualToString:@"ME_TOO"]) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Check that a new transition has been requested to the DetailViewController and prepares for it
+    if ([segue.identifier isEqualToString:@"ViewDetails"]){
+        
+        // Capture the object (e.g. exam) the user has selected from the list
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        PFObject *object = [self.objects objectAtIndex:indexPath.row];
+
+        //PFObject *event = [self.objects objectAtIndex:indexPath.row];
+        PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+        [query whereKey:@"objectId" equalTo:[[object objectForKey:@"event"] objectId]];
+        [query includeKey:@"MeToos"];
+        
+        //query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+        /*[query getFirstObjectInBackgroundWithBlock:^(PFObject *result, NSError *error) {
+            if (!error) {
+                PFObject *event = result;
+                HAPEventDetailViewController *detailViewController = [segue destinationViewController];
+                //detailViewController.event = [object objectForKey:@"event"];
+                detailViewController.event = event;
+            }
+        }];*/
+        
+        PFObject *event = [query getFirstObject];
+        HAPEventDetailViewController *detailViewController = [segue destinationViewController];
+        //detailViewController.event = [object objectForKey:@"event"];
+        detailViewController.event = event;
+
+
+    }
+}
+
 
 
 @end

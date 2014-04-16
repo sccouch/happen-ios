@@ -129,8 +129,8 @@
      PFQuery *friendsEventsQuery = [PFQuery queryWithClassName:self.parseClassName];
      [friendsEventsQuery whereKey:@"creator" matchesQuery:friends];
      
-     [friendsEventsQuery whereKey:@"meToos" notEqualTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:[[PFUser currentUser] objectId]]];
-     [friendsEventsQuery whereKey:@"hides" notEqualTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:[[PFUser currentUser] objectId]]];
+     [friendsEventsQuery whereKey:@"MeToos" notEqualTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:[[PFUser currentUser] objectId]]];
+     [friendsEventsQuery whereKey:@"Hides" notEqualTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:[[PFUser currentUser] objectId]]];
 
      // If Pull To Refresh is enabled, query against the network by default.
      if (self.pullToRefreshEnabled) {
@@ -151,7 +151,21 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 70;
+    
+    NSString *text;
+    
+    if (indexPath.row < [self.objects count]) {
+        PFObject* update = [self objectAtIndexPath:indexPath];
+        text = [update objectForKey:@"details"];
+    }
+    
+    if ([text length] > 30) {
+        return 85;
+    }
+    else {
+        return 70;
+    }
+
 }
 
 
@@ -197,29 +211,6 @@
       NSString *fullName = [NSString stringWithFormat:@"%@ %@ ", firstName, lastName];
      
       cell.nameLabel.text = fullName;
-     
-      /* Username Display
-       
-      NSString *username = [NSString stringWithFormat:@" @%@",[friend objectForKey:@"username"]];
-      NSUInteger length = [username length];
-      
-      UIFont *nameFont = [UIFont fontWithName:@"Avenir-Medium" size:17.0];
-      UIFont *nameFont = [UIFont boldSystemFontOfSize:14];
-     
-      NSDictionary *nameDict = [NSDictionary dictionaryWithObject: nameFont forKey:NSFontAttributeName];
-      NSMutableAttributedString *nameAttrString = [[NSMutableAttributedString alloc] initWithString:fullName attributes: nameDict];
-     
-      UIFont *usernameFont = [UIFont systemFontOfSize:12];
-      //UIFont *usernameFont = [UIFont fontWithName:@"Avenir-Medium" size:12.0];
-      NSDictionary *usernameDict = [NSDictionary dictionaryWithObject:usernameFont forKey:NSFontAttributeName];
-      NSMutableAttributedString *usernameAttrString = [[NSMutableAttributedString alloc]initWithString:username attributes:usernameDict];
-      [usernameAttrString addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor] range:(NSMakeRange(0, length))];
-     
-      [nameAttrString appendAttributedString:usernameAttrString];
-     
-      cell.nameLabel.attributedText = nameAttrString;
-      
-      */
      
       cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;
  
@@ -324,39 +315,15 @@
     
     _selectedObject = [self objectAtIndexPath:indexPath];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
-    
-    [query includeKey:@"creator"];
-    
-    [query whereKey:@"objectId" equalTo: [_selectedObject objectId]];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            for (PFObject *object in objects) {
-                PFObject *event = object;
-                PFRelation *meToos = [event relationForKey:@"meToos"];
-                
-                [meToos addObject:[PFUser currentUser]];
-                [event saveInBackground];
-                
-                
-                PFObject *news = [PFObject objectWithClassName:@"News"];
-                [news setObject:[PFUser currentUser] forKey:@"source"];
-                [news setObject:[event objectForKey:@"creator"] forKey:@"target"];
-                [news setObject:event forKey:@"event"];
-                [news setValue:@"ME_TOO" forKey:@"type"];
-                [news setObject:[NSNumber numberWithBool:YES]  forKey:@"isUnread"];
-                [news saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                    //[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                    [self loadObjects];
-                }];
-                
-            }
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
+    [PFCloud callFunctionInBackground:@"meTooEvent"
+                       withParameters:@{@"eventId": [_selectedObject objectId]}
+                                block:^(NSString *unused, NSError *error) {
+                                    if (!error) {
+                                        //success
+                                        //NSLog(@"cloud code worked");
+                                        [self loadObjects];
+                                    }
+                                }];
 
 }
 
@@ -364,29 +331,15 @@
     
     _selectedObject = [self objectAtIndexPath:indexPath];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
-    
-    [query includeKey:@"creator"];
-    
-    [query whereKey:@"objectId" equalTo: [_selectedObject objectId]];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            for (PFObject *object in objects) {
-                PFObject *event = object;
-                PFRelation *hides = [event relationForKey:@"hides"];
-                
-                [hides addObject:[PFUser currentUser]];
-                [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                    //[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                    [self loadObjects];
-                }];
-            }
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
+    [PFCloud callFunctionInBackground:@"hideEvent"
+                       withParameters:@{@"eventId": [_selectedObject objectId]}
+                                block:^(NSString *unused, NSError *error) {
+                                    if (!error) {
+                                        //success
+                                        //NSLog(@"cloud code worked");
+                                        [self loadObjects];
+                                    }
+                                }];
     
 }
 
@@ -425,19 +378,6 @@
 }
 
 #pragma mark - Utils
-
-//- (void)reload:(id)sender {
-//    _nbItems = kMCNumItems;
-//    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-//}
-//
-//- (void)deleteCell:(MCSwipeTableViewCell *)cell {
-//    NSParameterAssert(cell);
-//    
-//    _nbItems--;
-//    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-//    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//}
 
 - (UIView *)viewWithImageName:(NSString *)imageName {
     UIImage *image = [UIImage imageNamed:imageName];

@@ -141,6 +141,8 @@
 
 - (IBAction)requestFriend:(id)sender {
     HAPRequestFriendButton *friendRequestButton = (HAPRequestFriendButton *)sender;
+    UIImage * pressedImage = [UIImage imageNamed:@"friend-sent.png"];
+    [sender setImage:pressedImage forState:UIControlStateNormal];
     PFObject *request = [PFObject objectWithClassName:@"FriendRequest"];
     [request setObject:[PFUser currentUser] forKey:@"source"];
     [request setObject:friendRequestButton.user forKey:@"target"];
@@ -177,12 +179,12 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %d scores.", objects.count);
+            //NSLog(@"Successfully retrieved %d scores.", objects.count);
             // Do something with the found objects
             self.friendSearchResults = [objects mutableCopy];
-            for (PFObject *object in self.friendSearchResults) {
+            /*for (PFObject *object in self.friendSearchResults) {
                 NSLog(@"%@", object.objectId);
-            }
+            }*/
             [[self.searchDisplayController searchResultsTableView] reloadData];
             [self.tableView reloadData];
             

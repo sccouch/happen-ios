@@ -14,5 +14,6 @@
 @interface HAPFriendsFeedViewController : PFQueryTableViewController <MCSwipeTableViewCellDelegate, AddEventViewContollerDelegate, UIAlertViewDelegate>
 @property (nonatomic, strong) MCSwipeTableViewCell *cellToDelete;
 @property (weak, nonatomic) PFObject *selectedObject;
+@property (nonatomic, strong) MCSwipeTableViewCell *prototypeCell;
 
 @end

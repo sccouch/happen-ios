@@ -78,10 +78,10 @@
     // Check if user authorized access to address book
     switch (ABAddressBookGetAuthorizationStatus()) {
         case kABAuthorizationStatusAuthorized: {
-            NSLog(@"Already authorized");
+            //NSLog(@"Already authorized");
             self.addressBook = ABAddressBookCreateWithOptions(NULL, &error);
             if (self.addressBook != nil) {
-                NSLog(@"Succesful.");
+                //NSLog(@"Succesful.");
                 [self readFromAddressBook:self.addressBook];
                 [self loadObjects];
             }
@@ -100,17 +100,17 @@
             self.addressBook = ABAddressBookCreateWithOptions(NULL, &error);
             ABAddressBookRequestAccessWithCompletion(self.addressBook, ^(bool granted, CFErrorRef error) {
                 if (granted) {
-                    NSLog(@"Access was granted");
+                    //NSLog(@"Access was granted");
                     [self readFromAddressBook:self.addressBook];
                     [self loadObjects];
                 }
-                else NSLog(@"Access was not granted");
+                //else NSLog(@"Access was not granted");
                 if (self.addressBook != NULL) CFRelease(self.addressBook);
             });
             break;
         }
         case kABAuthorizationStatusRestricted: {
-            NSLog(@"access restricted to address book");
+            //NSLog(@"access restricted to address book");
             break;
         }
     }
@@ -170,7 +170,7 @@
     //PFQuery *query = [PFQuery queryWithClassName:@"User"];
     PFQuery *query = [PFUser query];
     if (self.fetchedNumbers == NULL) {
-        NSLog(@"well fuck");
+        //NSLog(@"well");
     }
     //[query whereKey:@"objectId" notContainedIn:self.friends];
     //[query whereKey:@"objectId" notEqualTo:[[PFUser currentUser] objectId]];
@@ -236,12 +236,14 @@
         //cell.addButton.hidden = TRUE;
         UIImage * buttonImage = [UIImage imageNamed:@"friend-added.png"];
         [cell.addButton setImage:buttonImage forState:UIControlStateNormal];
-        
         //[cell.addButton setTitle:@"Friends" forState:UIControlStateNormal];
     }
+    
     else {
         cell.addButton.user = (PFUser *)object;
         [cell.addButton setTitle:@"Add" forState:UIControlStateNormal];
+        UIImage * pressedImage = [UIImage imageNamed:@"friend-sent.png"];
+        [cell.addButton setImage:pressedImage forState:UIControlStateSelected];
         [cell.addButton addTarget:self action:@selector(requestFriend:) forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -249,8 +251,10 @@
 }
 
 - (IBAction)requestFriend:(id)sender {
-    NSLog(@"send friend request pls");
+    //NSLog(@"send friend request pls");
     HAPRequestFriendButton *friendRequestButton = (HAPRequestFriendButton *)sender;
+    UIImage * pressedImage = [UIImage imageNamed:@"friend-sent.png"];
+    [sender setImage:pressedImage forState:UIControlStateNormal];
     PFObject *request = [PFObject objectWithClassName:@"FriendRequest"];
     [request setObject:[PFUser currentUser] forKey:@"source"];
     [request setObject:friendRequestButton.user forKey:@"target"];
@@ -283,7 +287,7 @@
 - (void) readFromAddressBook:(ABAddressBookRef)paramAddressBook{
     //NSLog(@"Method successfully called!");
     if(paramAddressBook == NULL) {
-        NSLog(@"WHAT R U DOING");
+        //NSLog(@"WHAT R U DOING");
     }
     NSMutableArray *allPhoneNumbers = @[].mutableCopy;
     NSArray *allContacts = (__bridge NSArray*)ABAddressBookCopyArrayOfAllPeople(paramAddressBook);

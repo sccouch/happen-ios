@@ -114,7 +114,7 @@
     
     [query orderByDescending:@"createdAt"];
     
-    [query whereKey:@"meToos" equalTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:[[PFUser currentUser] objectId]]];
+    [query whereKey:@"MeToos" equalTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:[[PFUser currentUser] objectId]]];
     
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
@@ -132,7 +132,15 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 70;
+    PFObject* update = [self.objects objectAtIndex:indexPath.row];
+    NSString *text = [update objectForKey:@"details"];
+    
+    if ([text length] > 32) {
+        return 85;
+    }
+    else {
+        return 70;
+    }
 }
 
 // Override to customize the look of a cell representing an object. The default is to display
@@ -261,7 +269,7 @@
     
     _selectedObject = [self objectAtIndexPath:indexPath];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    /*PFQuery *query = [PFQuery queryWithClassName:@"Event"];
     
     [query includeKey:@"creator"];
     
@@ -284,7 +292,17 @@
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
-    }];
+    }];*/
+    
+    [PFCloud callFunctionInBackground:@"undoMeTooEvent"
+                       withParameters:@{@"eventId": [_selectedObject objectId]}
+                                block:^(NSString *unused, NSError *error) {
+                                    if (!error) {
+                                        //success
+                                        //NSLog(@"cloud code worked");
+                                        [self loadObjects];
+                                    }
+                                }];
     
 }
 

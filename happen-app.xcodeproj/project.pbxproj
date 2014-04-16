@@ -63,6 +63,8 @@
 		297409FB18BC8AF400FB59C7 /* HAPFriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 297409FA18BC8AF400FB59C7 /* HAPFriendListViewController.m */; };
 		297409FE18BD694A00FB59C7 /* HAPAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 297409FD18BD694A00FB59C7 /* HAPAddFriendViewController.m */; };
 		29740A0118BE883200FB59C7 /* HAPSearchFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29740A0018BE883200FB59C7 /* HAPSearchFriendViewController.m */; };
+		29DA0ED218FF119B00823A00 /* friend-sent.png in Resources */ = {isa = PBXBuildFile; fileRef = 29DA0ED018FF119B00823A00 /* friend-sent.png */; };
+		29DA0ED318FF119B00823A00 /* friend-sent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29DA0ED118FF119B00823A00 /* friend-sent@2x.png */; };
 		D999AD2A18BE8A2D00500FF4 /* HAPNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D999AD2918BE8A2D00500FF4 /* HAPNewsViewController.m */; };
 		D999AD3318BE915400500FF4 /* HAPNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D999AD3218BE915400500FF4 /* HAPNewsTableViewController.m */; };
 		D999AD3618BE916300500FF4 /* HAPFriendRequestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D999AD3518BE916300500FF4 /* HAPFriendRequestTableViewController.m */; };
@@ -178,6 +180,9 @@
 		297409FD18BD694A00FB59C7 /* HAPAddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPAddFriendViewController.m; sourceTree = "<group>"; };
 		297409FF18BE883200FB59C7 /* HAPSearchFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPSearchFriendViewController.h; sourceTree = "<group>"; };
 		29740A0018BE883200FB59C7 /* HAPSearchFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPSearchFriendViewController.m; sourceTree = "<group>"; };
+		298707D518FDEF5F009FD001 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		29DA0ED018FF119B00823A00 /* friend-sent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-sent.png"; sourceTree = "<group>"; };
+		29DA0ED118FF119B00823A00 /* friend-sent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-sent@2x.png"; sourceTree = "<group>"; };
 		D999AD2818BE8A2D00500FF4 /* HAPNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPNewsViewController.h; sourceTree = "<group>"; };
 		D999AD2918BE8A2D00500FF4 /* HAPNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPNewsViewController.m; sourceTree = "<group>"; };
 		D999AD3118BE915400500FF4 /* HAPNewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPNewsTableViewController.h; sourceTree = "<group>"; };
@@ -335,6 +340,8 @@
 		29191D1218F09ACD00EE118A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				29DA0ED018FF119B00823A00 /* friend-sent.png */,
+				29DA0ED118FF119B00823A00 /* friend-sent@2x.png */,
 				2957EF1018FA4ADB00500F07 /* placeholder-feed.png */,
 				2957EF1118FA4ADB00500F07 /* placeholder-list.png */,
 				2957EF1218FA4ADB00500F07 /* placeholder-list@2x.png */,
@@ -451,6 +458,7 @@
 		D9A971581896DE5F002471D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				298707D518FDEF5F009FD001 /* MessageUI.framework */,
 				297409F618BC86B900FB59C7 /* AddressBookUI.framework */,
 				297409F418BC86B200FB59C7 /* AddressBook.framework */,
 				D9A971931896E39F002471D0 /* AudioToolbox.framework */,
@@ -600,6 +608,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29DA0ED218FF119B00823A00 /* friend-sent.png in Resources */,
 				2957EF0A18F9C6DA00500F07 /* friend-add@2x.png in Resources */,
 				2957EF0B18F9C6DA00500F07 /* friend-added@2x.png in Resources */,
 				293F2EE418A22FA400DDB17A /* tab-icons-news@.png in Resources */,
@@ -609,6 +618,7 @@
 				29266DEA18A19C84004F5916 /* Mark Simonson - Proxima Nova Thin.otf in Resources */,
 				293F2ED518A22F0700DDB17A /* tab-icons-feed@2x.png in Resources */,
 				29266DE918A19C84004F5916 /* Mark Simonson - Proxima Nova Semibold.otf in Resources */,
+				29DA0ED318FF119B00823A00 /* friend-sent@2x.png in Resources */,
 				293F2EE118A22FA400DDB17A /* tab-icons-friends@2x.png in Resources */,
 				2957EF1418FA4ADB00500F07 /* placeholder-feed.png in Resources */,
 				D9A971641896DE5F002471D0 /* InfoPlist.strings in Resources */,

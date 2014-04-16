@@ -73,6 +73,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [self loadObjects];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -88,11 +89,6 @@
 
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
-    
-    if (self.objects.count >0) {
-        NSString *count = [NSString stringWithFormat: @"%d", (int)self.objects.count];
-        [[[[[self tabBarController] tabBar] items] objectAtIndex:2] setBadgeValue:count];
-    }
     // This method is called every time objects are loaded from Parse via the PFQuery
 }
 
@@ -172,12 +168,17 @@
     [cell.acceptButton addTarget:self
                         action:@selector(acceptFriendRequest:)
               forControlEvents:UIControlEventTouchUpInside];
+    UIImage * pressedImage = [UIImage imageNamed:@"friend-added.png"];
+    [cell.acceptButton setImage:pressedImage forState:UIControlStateSelected];
+    [cell.acceptButton setImage:pressedImage forState:UIControlStateHighlighted];
     
     return cell;
 }
 
 - (IBAction)acceptFriendRequest:(id)sender {
     HAPAcceptFriendButton *acceptFriendButton = (HAPAcceptFriendButton *)sender;
+    UIImage * pressedImage = [UIImage imageNamed:@"friend-added.png"];
+    [sender setImage:pressedImage forState:UIControlStateNormal];
     [PFCloud callFunctionInBackground:@"acceptFriendRequest"
                        withParameters:@{@"friendRequest": acceptFriendButton.objectId}
                                 block:^(NSString *result, NSError *error) {
@@ -191,7 +192,7 @@
                                         [news setObject:[NSNumber numberWithBool:YES]  forKey:@"isUnread"];
                                         [news saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                                             //[self dismissViewControllerAnimated:YES completion:nil];
-                                            [self loadObjects];
+                                            //[self loadObjects];
                                             NSLog(@"successfully");
                                         }];
                                     }
