@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *profilePicButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 
 @end
 
@@ -186,6 +187,11 @@ NSData *imageData;
     self.profilePicButton.layer.masksToBounds = YES;
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
     self.usernameLabel.text = [NSString stringWithFormat:@"@%@", user[@"username"]];
+    
+    self.settingsButton.title = @"\u2699";
+    UIFont *f1 = [UIFont fontWithName:@"Helvetica" size:24.0];
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:f1, NSFontAttributeName, nil];
+    [self.settingsButton setTitleTextAttributes:dict forState:UIControlStateNormal];
     
 }
 
