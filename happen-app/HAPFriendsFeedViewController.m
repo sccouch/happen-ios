@@ -35,6 +35,7 @@
         
         // The number of objects to show per page
         self.objectsPerPage = 25;
+        
     }
     return self;
 }
@@ -52,6 +53,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    
+    self.tableView.nxEV_emptyView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.tableView.nxEV_emptyView setBackgroundColor: [UIColor yellowColor]];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -99,7 +103,7 @@
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
     
-    if (self.objects.count == 0) {
+    /*if (self.objects.count == 0) {
         NSLog(@"No friends");
         
         UIImage *image = [UIImage imageNamed:@"logo.png"];
@@ -111,7 +115,7 @@
         // Set the background view of the table view
         self.tableView.backgroundView = imageView;
         [self.tableView setHidden:YES];
-    }
+    }*/
     
     // This method is called every time objects are loaded from Parse via the PFQuery
 }

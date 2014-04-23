@@ -171,7 +171,10 @@
     UIColor *redColor = [UIColor colorWithRed:244.0 / 255.0 green:100.0 / 255.0 blue:100.0 / 255.0 alpha:1.0];
     //UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
     
+    UIColor *grayColor = [UIColor colorWithRed:208.0 / 255.0 green:208.0 / 255.0 blue:208.0 / 255.0 alpha:1.0];
+    
     [cell setDelegate:self];
+    [cell setDefaultColor:grayColor];
     
     cell.meTooCheck.hidden = YES;
     

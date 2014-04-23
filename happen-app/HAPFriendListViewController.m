@@ -8,6 +8,7 @@
 
 #import "HAPFriendListViewController.h"
 #import "HAPFriendEventListViewController.h"
+#import "UITableView+NXEmptyView.h"
 #import "HAPFriendsCell.h"
 
 @interface HAPFriendListViewController ()
@@ -49,6 +50,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.nxEV_emptyView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.tableView.nxEV_emptyView setBackgroundColor: [UIColor yellowColor]];
 }
 
 - (void)viewDidUnload {

@@ -64,7 +64,7 @@ NSData *imageData;
                                                    destructiveButtonTitle: nil
                                                         otherButtonTitles: @"Take Photo",
                                       @"Choose Existing Photo", nil];
-        [actionSheet showFromRect: _profilePicButton.frame inView: _profilePicButton.superview animated: YES];
+        [actionSheet showFromRect: _profilePicButton.frame inView: self.view animated: YES];
     } else {
         NSLog(@"Device does not have a camera, will show gallery");
         //otherwise, if it doesn't have a camera, just go ahead and show the picker
@@ -81,6 +81,7 @@ NSData *imageData;
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     //Show the picker but only from whatever choice the user made
+    NSLog(@"clickedButtonAtIndex called");
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;

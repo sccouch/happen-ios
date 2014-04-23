@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "UITableView+NXEmptyView.h"
 #import "MCSwipeTableViewCell.h"
 
 @interface HAPMeTooFeedViewController : PFQueryTableViewController <MCSwipeTableViewCellDelegate>

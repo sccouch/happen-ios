@@ -21,8 +21,6 @@
 		04DD31A018A495E0008BA5DF /* RMMultipleViewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD319E18A495E0008BA5DF /* RMMultipleViewsController.m */; };
 		04DD31A118A495E0008BA5DF /* RMMultipleViewsController.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DD319F18A495E0008BA5DF /* RMMultipleViewsController.xcassets */; };
 		29191D1018EF6E6300EE118A /* MCSwipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29191D0F18EF6E6300EE118A /* MCSwipeTableViewCell.m */; };
-		29191D1718F09B0F00EE118A /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 29191D1318F09B0F00EE118A /* check.png */; };
-		29191D1818F09B0F00EE118A /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29191D1418F09B0F00EE118A /* check@2x.png */; };
 		29191D1918F09B0F00EE118A /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 29191D1518F09B0F00EE118A /* cross.png */; };
 		29191D1A18F09B0F00EE118A /* cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29191D1618F09B0F00EE118A /* cross@2x.png */; };
 		291EB07918F6481E0041E57A /* metoo.png in Resources */ = {isa = PBXBuildFile; fileRef = 291EB07718F6481E0041E57A /* metoo.png */; };
@@ -43,6 +41,15 @@
 		293F2EE318A22FA400DDB17A /* tab-icons-mylist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDB18A22FA400DDB17A /* tab-icons-mylist@2x.png */; };
 		293F2EE418A22FA400DDB17A /* tab-icons-news@.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDC18A22FA400DDB17A /* tab-icons-news@.png */; };
 		293F2EE518A22FA400DDB17A /* tab-icons-news@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 293F2EDD18A22FA400DDB17A /* tab-icons-news@2x.png */; };
+		294C2C471908193F0018C2A7 /* news.png in Resources */ = {isa = PBXBuildFile; fileRef = 294C2C451908193F0018C2A7 /* news.png */; };
+		294C2C481908193F0018C2A7 /* news@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 294C2C461908193F0018C2A7 /* news@2x.png */; };
+		294C2C5319081E280018C2A7 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 294C2C5119081E270018C2A7 /* check.png */; };
+		294C2C5419081E280018C2A7 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 294C2C5219081E280018C2A7 /* check@2x.png */; };
+		294C2C57190820DC0018C2A7 /* add-friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 294C2C55190820DC0018C2A7 /* add-friends.png */; };
+		294C2C58190820DC0018C2A7 /* add-friends@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 294C2C56190820DC0018C2A7 /* add-friends@2x.png */; };
+		294C2C631908349C0018C2A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 294C2C5D1908349C0018C2A7 /* InfoPlist.strings */; };
+		294C2C641908349C0018C2A7 /* UITableView+NXEmptyView-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 294C2C5F1908349C0018C2A7 /* UITableView+NXEmptyView-Info.plist */; };
+		294C2C651908349C0018C2A7 /* UITableView+NXEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 294C2C621908349C0018C2A7 /* UITableView+NXEmptyView.m */; };
 		2957EEFC18F8F16800500F07 /* HAPEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2957EEFB18F8F16800500F07 /* HAPEventDetailViewController.m */; };
 		2957EEFF18F905AC00500F07 /* HAPMeTooCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2957EEFE18F905AC00500F07 /* HAPMeTooCell.m */; };
 		2957EF0818F9C6DA00500F07 /* friend-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 2957EF0418F9C6DA00500F07 /* friend-add.png */; };
@@ -130,8 +137,6 @@
 		04DD319F18A495E0008BA5DF /* RMMultipleViewsController.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = RMMultipleViewsController.xcassets; sourceTree = "<group>"; };
 		29191D0E18EF6E6300EE118A /* MCSwipeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSwipeTableViewCell.h; sourceTree = "<group>"; };
 		29191D0F18EF6E6300EE118A /* MCSwipeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSwipeTableViewCell.m; sourceTree = "<group>"; };
-		29191D1318F09B0F00EE118A /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
-		29191D1418F09B0F00EE118A /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
 		29191D1518F09B0F00EE118A /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
 		29191D1618F09B0F00EE118A /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cross@2x.png"; sourceTree = "<group>"; };
 		291EB07718F6481E0041E57A /* metoo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metoo.png; sourceTree = "<group>"; };
@@ -152,6 +157,17 @@
 		293F2EDB18A22FA400DDB17A /* tab-icons-mylist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-mylist@2x.png"; sourceTree = "<group>"; };
 		293F2EDC18A22FA400DDB17A /* tab-icons-news@.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-news@.png"; sourceTree = "<group>"; };
 		293F2EDD18A22FA400DDB17A /* tab-icons-news@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icons-news@2x.png"; sourceTree = "<group>"; };
+		294C2C451908193F0018C2A7 /* news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news.png; sourceTree = "<group>"; };
+		294C2C461908193F0018C2A7 /* news@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "news@2x.png"; sourceTree = "<group>"; };
+		294C2C5119081E270018C2A7 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		294C2C5219081E280018C2A7 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		294C2C55190820DC0018C2A7 /* add-friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-friends.png"; sourceTree = "<group>"; };
+		294C2C56190820DC0018C2A7 /* add-friends@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-friends@2x.png"; sourceTree = "<group>"; };
+		294C2C5E1908349C0018C2A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		294C2C5F1908349C0018C2A7 /* UITableView+NXEmptyView-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "UITableView+NXEmptyView-Info.plist"; sourceTree = "<group>"; };
+		294C2C601908349C0018C2A7 /* UITableView+NXEmptyView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+NXEmptyView-Prefix.pch"; sourceTree = "<group>"; };
+		294C2C611908349C0018C2A7 /* UITableView+NXEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+NXEmptyView.h"; sourceTree = "<group>"; };
+		294C2C621908349C0018C2A7 /* UITableView+NXEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+NXEmptyView.m"; sourceTree = "<group>"; };
 		2957EEFA18F8F16800500F07 /* HAPEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPEventDetailViewController.h; sourceTree = "<group>"; };
 		2957EEFB18F8F16800500F07 /* HAPEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPEventDetailViewController.m; sourceTree = "<group>"; };
 		2957EEFD18F905AC00500F07 /* HAPMeTooCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPMeTooCell.h; sourceTree = "<group>"; };
@@ -332,6 +348,7 @@
 		29191D1118EF6E6E00EE118A /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				294C2C5C1908349C0018C2A7 /* UITableView+NXEmptyView */,
 				29191D0D18EF6E6300EE118A /* MCSwipeTableViewCell */,
 			);
 			name = Vendor;
@@ -340,6 +357,12 @@
 		29191D1218F09ACD00EE118A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				294C2C55190820DC0018C2A7 /* add-friends.png */,
+				294C2C56190820DC0018C2A7 /* add-friends@2x.png */,
+				294C2C5119081E270018C2A7 /* check.png */,
+				294C2C5219081E280018C2A7 /* check@2x.png */,
+				294C2C451908193F0018C2A7 /* news.png */,
+				294C2C461908193F0018C2A7 /* news@2x.png */,
 				29DA0ED018FF119B00823A00 /* friend-sent.png */,
 				29DA0ED118FF119B00823A00 /* friend-sent@2x.png */,
 				2957EF1018FA4ADB00500F07 /* placeholder-feed.png */,
@@ -354,8 +377,6 @@
 				2957EF0718F9C6DA00500F07 /* friend-added@2x.png */,
 				291EB07718F6481E0041E57A /* metoo.png */,
 				291EB07818F6481E0041E57A /* metoo@2x.png */,
-				29191D1318F09B0F00EE118A /* check.png */,
-				29191D1418F09B0F00EE118A /* check@2x.png */,
 				29191D1518F09B0F00EE118A /* cross.png */,
 				29191D1618F09B0F00EE118A /* cross@2x.png */,
 			);
@@ -400,6 +421,18 @@
 				29266DED18A1C068004F5916 /* logo@2x.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		294C2C5C1908349C0018C2A7 /* UITableView+NXEmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				294C2C5D1908349C0018C2A7 /* InfoPlist.strings */,
+				294C2C5F1908349C0018C2A7 /* UITableView+NXEmptyView-Info.plist */,
+				294C2C601908349C0018C2A7 /* UITableView+NXEmptyView-Prefix.pch */,
+				294C2C611908349C0018C2A7 /* UITableView+NXEmptyView.h */,
+				294C2C621908349C0018C2A7 /* UITableView+NXEmptyView.m */,
+			);
+			path = "UITableView+NXEmptyView";
 			sourceTree = "<group>";
 		};
 		297409F818BC870100FB59C7 /* Friends */ = {
@@ -608,8 +641,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				294C2C58190820DC0018C2A7 /* add-friends@2x.png in Resources */,
 				29DA0ED218FF119B00823A00 /* friend-sent.png in Resources */,
 				2957EF0A18F9C6DA00500F07 /* friend-add@2x.png in Resources */,
+				294C2C57190820DC0018C2A7 /* add-friends.png in Resources */,
 				2957EF0B18F9C6DA00500F07 /* friend-added@2x.png in Resources */,
 				293F2EE418A22FA400DDB17A /* tab-icons-news@.png in Resources */,
 				2957EF0818F9C6DA00500F07 /* friend-add.png in Resources */,
@@ -623,26 +658,30 @@
 				2957EF1418FA4ADB00500F07 /* placeholder-feed.png in Resources */,
 				D9A971641896DE5F002471D0 /* InfoPlist.strings in Resources */,
 				293F2EE218A22FA400DDB17A /* tab-icons-mylist.png in Resources */,
+				294C2C5419081E280018C2A7 /* check@2x.png in Resources */,
 				2957EF0918F9C6DA00500F07 /* friend-added.png in Resources */,
-				29191D1718F09B0F00EE118A /* check.png in Resources */,
 				29191D1918F09B0F00EE118A /* cross.png in Resources */,
 				29191D1A18F09B0F00EE118A /* cross@2x.png in Resources */,
 				2957EF1518FA4ADB00500F07 /* placeholder-list.png in Resources */,
 				291EB07918F6481E0041E57A /* metoo.png in Resources */,
+				294C2C481908193F0018C2A7 /* news@2x.png in Resources */,
+				294C2C631908349C0018C2A7 /* InfoPlist.strings in Resources */,
+				294C2C641908349C0018C2A7 /* UITableView+NXEmptyView-Info.plist in Resources */,
 				291EB07A18F6481E0041E57A /* metoo@2x.png in Resources */,
 				29266DEE18A1C068004F5916 /* logo.png in Resources */,
 				293F2EDE18A22FA400DDB17A /* tab-icons-feed.png in Resources */,
 				D9A9716D1896DE5F002471D0 /* Main.storyboard in Resources */,
 				2957EF0E18F9CAD800500F07 /* notification.png in Resources */,
 				29266DE718A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Light.otf in Resources */,
+				294C2C5319081E280018C2A7 /* check.png in Resources */,
 				2957EF0F18F9CAD800500F07 /* notification@2x.png in Resources */,
 				293F2EE518A22FA400DDB17A /* tab-icons-news@2x.png in Resources */,
 				29266DEF18A1C068004F5916 /* logo@2x.png in Resources */,
 				2957EF1618FA4ADB00500F07 /* placeholder-list@2x.png in Resources */,
 				293F2EE018A22FA400DDB17A /* tab-icons-friends.png in Resources */,
-				29191D1818F09B0F00EE118A /* check@2x.png in Resources */,
 				293F2EDF18A22FA400DDB17A /* tab-icons-feed@2x.png in Resources */,
 				2957EF1718FA4ADB00500F07 /* placeholder-feed@2x.png in Resources */,
+				294C2C471908193F0018C2A7 /* news.png in Resources */,
 				293F2ED418A22F0700DDB17A /* tab-icons-feed.png in Resources */,
 				29266DE818A19C84004F5916 /* Mark Simonson - Proxima Nova ScOsf Regular.otf in Resources */,
 				04DD31A118A495E0008BA5DF /* RMMultipleViewsController.xcassets in Resources */,
@@ -664,6 +703,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				294C2C651908349C0018C2A7 /* UITableView+NXEmptyView.m in Sources */,
 				D9A9716A1896DE5F002471D0 /* HAPAppDelegate.m in Sources */,
 				2967D99A18E935E4009057D1 /* HAPFriendsCell.m in Sources */,
 				2967D99D18E9F92E009057D1 /* HAPFriendEventListViewController.m in Sources */,
@@ -712,6 +752,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		294C2C5D1908349C0018C2A7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				294C2C5E1908349C0018C2A7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		D9A971621896DE5F002471D0 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

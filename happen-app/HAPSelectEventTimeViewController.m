@@ -44,12 +44,16 @@
     if (indexPath.section == 0) {
         NSString *time;
         if (indexPath.row == 0)
-            time = @"this week";
+            time = @"today";
         else if (indexPath.row == 1)
-            time = @"next week";
+            time = @"tomorrow";
         else if (indexPath.row == 2)
-            time = @"this month";
+            time = @"this week";
         else if (indexPath.row == 3)
+            time = @"next week";
+        else if (indexPath.row == 4)
+            time = @"this month";
+        else if (indexPath.row == 5)
             time = @"next month";
         else
             time = @"this year";

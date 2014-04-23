@@ -52,6 +52,9 @@
     [super viewDidLoad];
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     
+    self.tableView.nxEV_emptyView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.tableView.nxEV_emptyView setBackgroundColor: [UIColor grayColor]];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

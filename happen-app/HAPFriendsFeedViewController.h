@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UITableView+NXEmptyView.h"
 #import "Parse/Parse.h"
 #import "HAPAddEventViewController.h"
 #import "MCSwipeTableViewCell.h"
