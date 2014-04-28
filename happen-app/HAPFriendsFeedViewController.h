@@ -16,5 +16,6 @@
 @property (nonatomic, strong) MCSwipeTableViewCell *cellToDelete;
 @property (weak, nonatomic) PFObject *selectedObject;
 @property (nonatomic, strong) MCSwipeTableViewCell *prototypeCell;
+@property (weak, nonatomic) IBOutlet UIView *emptyView;
 
 @end

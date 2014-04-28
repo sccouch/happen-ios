@@ -32,8 +32,8 @@
 {
     [super viewDidLoad];
     
-    UIFont *semibold = [UIFont fontWithName:@"ProximaNova-Semibold" size:25];
-    UIFont *regular = [UIFont fontWithName:@"ProximaNovaS-Regular" size:15];
+    UIFont *semibold = [UIFont fontWithName:@"ProximaNova-Semibold" size:15];
+    UIFont *regular = [UIFont fontWithName:@"ProximaNova-Semibold" size:13];
     NSString *appNameString = @"HAPPEN";
     NSString *loginButtonString = @"LOG IN";
     NSString *signupButtonString = @"SIGN UP";
@@ -44,7 +44,7 @@
      attributes:
      @{
        NSFontAttributeName : semibold,
-       NSKernAttributeName : @(+8.0f)
+       NSKernAttributeName : @(+4.0f)
        }];
     
     self.appName.attributedText = attributedString;
@@ -55,7 +55,7 @@
      attributes:
      @{
        NSFontAttributeName : regular,
-       NSKernAttributeName : @(+4.0f)
+       NSKernAttributeName : @(+2.0f)
        }];
     
     [self.loginButton setAttributedTitle:attributedLogInString forState:UIControlStateNormal];
@@ -66,7 +66,7 @@
      attributes:
      @{
        NSFontAttributeName : regular,
-       NSKernAttributeName : @(+4.0f)
+       NSKernAttributeName : @(+2.0f)
        }];
     
     [self.signupButton setAttributedTitle:attributedSignUpString forState:UIControlStateNormal];

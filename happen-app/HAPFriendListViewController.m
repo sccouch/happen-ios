@@ -50,8 +50,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.nxEV_emptyView = [[UIView alloc] initWithFrame:CGRectZero];
-    [self.tableView.nxEV_emptyView setBackgroundColor: [UIColor yellowColor]];
+    self.tableView.nxEV_emptyView = self.emptyView;
 }
 
 - (void)viewDidUnload {
@@ -155,13 +154,16 @@
     
     cell.profilePicView.contentMode = UIViewContentModeScaleAspectFit;
     //cell.profilePicView.image = [UIImage imageNamed:@"placeholder.jpg"];
+    
     PFFile *imageFile = [object objectForKey:@"profilePic"];
     CALayer *imageLayer = cell.profilePicView.layer;
     [imageLayer setCornerRadius:cell.profilePicView.frame.size.width/2];
     [imageLayer setMasksToBounds:YES];
     [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         // Now that the data is fetched, update the cell's image property.
-        cell.profilePicView.image = [UIImage imageWithData:data];
+        if (!error) {
+            cell.profilePicView.image = [UIImage imageWithData:data];
+        }
     }];
 
     return cell;

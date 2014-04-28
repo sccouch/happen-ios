@@ -10,5 +10,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HAPFriendListViewController : PFQueryTableViewController
+@property (weak, nonatomic) IBOutlet UIView *emptyView;
 
 @end

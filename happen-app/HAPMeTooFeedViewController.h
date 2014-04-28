@@ -12,5 +12,6 @@
 #import "MCSwipeTableViewCell.h"
 
 @interface HAPMeTooFeedViewController : PFQueryTableViewController <MCSwipeTableViewCellDelegate>
+@property (weak, nonatomic) IBOutlet UIView *emptyView;
 @property (weak, nonatomic) PFObject *selectedObject;
 @end

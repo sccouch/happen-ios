@@ -72,6 +72,8 @@
 		29740A0118BE883200FB59C7 /* HAPSearchFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29740A0018BE883200FB59C7 /* HAPSearchFriendViewController.m */; };
 		29DA0ED218FF119B00823A00 /* friend-sent.png in Resources */ = {isa = PBXBuildFile; fileRef = 29DA0ED018FF119B00823A00 /* friend-sent.png */; };
 		29DA0ED318FF119B00823A00 /* friend-sent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29DA0ED118FF119B00823A00 /* friend-sent@2x.png */; };
+		29E04156190C451E0071D47C /* happen-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E04154190C451E0071D47C /* happen-logo.png */; };
+		29E04157190C451E0071D47C /* happen-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E04155190C451E0071D47C /* happen-logo@2x.png */; };
 		D91832651908562A0012E7B9 /* HAPSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91832641908562A0012E7B9 /* HAPSettingsTableViewController.m */; };
 		D999AD2A18BE8A2D00500FF4 /* HAPNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D999AD2918BE8A2D00500FF4 /* HAPNewsViewController.m */; };
 		D999AD3318BE915400500FF4 /* HAPNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D999AD3218BE915400500FF4 /* HAPNewsTableViewController.m */; };
@@ -200,6 +202,8 @@
 		298707D518FDEF5F009FD001 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		29DA0ED018FF119B00823A00 /* friend-sent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-sent.png"; sourceTree = "<group>"; };
 		29DA0ED118FF119B00823A00 /* friend-sent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-sent@2x.png"; sourceTree = "<group>"; };
+		29E04154190C451E0071D47C /* happen-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "happen-logo.png"; sourceTree = "<group>"; };
+		29E04155190C451E0071D47C /* happen-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "happen-logo@2x.png"; sourceTree = "<group>"; };
 		D91832631908562A0012E7B9 /* HAPSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPSettingsTableViewController.h; sourceTree = "<group>"; };
 		D91832641908562A0012E7B9 /* HAPSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPSettingsTableViewController.m; sourceTree = "<group>"; };
 		D999AD2818BE8A2D00500FF4 /* HAPNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPNewsViewController.h; sourceTree = "<group>"; };
@@ -362,6 +366,8 @@
 		29191D1218F09ACD00EE118A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				29E04154190C451E0071D47C /* happen-logo.png */,
+				29E04155190C451E0071D47C /* happen-logo@2x.png */,
 				294C2C55190820DC0018C2A7 /* add-friends.png */,
 				294C2C56190820DC0018C2A7 /* add-friends@2x.png */,
 				294C2C5119081E270018C2A7 /* check.png */,
@@ -659,8 +665,10 @@
 				293F2ED518A22F0700DDB17A /* tab-icons-feed@2x.png in Resources */,
 				29266DE918A19C84004F5916 /* Mark Simonson - Proxima Nova Semibold.otf in Resources */,
 				29DA0ED318FF119B00823A00 /* friend-sent@2x.png in Resources */,
+				29E04157190C451E0071D47C /* happen-logo@2x.png in Resources */,
 				293F2EE118A22FA400DDB17A /* tab-icons-friends@2x.png in Resources */,
 				2957EF1418FA4ADB00500F07 /* placeholder-feed.png in Resources */,
+				29E04156190C451E0071D47C /* happen-logo.png in Resources */,
 				D9A971641896DE5F002471D0 /* InfoPlist.strings in Resources */,
 				293F2EE218A22FA400DDB17A /* tab-icons-mylist.png in Resources */,
 				294C2C5419081E280018C2A7 /* check@2x.png in Resources */,

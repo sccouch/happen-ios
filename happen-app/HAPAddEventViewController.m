@@ -60,6 +60,11 @@
 
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSUInteger newLength = [self.detailsTextView.text length] + [string length] - range.length;
+    return (newLength > 60) ? NO : YES;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
@@ -75,6 +80,8 @@
         selectEventTimeViewController.delegate = self;
     }
 }
+
+
 
 - (void)selectEventTimeViewController: (HAPSelectEventTimeViewController *)controller DidSelectTime:(NSString *)time {
     [self.navigationController popViewControllerAnimated:YES];

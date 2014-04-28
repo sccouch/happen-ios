@@ -17,6 +17,32 @@
                   clientKey:@"GVaSbLvVYagIzZCd7XYLfG0H9lHJBwpUvsUKen7Z"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    /*NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [UIFont fontWithName:@"HelveticaNeue-Medium" size:10], NSFontAttributeName,
+                                [UIColor whiteColor], NSForegroundColorAttributeName, nil];*/
+    
+    //UIColor *barColor = [UIColor colorWithRed:110.0 / 255.0 green:178.0 / 255.0 blue:174.0 / 255.0 alpha:1.0];
+    UIColor *greenColor = [UIColor colorWithRed:100.0 / 255.0 green:197.0 / 255.0 blue:157.0 / 255.0 alpha:1.0];
+    UIColor *selectedColor = [UIColor colorWithRed:55.0 / 255.0 green:122.0 / 255.0 blue:118.0 / 255.0 alpha:1.0];
+    //[[UINavigationBar appearance] setBarTintColor:barColor];
+    /*[[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                           NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Medium" size:17],
+                                                           NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                           NSKernAttributeName : @(5.8f)
+                                                           }];*/
+    [[UISegmentedControl appearance] setTitleTextAttributes:@{
+                                                           NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Medium" size:10],
+                                                           NSForegroundColorAttributeName : greenColor,
+                                                           NSKernAttributeName : @(1.8f)
+                                                           } forState:UIControlStateNormal];
+    [[UISegmentedControl appearance] setTitleTextAttributes:@{
+                                                              NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Medium" size:10],
+                                                              NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                              NSKernAttributeName : @(1.8f)
+                                                              } forState:UIControlStateSelected];
+    
+    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     return YES;
 }
 							

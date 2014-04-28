@@ -54,8 +54,9 @@
     [super viewDidLoad];
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     
-    self.tableView.nxEV_emptyView = [[UIView alloc] initWithFrame:CGRectZero];
-    [self.tableView.nxEV_emptyView setBackgroundColor: [UIColor yellowColor]];
+    self.tableView.nxEV_emptyView = self.emptyView;
+    
+    //[self.tableView.nxEV_emptyView setBackgroundColor: [UIColor yellowColor]];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -190,6 +191,7 @@
      //UIView *checkView = [self viewWithImageName:@"check"];
      UIView *checkView = [self viewWithText:@"me too"];
      UIColor *greenColor = [UIColor colorWithRed:100.0 / 255.0 green:197.0 / 255.0 blue:157.0 / 255.0 alpha:1.0];
+     //UIColor *greenColor = [UIColor colorWithRed:102.0 / 255.0 green:176.0 / 255.0 blue:156.0 / 255.0 alpha:1.0];
      
      UIView *crossView = [self viewWithText:@"hide"];
      UIColor *redColor = [UIColor colorWithRed:244.0 / 255.0 green:100.0 / 255.0 blue:100.0 / 255.0 alpha:1.0];
@@ -323,8 +325,6 @@
                        withParameters:@{@"eventId": [_selectedObject objectId]}
                                 block:^(NSString *unused, NSError *error) {
                                     if (!error) {
-                                        //success
-                                        //NSLog(@"cloud code worked");
                                         [self loadObjects];
                                     }
                                 }];

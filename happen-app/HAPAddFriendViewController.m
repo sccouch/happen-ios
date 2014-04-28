@@ -173,8 +173,8 @@
         //NSLog(@"well");
     }
     //[query whereKey:@"objectId" notContainedIn:self.friends];
-    //[query whereKey:@"objectId" notEqualTo:[[PFUser currentUser] objectId]];
     [query whereKey:@"phoneNumber" containedIn:self.fetchedNumbers];
+    [query whereKey:@"objectId" notEqualTo:[[PFUser currentUser] objectId]];
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
         query.cachePolicy = kPFCachePolicyNetworkOnly;
