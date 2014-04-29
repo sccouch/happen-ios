@@ -43,6 +43,23 @@
     
     //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+        // determine the initial view controller here and instantiate it with [storyboard instantiateViewControllerWithIdentifier:<storyboard id>];
+    UIViewController *viewController;
+    if ([PFUser currentUser]) {
+        viewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    }
+    else {
+        viewController = [storyboard instantiateViewControllerWithIdentifier:@"AuthViewController"];
+    }
+    
+    
+    self.window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 							

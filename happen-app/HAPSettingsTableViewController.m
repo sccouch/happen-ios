@@ -48,6 +48,8 @@
     if (indexPath.section == 2 && indexPath.row == 0)
     {
         [PFUser logOut];
+        HAPLoginSignUpViewController *loginSignupViewController = [[HAPLoginSignUpViewController alloc] init];
+        [self presentViewController:loginSignupViewController animated:YES completion:nil];
     }
 }
 

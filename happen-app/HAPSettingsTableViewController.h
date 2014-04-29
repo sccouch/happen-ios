@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Parse/Parse.h"
 #import "Parse/PFUser.h"
+#import "HAPLoginSignUpViewController.h"
 
 
 @interface HAPSettingsTableViewController : UITableViewController
