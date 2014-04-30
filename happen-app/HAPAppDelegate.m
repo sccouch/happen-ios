@@ -31,7 +31,7 @@
                                                               NSKernAttributeName : @(1.8f)
                                                               } forState:UIControlStateSelected];
     
-    [[UIWindow appearance] setTintColor:[UIColor greenColor]];
+    [[UITabBar appearance] setSelectedImageTintColor: greenColor];
     
     //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     

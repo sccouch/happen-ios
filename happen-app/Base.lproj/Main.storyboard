@@ -607,9 +607,6 @@
                     <tabBarItem key="tabBarItem" title="News" image="news.png" id="Va8-MV-wGk"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="amj-nE-bCJ">
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="0dO-Hj-iCy" kind="relationship" relationship="rootViewController" id="ZtO-qZ-CzS"/>
@@ -1702,7 +1699,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="DCO-l6-vAP"/>
-        <segue reference="Isy-EJ-mH7"/>
+        <segue reference="CYv-eP-Mau"/>
         <segue reference="shR-yz-Shh"/>
         <segue reference="qDN-ez-yKo"/>
     </inferredMetricsTieBreakers>
