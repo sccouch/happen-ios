@@ -138,7 +138,7 @@
     PFObject* update = [self.objects objectAtIndex:indexPath.row];
     NSString *text = [update objectForKey:@"details"];
     
-    if ([text length] > 32) {
+    if ([text sizeWithAttributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:14] }].width > 222) {
         return 85;
     }
     else {

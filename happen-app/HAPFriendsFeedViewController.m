@@ -164,7 +164,7 @@
         text = [update objectForKey:@"details"];
     }
     
-    if ([text length] > 30) {
+    if ([text sizeWithAttributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:14] }].width > 222) {
         return 85;
     }
     else {
@@ -172,8 +172,6 @@
     }
 
 }
-
-
 
  // Override to customize the look of a cell representing an object. The default is to display
  // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,

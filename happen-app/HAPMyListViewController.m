@@ -188,10 +188,10 @@ NSData *imageData;
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
     self.usernameLabel.text = [NSString stringWithFormat:@"@%@", user[@"username"]];
     
-    self.settingsButton.title = @"\u2699";
+    /*self.settingsButton.title = @"\u2699";
     UIFont *f1 = [UIFont fontWithName:@"Helvetica" size:24.0];
     NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:f1, NSFontAttributeName, nil];
-    [self.settingsButton setTitleTextAttributes:dict forState:UIControlStateNormal];
+    [self.settingsButton setTitleTextAttributes:dict forState:UIControlStateNormal];*/
     
 }
 
@@ -344,7 +344,7 @@ NSData *imageData;
     PFObject* update = [self.objects objectAtIndex:indexPath.row];
     NSString *text = [update objectForKey:@"details"];
     
-    if ([text length] > 33) {
+    if ([text sizeWithAttributes:@{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:15] }].width > 235) {
         return 65;
     }
     else {

@@ -32,7 +32,8 @@
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.usernameField becomeFirstResponder];
-    
+    self.usernameField.delegate = self;
+    self.passwordField.delegate = self;
     
 }
 
@@ -92,6 +93,24 @@
         [self clearLoginInfo];
         [self.usernameField becomeFirstResponder];
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if (textField == self.usernameField) {
+        [self.passwordField becomeFirstResponder];
+    } else if (textField == self.passwordField) {
+        if ([self requiredFieldsBlank]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Required fields must not be left blank." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            alert.tag = TAG_BLANK;
+            [alert show];
+        }
+        else {
+            [self loginUser:[self getLoginInfo]];
+        }
+        //[textField resignFirstResponder];
+    }
+    return YES;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

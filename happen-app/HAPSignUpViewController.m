@@ -43,6 +43,12 @@ NSData *imageData;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 //    [self.firstNameField becomeFirstResponder];
     
+    self.firstNameField.delegate = self;
+    self.lastNameField.delegate = self;
+    self.phoneNumberField.delegate = self;
+    self.usernameField.delegate = self;
+    self.passwordField.delegate = self;
+    self.confirmPasswordField.delegate = self;
     CALayer *imageLayer = _profilePic.layer;
     [imageLayer setCornerRadius:_profilePic.frame.size.width/2];
     [imageLayer setMasksToBounds:YES];
@@ -155,6 +161,41 @@ NSData *imageData;
         //[self.profilePicButton setTitle: @"Edit photo" forState:UIControlStateHighlighted];
     }
     
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+
+    if (textField == self.firstNameField) {
+        [self.lastNameField becomeFirstResponder];
+    }
+    else if (textField == self.lastNameField) {
+        [self.phoneNumberField becomeFirstResponder];
+    }
+    else if (textField == self.phoneNumberField) {
+        [self.usernameField becomeFirstResponder];
+    }
+    else if (textField == self.usernameField) {
+        [self.passwordField becomeFirstResponder];
+    }
+    else if (textField == self.passwordField) {
+        [self.confirmPasswordField becomeFirstResponder];
+    }
+    else if (textField == self.confirmPasswordField) {
+        if ([self requiredFieldsBlank]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Required fields must not be left blank." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            alert.tag = TAG_BLANK;
+            [alert show];
+        }
+        else if (![self passwordsMatch]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"The passwords you entered do not match." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            alert.tag = TAG_PASSWORDS;
+            [alert show];
+        }
+        else {
+            [self signUpUser:[self getUserInfo]];
+        }
+    }
+    return YES;
 }
 
 - (IBAction)joinButtonPressed:(id)sender {

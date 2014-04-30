@@ -74,6 +74,10 @@
 		29DA0ED318FF119B00823A00 /* friend-sent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29DA0ED118FF119B00823A00 /* friend-sent@2x.png */; };
 		29E04156190C451E0071D47C /* happen-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E04154190C451E0071D47C /* happen-logo.png */; };
 		29E04157190C451E0071D47C /* happen-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E04155190C451E0071D47C /* happen-logo@2x.png */; };
+		29E41B8C1910DC9F0082F99E /* mylist.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E41B8A1910DC9F0082F99E /* mylist.png */; };
+		29E41B8D1910DC9F0082F99E /* mylist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E41B8B1910DC9F0082F99E /* mylist@2x.png */; };
+		29E41B941910F2CE0082F99E /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E41B901910F2CE0082F99E /* settings.png */; };
+		29E41B951910F2CE0082F99E /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E41B911910F2CE0082F99E /* settings@2x.png */; };
 		D91832651908562A0012E7B9 /* HAPSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91832641908562A0012E7B9 /* HAPSettingsTableViewController.m */; };
 		D999AD2A18BE8A2D00500FF4 /* HAPNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D999AD2918BE8A2D00500FF4 /* HAPNewsViewController.m */; };
 		D999AD3318BE915400500FF4 /* HAPNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D999AD3218BE915400500FF4 /* HAPNewsTableViewController.m */; };
@@ -204,6 +208,10 @@
 		29DA0ED118FF119B00823A00 /* friend-sent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-sent@2x.png"; sourceTree = "<group>"; };
 		29E04154190C451E0071D47C /* happen-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "happen-logo.png"; sourceTree = "<group>"; };
 		29E04155190C451E0071D47C /* happen-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "happen-logo@2x.png"; sourceTree = "<group>"; };
+		29E41B8A1910DC9F0082F99E /* mylist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mylist.png; sourceTree = "<group>"; };
+		29E41B8B1910DC9F0082F99E /* mylist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mylist@2x.png"; sourceTree = "<group>"; };
+		29E41B901910F2CE0082F99E /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		29E41B911910F2CE0082F99E /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
 		D91832631908562A0012E7B9 /* HAPSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPSettingsTableViewController.h; sourceTree = "<group>"; };
 		D91832641908562A0012E7B9 /* HAPSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPSettingsTableViewController.m; sourceTree = "<group>"; };
 		D999AD2818BE8A2D00500FF4 /* HAPNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPNewsViewController.h; sourceTree = "<group>"; };
@@ -366,6 +374,10 @@
 		29191D1218F09ACD00EE118A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				29E41B901910F2CE0082F99E /* settings.png */,
+				29E41B911910F2CE0082F99E /* settings@2x.png */,
+				29E41B8A1910DC9F0082F99E /* mylist.png */,
+				29E41B8B1910DC9F0082F99E /* mylist@2x.png */,
 				29E04154190C451E0071D47C /* happen-logo.png */,
 				29E04155190C451E0071D47C /* happen-logo@2x.png */,
 				294C2C55190820DC0018C2A7 /* add-friends.png */,
@@ -653,7 +665,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				294C2C58190820DC0018C2A7 /* add-friends@2x.png in Resources */,
+				29E41B951910F2CE0082F99E /* settings@2x.png in Resources */,
 				29DA0ED218FF119B00823A00 /* friend-sent.png in Resources */,
+				29E41B941910F2CE0082F99E /* settings.png in Resources */,
 				2957EF0A18F9C6DA00500F07 /* friend-add@2x.png in Resources */,
 				294C2C57190820DC0018C2A7 /* add-friends.png in Resources */,
 				2957EF0B18F9C6DA00500F07 /* friend-added@2x.png in Resources */,
@@ -680,6 +694,7 @@
 				294C2C481908193F0018C2A7 /* news@2x.png in Resources */,
 				294C2C631908349C0018C2A7 /* InfoPlist.strings in Resources */,
 				294C2C641908349C0018C2A7 /* UITableView+NXEmptyView-Info.plist in Resources */,
+				29E41B8D1910DC9F0082F99E /* mylist@2x.png in Resources */,
 				291EB07A18F6481E0041E57A /* metoo@2x.png in Resources */,
 				29266DEE18A1C068004F5916 /* logo.png in Resources */,
 				293F2EDE18A22FA400DDB17A /* tab-icons-feed.png in Resources */,
@@ -693,6 +708,7 @@
 				2957EF1618FA4ADB00500F07 /* placeholder-list@2x.png in Resources */,
 				293F2EE018A22FA400DDB17A /* tab-icons-friends.png in Resources */,
 				293F2EDF18A22FA400DDB17A /* tab-icons-feed@2x.png in Resources */,
+				29E41B8C1910DC9F0082F99E /* mylist.png in Resources */,
 				2957EF1718FA4ADB00500F07 /* placeholder-feed@2x.png in Resources */,
 				294C2C471908193F0018C2A7 /* news.png in Resources */,
 				293F2ED418A22F0700DDB17A /* tab-icons-feed.png in Resources */,

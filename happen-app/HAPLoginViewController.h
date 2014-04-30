@@ -12,6 +12,6 @@
 #define TAG_BLANK 1
 #define TAG_ERROR 2
 
-@interface HAPLoginViewController : UITableViewController <UIAlertViewDelegate>
+@interface HAPLoginViewController : UITableViewController <UIAlertViewDelegate, UITextFieldDelegate>
 
 @end
